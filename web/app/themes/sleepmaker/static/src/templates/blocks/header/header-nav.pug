@@ -1,0 +1,41 @@
+-
+    var navsHeader = [
+        {
+            link: '#',
+            name: 'Mattresses',
+            list: true
+        },
+        {
+            link: '#',
+            name: 'Mattress Selector',
+            list: false
+        },
+        {
+            link: '#',
+            name: 'Buying Guide',
+            list: false
+        },
+    ]
+mixin header-nav
+    .header__nav
+        nav.header-nav
+            each nav in navsHeader
+                div.header-nav__item(class=`${nav.list ? 'header-nav__item--drop' : ''}`)
+                    a.header-nav__link(href=`${nav.link}`)!= nav.name
+                    if nav.list
+                        .header-nav__drop
+                            .header-nav__drop-nav
+                                a.header-nav__drop-section(href="#") Residential
+                                ul.header-nav__list
+                                    li.header-nav__list-item
+                                        a.header-nav__list-link(href=`#`) Sleepyhead Memory
+                                    li.header-nav__list-item
+                                        a.header-nav__list-link(href=`#`) Sleeyhead refresh
+                                    li.header-nav__list-item
+                                        a.header-nav__list-link(href=`#`) General Residential
+                                a.header-nav__drop-section(href="#") Commercial
+                            .header-nav__drop-promo
+                                .header-nav__compare(style="background-image:url(/img/header-drop.png)")
+                                    h3 Compare Ranges
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies
+                                    a.button.button--accent(href="#") COMPARE RANGES

@@ -1,0 +1,27 @@
+mixin share
+    .share-wrap
+        .container
+            .share
+                .share-item.share-item--social
+                    .share-item__title Share via:
+                    ul.share-social.share-item__list
+                        li.share-social__item
+                            a.share-social__link(href="#")
+                                img.share-social__img.share-social__facebook(src="/img/icons/facebook.png", alt="facebook")
+                        li.share-social__item
+                            a.share-social__link(href="#")
+                                img.share-social__img.share-social__twitter(src="/img/icons/twitter.png", alt="twitter")
+                        li.share-social__item
+                            a.share-social__link(href="#")
+                                img.share-social__img.share-social__envelope(src="/img/icons/envelope.png", alt="envelope")
+                .share-item.share-item--helpful
+                    .share-item__title Was this article helpful?
+                    ul.share-helpful.share-item__list
+                        li.share-helpful__item
+                            a.share-helpful__link(href="#")
+                                img.share-helpful__img(src="/img/icons/like.png", alt="facebook")
+                                span.share-helpful__count 0
+                        li.share-helpful__item
+                            a.share-helpful__link(href="#")
+                                img.share-helpful__img(src="/img/icons/dislike.png", alt="twitter")
+                                span.share-helpful__count 0

@@ -1,0 +1,21 @@
+.menu-mob-nav
+	&__list
+		padding: 12px 0
+
+	&__list-item
+	&__link
+		display: block
+		padding: 8px 0
+		font-family: Arial, Helvetica, sans-serif
+		font-size: 15px
+		line-height: 1.5em
+		font-weight: 500
+		text-transform: uppercase
+		letter-spacing: 1px
+		text-decoration: none
+		color: $accent
+		transition: color 0.3s
+
+		+notouch
+			&:hover
+				color: mix($accent, $text-color)

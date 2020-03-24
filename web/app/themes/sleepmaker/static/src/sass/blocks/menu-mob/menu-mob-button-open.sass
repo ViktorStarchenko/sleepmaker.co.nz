@@ -1,0 +1,32 @@
+.menu-mob-button-open
+	display: block
+	position: relative
+	width: 42px
+	height: 42px
+	box-sizing: border-box
+	pointer-events: auto
+
+	&__icon
+		display: block
+		position: absolute
+		top: 50%
+		left: 0
+		right: 0
+		margin: -8px auto 0
+		width: 30px
+		height: 16px
+		border-top: 2px solid $text-color
+		border-bottom: 2px solid $text-color
+		box-sizing: border-box
+
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			top: 50%
+			left: 0
+			right: 0
+			margin: -1px auto 0
+			width: 30px
+			height: 2px
+			background-color: $text-color

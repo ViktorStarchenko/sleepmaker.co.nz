@@ -1,0 +1,87 @@
+extends /layout
+
+block head
+    - page.title = 'Blog'
+
+block content
+    -
+        var articles = [
+            {
+                title: "Why a sleep system?",
+                text: 'If you’re suffering from sleep problems or feeling tired during the day it’s important to assess the quality of the mattress you’re sleeping on.',
+                img: 'blog-c-1',
+                button: true,
+            },
+            {
+                title: "Why a sleep system?",
+                text: 'If you’re suffering from sleep problems or feeling tired during the day it’s important to assess the quality of the mattress you’re sleeping on.',
+                img: 'blog-c-2',
+                button: true,
+            },
+            {
+                title: "Why a sleep system?",
+                text: 'If you’re suffering from sleep problems or feeling tired during the day it’s important to assess the quality of the mattress you’re sleeping on.',
+                img: 'blog-c-3',
+                button: true,
+            },
+            {
+                title: "Why a sleep system?",
+                text: 'If you’re suffering from sleep problems or feeling tired during the day it’s important to assess the quality of the mattress you’re sleeping on.',
+                img: 'blog-c-1',
+                button: true,
+            },
+            {
+                title: "Why a sleep system?",
+                text: 'If you’re suffering from sleep problems or feeling tired during the day it’s important to assess the quality of the mattress you’re sleeping on.',
+                img: 'blog-c-2',
+                button: true,
+            },
+            {
+                title: "Why a sleep system?",
+                text: 'If you’re suffering from sleep problems or feeling tired during the day it’s important to assess the quality of the mattress you’re sleeping on.',
+                img: 'blog-c-3',
+                button: true,
+            },
+        ]
+
+    main.main
+        .container
+            .wrap-in
+                .text-row.text-row--center
+                    h1.text-row__title Practical Tips And Advice To Help You Achieve A Quality Night’s Sleep.
+                    .text-row__text
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra metus nisl, sed auctor sem imperdiet ut. Vestibulum interdum odio porta, dictum erat non, gravida velit. Maecenas venenatis convallis lectus, in bibendum dolor. Nulla dictum in arcu nec congue. Praesent sagittis porttitor diam, eu vulputate mauris tristique eu. Integer ultrices, sem eget gravida aucto.
+                .long-card-wrap
+                    +long-card({
+                        img: 'long-img-1',
+                        bg: '#002e5d',
+                        color: '#ffffff'
+                    })
+                        .long-card__title TRY OUR SLEEPMAKER SLEEP SELECTOR 
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis.
+                        a.button.button--inverse(href="#") Find out more
+                .article-card-wrap
+                    each article in articles
+                        +article-card(article)
+                .article-pagination
+                    a(href="#").article-pagination__prev.article-pagination__button
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12"><path fill="none" stroke="#002e5d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="20" stroke-width="1.5" d="M6.485.67v0L1.33 6.006v0l5.155 5.33v0"/></svg>
+                    ul.article-pagination__pages
+                        li.article-pagination__number 
+                            a.article-pagination__button.prev(href="#") 1
+                        li.article-pagination__number 
+                            a.article-pagination__button.active(href="#") 2
+                        li.article-pagination__number 
+                            a.article-pagination__button(href="#") 3
+                        li.article-pagination__number 
+                            a.article-pagination__button(href="#") 4
+                        li.article-pagination__number 
+                            span.article-pagination__button.disable ...
+                        li.article-pagination__number 
+                            a.article-pagination__button(href="#") 7
+                    a(href="#").article-pagination__next.article-pagination__button
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12"><path fill="none" stroke="#002e5d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="20" stroke-width="1.5" d="M6.485.67v0L1.33 6.006v0l5.155 5.33v0"/></svg>
+
+        +wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
+            img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
+            h2.wide-decor__title-bottom Make your own dream world.

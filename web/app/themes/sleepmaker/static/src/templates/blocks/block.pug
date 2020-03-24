@@ -1,0 +1,9 @@
+//- Description:
+	+block({
+		mod: String[]
+	})
+
+mixin block(props= {})
+	.block(
+		class= Array.isArray(props.mod) ? props.mod.map(item => 'block--' + item) : ''
+	)&attributes(attributes)

@@ -1,0 +1,120 @@
+.form-select-list
+	$this: &
+
+	padding: 0.5rem 0
+	overflow-y: auto
+	max-height: 254px
+
+	.form-error
+		display: none
+
+	&__item
+	&__label
+		cursor: pointer
+		user-select: none
+
+	&__input
+		position: absolute
+		opacity: 0
+		height: 0
+		width: 0
+		overflow: hidden
+
+		&[type="radio"]
+			+ #{$this}__text
+				&::after
+					content: ''
+					display: block
+					position: absolute
+					top: 18px
+					right: 19px
+					width: 18px
+					height: 8px
+					opacity: 0
+					border-left: 2px solid $accent
+					border-bottom: 2px solid $accent
+					transform: translate(-25%, -85%) rotateZ(-45deg) scale(0)
+					transition: opacity 0.25s 0.125s, transform 0.25s 0.125s, border-color 0.25s 0.125s
+
+			&:checked + #{$this}__text
+				color: $accent
+
+				&::after
+					opacity: 1
+					transform: translate(-15%, -85%) rotateZ(-45deg) scale(1)
+
+				&:hover
+					background-color: mix($accent, white, 7.5%)
+
+		&[type="checkbox"]
+			+ #{$this}__text
+				position: relative
+				padding-left: 42px
+
+				.form &
+					font-size: 16px
+
+				&::before
+					content: ''
+					display: block
+					position: absolute
+					top: 50%
+					left: 14px
+					width: 18px
+					height: 18px
+					opacity: 0.8
+					box-sizing: border-box
+					border-radius: 2px
+					border: 1px solid $form-color-3
+					background-color: white
+					transition: border-color 0.25s, background-color 0.25s
+					transform: translate(0, -50%) scale(1)
+
+				&::after
+					content: ''
+					display: block
+					position: absolute
+					top: 50%
+					left: 19px
+					width: 12px
+					height: 6px
+					opacity: 0
+					border-left: 2px solid white
+					border-bottom: 2px solid white
+					transform: translate(-25%, -85%) rotateZ(-45deg) scale(0)
+					transition: opacity 0.25s 0.125s, transform 0.25s 0.125s, border-color 0.25s 0.125s
+
+				+hover
+					&:before
+						border-color: $accent
+
+			&:checked + #{$this}__text
+				.form &
+					font-weight: 400
+
+				&::before
+					background-color: $accent
+					border-color: $accent
+
+				&::after
+					opacity: 1
+					transform: translate(-15%, -85%) rotateZ(-45deg) scale(1)
+
+	&__text
+		position: relative
+		display: block
+		padding: 6px 8px
+		font-style: normal
+		font-weight: 400
+		line-height: 1.25em
+		font-size: inherit
+		color: #000000
+		transition: background-color 0.3s, color 0.3s
+
+		.form &
+			font-size: 16px
+			padding: 10px 14px
+
+		+hover
+			color: $accent
+			background-color: mix($accent, white, 7.5%)

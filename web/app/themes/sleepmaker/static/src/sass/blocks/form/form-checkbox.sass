@@ -1,0 +1,87 @@
+.form-checkbox
+	$this: &
+
+	cursor: pointer
+	position: relative
+	display: inline-block
+	padding: 0
+
+	+r(1024)
+		padding: 6px 0
+
+	&[disabled]
+		opacity: 0.5
+
+	+hover
+		#{$this}
+			&__text
+				color: $accent
+
+				&:before
+					border-color: $accent
+
+	&__element
+		display: none
+
+		&:checked + #{$this}__text
+			.form &
+				font-weight: 400
+				letter-spacing: -0.01em
+
+			&::before
+				background-color: $accent
+				border-color: $accent
+
+			&::after
+				opacity: 1
+				transform: translate(-15%, -85%) rotateZ(-45deg) scale(1)
+
+	&__text
+		position: relative
+		display: block
+		padding: 0 0 0 28px
+		font-weight: 400
+		line-height: 1em
+		font-size: inherit
+		letter-spacing: -0.01em
+		color: inherit
+		user-select: none
+		transition: color .3s
+
+		.form &
+			font-size: 16px
+
+		&::before,
+		&::after
+			content: ''
+			display: block
+			position: absolute
+			top: 0.5em
+
+		&::before
+			left: 0
+			width: 18px
+			height: 18px
+			opacity: 0.8
+			box-sizing: border-box
+			border-radius: 2px
+			border: 1px solid $form-color-3
+			background-color: white
+			transition: border-color 0.25s, background-color 0.25s
+			transform: translate(0, -50%) scale(1)
+
+		&::after
+			left: 5px
+			width: 12px
+			height: 6px
+			opacity: 0
+			border-left: 2px solid white
+			border-bottom: 2px solid white
+			transform: translate(-25%, -85%) rotateZ(-45deg) scale(0)
+			transition: opacity 0.25s 0.125s, transform 0.25s 0.125s, border-color 0.25s 0.125s
+
+	.form-error
+		top: auto
+		left: auto
+		right: 0
+		bottom: 100%

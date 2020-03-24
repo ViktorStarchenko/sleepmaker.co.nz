@@ -1,0 +1,39 @@
+Options -Indexes
+ErrorDocument 404 /404.html
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # defaul cache 5s
+  ExpiresDefault "access plus 5 seconds"
+  # flash and images 1 month
+  ExpiresByType image/x-icon "access plus 2592000 seconds"
+  ExpiresByType image/gif "access plus 2592000 seconds"
+  ExpiresByType image/jpg "access plus 2592000 seconds"
+  ExpiresByType font/truetype "access plus 2592000 seconds"
+  ExpiresByType font/opentype "access plus 2592000 seconds"
+  ExpiresByType application/x-font-woff "access plus 2592000 seconds"
+  ExpiresByType image/svg+xml "access plus 2592000 seconds"
+  ExpiresByType video/ogg "access plus 2592000 seconds"
+  ExpiresByType audio/ogg "access plus 2592000 seconds"
+  ExpiresByType audio/mp3 "access plus 2592000 seconds"
+  ExpiresByType video/mp4 "access plus 2592000 seconds"
+  ExpiresByType video/webm "access plus 2592000 seconds"
+  ExpiresByType text/x-component "access plus 2592000 seconds"
+  ExpiresByType image/jpeg "access plus 2592000 seconds"
+  ExpiresByType image/png "access plus 2592000 seconds"
+  ExpiresByType image/gif "access plus 2592000 seconds"
+  ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+  # css, javascript and text 1 week
+  ExpiresByType text/css "access plus 604800 seconds"
+  ExpiresByType text/javascript "access plus 604800 seconds"
+  ExpiresByType application/javascript "access plus 604800 seconds"
+  ExpiresByType application/x-javascript "access plus 604800 seconds"
+  # html and htm 1 day
+  ExpiresByType text/html "access plus 43200 seconds"
+  # xml 10 minutes
+  ExpiresByType application/xhtml+xml "access plus 600 seconds"
+</IfModule>

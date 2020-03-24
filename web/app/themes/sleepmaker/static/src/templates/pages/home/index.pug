@@ -1,0 +1,91 @@
+extends /layout
+
+block head
+	- page.title = 'Home'
+
+block content
+	-
+		var homeCategory = [
+			{
+				title: 'Together Alone',
+				color: '#00263e',
+				text: 'Do you often wake up uncomfortable with a back ache?',
+				img: 'home-category-1'
+			},
+			{
+				title: 'Miracoil Advance',
+				color: '#768692',
+				text: 'Do you often wake up uncomfortable with a back ache?',
+				img: 'home-category-2'
+			},
+			{
+				title: 'Miracoil Classic',
+				color: '#86c8a9',
+				text: 'Do you often wake up uncomfortable with a back ache?',
+				img: 'home-category-1'
+			},
+			{
+				title: 'Lifestyle',
+				color: '#a4c8e1',
+				text: 'Do you often wake up uncomfortable with a back ache?',
+				img: 'home-category-2',
+			},
+		];
+		var blogCardSLides = [
+			{
+				title: "Why a sleep system?",
+				text: 'If you’re suffering from sleep problems or feeling tired during the day it’s important to assess the quality of the mattress you’re sleeping on.',
+				img: 'blog-c-1'
+			},
+			{
+				title: 'Is a firm or soft mattress better for me?',
+				text: 'When you’re choosing a new mattress there’s a range of questions that you’re likely to ask yourself – is it better to have a firm or a soft mattress?',
+				img: 'blog-c-3'
+			},
+			{
+				title: 'Why is a new bed important?',
+				text: 'Many Australians suffer from back pain in the morning. There are many stretches to do in bed which can help relieve back pain',
+				img: 'blog-c-2'
+			},
+		];
+	main.main
+		+wide-decor({bg:'home',bttns:['View our ranges','Find a store near you']})
+			h2.wide-decor__subtitle SLEEPMAKER SLEEP MATCH
+			h1.wide-decor__title-top Create your own SleepMaker dream world…
+
+		.container
+			.wrap-in
+				+home-category-slider(homeCategory)
+		hr.devider
+		.container
+			.long-card-wrap
+				+long-card({
+					img: 'long-img-1',
+					bg: '#002e5d',
+					color: '#ffffff'
+				})
+					.long-card__title TRY OUR SLEEPMAKER SLEEP SELECTOR 
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis.
+					a.button.button--inverse(href="#") Find out more
+				+long-card({
+					img: 'long-img-2',
+					bg: '#002e5d',
+					color: '#ffffff'
+				})
+					.long-card__title REGISTER YOUR WARRANTY
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis.
+					a.button.button--inverse(href="#") Find out more
+		.bg-gray
+			.container
+				+blog-card-slider(blogCardSLides)
+		//- .last-screen(style="background-image: url(/img/last-screen-bg.jpg)")
+			.container
+				h2.last-screen__title Experience the Serta range at
+				.last-screen__logo
+					+img('/img/last-screen-logo', 'png', 'Forty Winks')
+				.last-screen__btns
+					a.button(href="#") Find a store near you
+					a.button(href="#") View latest deals
+		+wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
+			img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
+			h2.wide-decor__title-bottom Make your own dream world.

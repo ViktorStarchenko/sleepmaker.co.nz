@@ -1,0 +1,12 @@
+mixin home-category-card(props={})
+    .home-category-card
+        .home-category-card__bg
+            +img(`/img/home-category/${props.img}`, 'png', props.img)(class="home-category-card__img")
+            if props.logo
+                .home-category-card__logo
+                    +img(`/img/lies-card/${props.logo}`, 'png', props.logo)
+        .home-category-card__info
+            .home-category-card__title(style=`color:${props.color}`)!= props.title
+            p!= props.text
+            .home-category-card__bttn
+                a(href="#").button Learn More

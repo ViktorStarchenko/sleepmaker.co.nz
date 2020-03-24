@@ -1,0 +1,118 @@
+.share-wrap
+    width: 100%
+    background: $main
+    margin-top: 15px
+    padding: 33px 0
+
+.share
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: center
+    +r(360)
+        flex-flow: column nowrap
+        justify-content: center
+        align-items: flex-start
+
+.share-item
+    display: flex
+    flex-flow: row nowrap
+    align-items: flex-start
+    +r(768)
+        flex-flow: column nowrap
+    +r(360)
+        &:not(:last-child)
+            margin-bottom: 25px
+    &--social
+        +r(768)
+            align-items: flex-start
+        .share-item__title
+            margin-right: 20px
+    &--helpful
+        +r(768)
+            align-items: flex-end
+        +r(360)
+            align-items: flex-start
+        .share-item__title
+            margin-right: 35px
+            +r(768)
+                margin-right: 0
+    &__title
+        color: $white
+        font-size: 20px
+        font-weight: 500
+        letter-spacing: 0.43px
+        line-height: 1
+        +r(768)
+            font-size: 15px
+            letter-spacing: 0.07px
+            margin-bottom: 10px
+    &__list
+        display: flex
+        flex-flow: row nowrap
+        align-items: center
+
+.share-social
+    $this: &
+    &__item
+        &:not(:last-child)
+            margin-right: 20px
+    &__link
+        display: inline-block
+        padding: 5px
+        &:hover
+            #{$this}__img
+                transform: scale(1.2)
+    &__img
+        transition: transform .2s
+        display:inline-block
+    &__facebook
+        width: 12px
+        height: 24px
+        +r(600)
+            width: 10px
+            height: 18px
+    &__twitter
+        width: 29px
+        height: 24px
+        +r(600)
+            width: 22px
+            height: 14px
+    &__envelope
+        width: 28px
+        height: 18px
+        +r(600)
+            width: 22px
+            height: 18px
+
+.share-helpful
+    $this: &
+    &__item
+        &:not(:last-child)
+            margin-right: 30px
+    &__link
+        display: inline-flex
+        align-items: center
+        flex-flow: row nowrap
+        padding: 5px
+        text-decoration: none
+        &:hover
+            #{$this}__img
+                transform: scale(1.2)
+    &__img
+        margin-right: 15px
+        transition: transform .2s
+        display:inline-block
+        width: 26px
+        height: 26px
+        +r(600)
+            width: 21px
+            height: 21px
+    &__count
+        font-size: 26px
+        font-weight: 500
+        letter-spacing: 0.12px
+        line-height: 1
+        color: $white
+        font-style: italic
+        display: inline-block

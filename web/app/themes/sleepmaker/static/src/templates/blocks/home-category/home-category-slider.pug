@@ -1,0 +1,13 @@
+mixin home-category-slider(cards)
+    .home-category-slider
+        .swiper-container.js-home-category-slider
+            .swiper-wrapper
+                each card in cards
+                    .swiper-slide
+                        +home-category-card(card)
+            .slider-button.slider-button--prev.js-home-category-prev
+                .slider-button__icon
+                    +icon('left-arrow')
+            .slider-button.slider-button--next.js-home-category-next
+                .slider-button__icon
+                    +icon('left-arrow')

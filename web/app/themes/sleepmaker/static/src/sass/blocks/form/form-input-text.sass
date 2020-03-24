@@ -1,0 +1,60 @@
+.form-input-text
+	position: relative
+	display: block
+	box-sizing: border-box
+	background-color: white
+	border-radius: 5px
+
+	&__text
+		position: absolute
+		top: 8px
+		left: 13px
+		font-size: 12px
+		line-height: 1em
+		color: $text-color
+
+	&__element
+		display: block
+		padding: 24px 13px 8px
+		height: auto
+		width: 100%
+		font-weight: 500
+		vertical-align: top
+		font-family: inherit
+		line-height: 1.5em
+		font-size: 16px
+		letter-spacing: -0.01em
+		color: $text-color
+		border-radius: 5px
+		box-sizing: border-box
+		border: 1px solid $form-color-4
+		transition: border-color 0.5s
+		background-color: rgba(white, 0)
+		resize: none
+
+		+hover
+			border: 1px solid $text-color
+
+			&:focus
+				background-color: rgba(#fff, 0.7)
+				border: 1px solid $accent
+
+		+ie10
+			line-height: 1em
+
+		&[disabled]
+			opacity: 0.5
+
+		&.error
+			border: 1px solid $form-color-error
+
+			+hover
+				border: 1px solid darken($form-color-error, 5%)
+
+				&:focus
+					border: 1px solid darken($form-color-error, 5%)
+
+		&::placeholder
+			font-style: normal
+			font-weight: 400
+			color: rgba($text-color, 0.5)

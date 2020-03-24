@@ -1,0 +1,23 @@
+.modal.is-hidden(id="modal" style="max-width:768px")
+	.modal__header
+		h4.modal__title
+			span.text Lorem
+
+	.modal__body
+		.content-text
+			.content-text__itemLorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla veritatis debitis incidunt quam culpa, dolores a eligendi odio magnam! Ad illo tenetur molestias nemo quidem recusandae est aperiam eum aut.
+
+			.content-text__item Тест прокидывания данных:
+
+			.content-text__item: strong.js-modal-data @{modalData}@
+
+	.modal__footer
+		button.button.button--accent.js-modal-open(
+			data-modal-id="modal-success"
+		)
+			span.text Закрыть и открыть "modal success"
+
+		button.button.button--accent.button--right.js-modal-close
+			span.text Закрыть
+
+	button.modal-close-btn.js-modal-close ✕

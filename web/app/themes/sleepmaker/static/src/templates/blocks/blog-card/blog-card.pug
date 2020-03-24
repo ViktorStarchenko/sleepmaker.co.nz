@@ -1,0 +1,9 @@
+mixin blog-card(prop={})
+    .blog-card&attributes(attributes)
+        .blog-card__img
+            +img(`/img/blog-card/${prop.img}`, 'jpg', prop.img)
+        .blog-card__info
+            .blog-card__title!= prop.title
+            p!= prop.text
+        .blog-card__btn
+            a(href="#").button.button--accent Read more

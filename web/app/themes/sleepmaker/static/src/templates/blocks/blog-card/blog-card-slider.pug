@@ -1,0 +1,8 @@
+mixin blog-card-slider(slides)
+    .blog-card-slider
+        h2.h1.blog-card-title The Importance Of Sleep
+        .swiper-container.js-blog-card-slider
+            .swiper-wrapper
+                each slide in slides
+                    +blog-card(slide)(class="swiper-slide")
+        .blog-card-slider__pagination.js-blog-card-slider-pagination

@@ -1,0 +1,32 @@
+-
+    var navsFooter = [
+        {
+            link: '#',
+            name: 'Warranty Registration',
+        },
+        {
+            link: '#',
+            name: 'Contact Us',
+        },
+        {
+            link: '#',
+            name: 'Privacy Policy',
+        },
+        {
+            link: '#',
+            name: 'Terms & Conditions',
+        },
+        {
+            link: '#',
+            name: 'After Purchase Enquiry',
+        },
+        {
+            link: '#',
+            name: 'Find a Store',
+        }
+    ]
+mixin footer-nav
+    nav.footer-nav
+        each nav in navsFooter
+            div.footer-nav__item
+                a.footer-nav__link(href=`${nav.link}`)!= nav.name

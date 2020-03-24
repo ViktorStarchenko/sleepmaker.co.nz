@@ -1,0 +1,50 @@
+.form-select-btn
+	display: block
+	position: relative
+	width: 100%
+	padding: 0 3.5rem 0 8px
+	line-height: 30px
+	font-size: inherit
+	font-style: normal
+	text-align: left
+	font-weight: 400
+	line-height: 1.7em
+	white-space: nowrap
+	text-overflow: ellipsis
+	letter-spacing: -0.01em
+	cursor: pointer
+	overflow: hidden
+	border-radius: 3px
+	color: $text-color
+	border: 1px solid $form-color-4
+	background-color: rgba(white, 0)
+	transition: border-color 0.5s
+	padding: 24px 3.75rem 8px 12px
+
+	+hover
+		border: 1px solid $text-color
+
+		&:focus
+			border: 1px solid $accent
+
+	+ie10
+		line-height: 1em
+
+	&[disabled]
+		opacity: 0.5
+
+	&.error
+		border: 1px solid $form-color-error
+
+		+hover
+			border: 1px solid darken($form-color-error, 5%)
+
+			&:focus
+				border: 1px solid darken($form-color-error, 5%)
+
+	&::placeholder
+	&.is-placeholder
+		font-style: normal
+		font-weight: 400
+		font-size: 16px
+		color: rgba($text-color, 0.5)

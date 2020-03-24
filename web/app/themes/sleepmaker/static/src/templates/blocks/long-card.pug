@@ -1,0 +1,11 @@
+mixin long-card(prop={})
+    .long-card
+        .long-card__info(style=`background:${prop.bg}; color:${prop.color}`)
+            .long-card__info-inner
+                if prop.icon
+                    .long-card__logo
+                        img(src=`/img/long/${prop.icon}`,  alt=prop.icon)
+                if block
+                    block
+        .long-card__image
+            img(src=`/img/long/${prop.img}.png`,  alt=prop.img)

@@ -1,0 +1,50 @@
+include /data
+include /helpers/mixins
+include /blocks/mixins
+include /meta/mixins
+
+doctype html
+
+html
+	head
+		-
+			const page = {
+				title: 'Title',
+				//- url: String,
+				ogType: 'website',
+				ogImage: '/img/social.jpg',
+				ogImageWidth: 1200,
+				ogImageHeight: 630,
+				//- description: '',
+				//- site_name: '',
+				//- admins: ''
+				themeColor: '#ffffff',
+				class: [],
+				hasVueTemplates: false
+			};
+
+		block head
+
+		+head(page)
+
+	body.body(class= page.class)
+		// SVG Sprite
+		+svg-icon()
+
+		
+		block header
+			// Header
+			+header
+
+		block content
+			// Content
+
+		block footer
+			// Footer
+			+footer
+
+		block menu-mobile
+			// Menu mobile
+
+		block modal
+			// Modals

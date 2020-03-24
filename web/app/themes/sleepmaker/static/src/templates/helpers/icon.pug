@@ -1,0 +1,7 @@
+// use with SVGO module
+mixin icon(name, modClass)
+	svg.icon(
+		class=name
+		class=(modClass ? `${name}--${modClass}` : '')
+	)&attributes(attributes)
+		use(xlink:href= '#' + name)

@@ -1,0 +1,115 @@
+.header-nav
+    $this: &
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    &__item
+        position: relative
+        &:not(:last-child)
+            margin-right: 35px
+            +r(1200)
+                margin-right: 15px
+        &--drop
+            &::after
+                content: ''
+                display: block
+                width: calc(100% + 40px)
+                height: 2px
+                position: absolute
+                background: $white
+                z-index: 1
+                left: -20px
+                top: 100%
+                margin-top: 18px
+                pointer-events: none
+                opacity: 0
+                transform: translateY(-10px)
+                transition: opacity .3s 0s, transform .0s .3s,
+            &:hover
+                &::after
+                    opacity: 1
+                    transform: translate(0)
+                    transition: opacity .2s .15s, transform .2s .15s,
+                #{$this}__drop
+                    opacity: 1
+                    visibility: visible
+                    pointer-events: all
+                    transform: translate(0)
+                    transition: opacity .3s .1s, transform .2s .1s, visibility 0s 0s
+        
+    &__link
+        display: inline-block
+        padding: 3px
+        font-size: 19px
+        font-weight: 400
+        letter-spacing: 1.19px
+        line-height: calc(30/19)
+        color: $main
+        white-space: nowrap
+        text-decoration: none
+        +r(1200)
+            font-size: 16px
+    &__drop
+        position: absolute
+        top: 100%
+        left: -35px
+        background: $main
+        padding: 50px 35px 30px 35px
+        min-width: 735px
+        visibility: hidden
+        pointer-events: none
+        opacity: 0
+        transform: translateY(-10px)
+        transition: opacity .2s .0s, transform .2s .3s, visibility 0s .3s
+        display: flex
+        flex-flow: row nowrap
+        &-section
+            $this: &
+            font-size: 26px
+            font-weight: 700
+            letter-spacing: -0.49px
+            line-height: calc(29/26)
+            text-decoration: none
+            color: $white
+            font-family: $f2
+        &-nav
+            width: 40%
+            padding: 20px 20px 20px 0
+            position: relative
+            &::after
+                content: ''
+                display: block
+                width: 1px
+                height: 75%
+                background: $white
+                position: absolute
+                right: 0
+                top: 50%
+                transform: translateY(-50%)
+            a:hover
+                text-decoration: underline
+        &-promo
+            width: 60%
+            padding-left: 90px
+    &__compare
+        height: 100%
+        padding: 25px 30px
+        h3
+            margin-bottom: 20px
+        .button
+            margin-top: 30px
+    &__list
+        padding-left: 12px
+        margin-top: 20px
+        margin-bottom: 40px
+        &-item
+            &:not(:last-child)
+                margin-bottom: 12px
+        &-link
+            font-weight: 400
+            color: $white
+            text-decoration: none
+            font-size: 20px
+            font-weight: 400
+            letter-spacing: 0.38px
+            line-height: calc(26/20)

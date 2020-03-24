@@ -1,0 +1,63 @@
+extends /layout
+
+block head
+    - page.title = 'Category'
+
+block content
+    -
+        var categories = [
+            {
+                img: 'category-1',
+                title: 'Together Alone',
+                color: '#00263e',
+                short: ['Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.'],
+            },
+            {
+                img: 'category-2',
+                title: 'Miracoil Advance',
+                color: '#768692',
+                short: ['Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.'],
+            },
+            {
+                img: 'category-1',
+                title: 'Miracoil Classic',
+                color: '#86c8a9',
+                short: ['Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.'],
+            },
+            {
+                img: 'category-2',
+                title: 'Lifestyle',
+                color: '#a4c8e1',
+                short: ['Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.'],
+            },
+            
+        ];
+    main.main
+        +wide-decor({bg:'category',bttns:false})(class="wide-decor--expanded")
+            h2.wide-decor__title-top Try the SleepMaker Bed Range
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis. Vestibulum sed fermentum nisl, at venenatis lacus. 
+
+        .container
+            .wrap-in
+                .category-card-wrap
+                    each category in categories
+                        +category-card(category)
+        hr.devider
+        .container
+            .long-card-wrap
+                +long-card({
+                    img: 'long-img-1',
+                    bg: '#002e5d',
+                    color: '#ffffff'
+                })
+                    .long-card__title TRY OUR SLEEPMAKER SLEEP SELECTOR 
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis.
+                    a.button.button--inverse(href="#") Find out more
+                +long-card({
+                    img: 'long-img-2',
+                    bg: '#002e5d',
+                    color: '#ffffff'
+                })
+                    .long-card__title REGISTER YOUR WARRANTY
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis.
+                    a.button.button--inverse(href="#") Find out more

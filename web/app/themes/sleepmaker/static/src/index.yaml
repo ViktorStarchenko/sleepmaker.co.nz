@@ -1,0 +1,21 @@
+ProjectTitle: Starting Template
+
+PageList:
+- file: /home/
+  name: home
+  ready: 95
+- file: /blog/
+  name: blog
+  ready: 100
+- file: /article/
+  name: article
+  ready: 100
+- file: /about/
+  name: about
+  ready: 100
+- file: /category/
+  name: category
+  ready: 10
+- file: /404/
+  name: 404
+  ready: 1

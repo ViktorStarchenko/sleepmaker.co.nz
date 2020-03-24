@@ -1,0 +1,11 @@
+mixin article-card(prop={})
+    .article-card&attributes(attributes)
+        .article-card__img
+            +img(`/img/blog-card/${prop.img}`, 'jpg', prop.img)
+        .article-card__info
+            .article-card__title!= prop.title
+            p!= prop.text
+        if prop.button
+            a.button(href="#") Read more
+        else
+            a.link-top(href="#") Read more

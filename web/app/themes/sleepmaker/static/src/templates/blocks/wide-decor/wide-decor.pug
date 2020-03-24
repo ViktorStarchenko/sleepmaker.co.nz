@@ -1,0 +1,8 @@
+mixin wide-decor(props={})
+    .wide-decor(style=`background-image:url(/img/bg/${props.bg}.png)`)&attributes(attributes)
+        .wide-decor__inner
+            block
+            if props.bttns.length
+                .wide-decor__bttns
+                    each bttn in props.bttns
+                        a.button(href="#")!= bttn

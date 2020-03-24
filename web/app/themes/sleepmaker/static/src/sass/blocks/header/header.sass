@@ -1,0 +1,54 @@
+.header
+    background: $white
+    padding: 20px 40px
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    justify-content: space-between
+    flex-shrink: 0
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    width: 100%
+    min-height: 85px
+    z-index: 5
+    +r(1024)
+        min-height: 50px
+    +r(1200)
+        padding: 16px 20px
+    +r(1024)
+        padding: 8px 20px
+    &__logo
+        // margin: 0 20px
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        width: 22%
+        max-width: 320px
+        min-width: 180px
+        +r(1200)
+            width: 27%
+        +r(1024)
+            width: 25%
+    &__nav
+        margin-right: 15px
+        +rm(1201)
+            align-self: flex-start
+        +r(1024)
+            display: none
+    &__find
+        margin-left: 15px
+        display: flex
+        flex-flow: row nowrap
+        align-items: center
+        +rm(1025)
+            width: 36%
+            max-width: 340px
+        //     max-width: 230px
+        //     width: 10%
+    &__burger
+        margin-right: 15px
+        +rm(1025)
+            display: none

@@ -1,0 +1,43 @@
+.content-list
+	$this: &
+
+	counter-reset: list
+	margin: 0 0 32px
+	padding: 0 0 0 24px
+
+	&--disc
+		#{$this}
+			&__item
+				padding: 0 0 0 16px
+
+				&::before
+					position: absolute
+					top: 7px
+					left: 0
+					content: ''
+					display: block
+					width: 6px
+					height: 6px
+					border-radius: 50%
+					background-color: $accent
+
+	&--decimal
+		#{$this}
+			&__item
+				padding: 0 0 0 24px
+
+				&::before
+					content: counter(list) "." !important
+					counter-increment: list
+					display: block
+					position: absolute
+					top: 0
+					left: 0
+					content: ''
+					border-radius: 50%
+					font-weight: 500
+					color: lighten($accent, 25%)
+	&__item
+		position: relative
+		margin: 0 0 0.5em
+		color: lighten($text-color, 15%)

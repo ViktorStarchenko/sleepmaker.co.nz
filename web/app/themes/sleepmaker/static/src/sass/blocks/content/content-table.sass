@@ -1,0 +1,32 @@
+.content-table
+	margin: 0 0 32px
+
+	+r(1024)
+		overflow-x: auto
+
+	&--scroll
+		overflow-x: scroll
+
+	&--auto
+		overflow-x: auto
+
+	&__table
+		background-color: white
+
+	&__tbody
+
+	&__tr
+
+	&__th,
+	&__td
+		padding: 1em
+		font-weight: normal
+		font-size: 16px
+		line-height: 1.25em
+		color: $text-color
+
+	&__th
+		background-color: mix($accent, white, 7%)
+
+	&__td
+		padding: 1em

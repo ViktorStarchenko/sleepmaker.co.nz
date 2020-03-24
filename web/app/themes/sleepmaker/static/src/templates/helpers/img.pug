@@ -1,0 +1,5 @@
+mixin img(url, extension, alt)
+	if alt == undefined
+		img(src=`${url}.${extension}`, srcset=`${url}@2x.${extension} 2x`)&attributes(attributes)
+	else
+		img(src=`${url}.${extension}`, srcset=`${url}@2x.${extension} 2x`, alt=`${alt}`)&attributes(attributes)

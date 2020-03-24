@@ -1,0 +1,85 @@
+$form-color-1: #000000
+$form-color-2: mix(grey, black, 50%)
+$form-color-3: mix(grey, white, 40%)
+$form-color-4: mix(grey, white, 25%)
+$form-color-5: mix($accent, #fcfcfc, 5%)
+$form-color-focus: $accent
+$form-color-error: red
+
+.form
+	$this: &
+	display: block
+
+	&--border
+		border: 1px solid $form-color-4
+		border-radius: 3px
+		padding: 80px 100px
+
+		+r(1024)
+			padding: 8% 10%
+
+	&__h
+		display: none
+		visibility: hidden
+	
+	&__inner
+		position: relative
+		display: flex
+		flex-direction: row
+		flex-wrap: wrap
+		align-items: flex-end
+		margin: 0 -12px
+
+	&__title
+		width: 100%
+		display: block
+		padding: 0 0 24px 1rem
+		margin: 0 0 0.5em
+		font-size: 30px
+		line-height: 1.25em
+		font-weight: 900
+		letter-spacing: -0.01em
+		color: $text-color
+
+		+r(480)
+			font-size: 24px
+
+	&__section-title
+		display: block
+		width: 100%
+		padding: 14px 12px
+		font-size: 17px
+		font-weight: 500
+		line-height: 1.25em
+		letter-spacing: -0.01em
+		color: black
+
+	&__item
+		position: relative
+		width: 100%
+		padding: 0 12px 24px
+
+		&--top
+			align-self: flex-start
+			
+		&--center
+			align-self: center
+			
+		&--right
+			display: flex
+			justify-content: flex-end
+
+		+r(480)
+			width: 100%
+
+	&__footer
+		display: flex
+		justify-content: flex-end
+		width: 100%
+
+	&__hr
+		display: block
+		width: 100%
+		margin: 2rem 0 4rem 1rem
+		border-top: 1px solid $form-color-4
+		line-height: 44px

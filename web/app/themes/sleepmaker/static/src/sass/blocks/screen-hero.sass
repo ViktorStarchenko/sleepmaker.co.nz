@@ -1,0 +1,62 @@
+.screen-hero
+    height: 70vh
+    max-height: 580px
+    min-height: 350px
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+    padding: 10px
+    position: relative
+    +r(450)
+        height: auto
+        max-height: none
+        &::before
+            content: ''
+            display: block
+            width: 100%
+            padding-bottom: 157%
+    &--contain
+        +r(768)
+            height: auto
+            max-height: none
+            &::before
+                content: ''
+                display: block
+                width: 100%
+                padding-bottom: 150%
+    &__img
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: -1
+        img
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+            object-position: left center
+    &__info
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        .container
+            height: 100%
+    &__inner
+        display: flex
+        height: 100%
+        width: 75%
+        max-width: 400px
+        flex-flow: column nowrap
+        align-items: center
+        justify-content: center
+        +r(768)
+            justify-content: flex-end
+            max-width: none
+            padding-bottom: 12%
+            margin: 0 auto

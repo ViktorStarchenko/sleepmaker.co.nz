@@ -1,0 +1,106 @@
+.article-card
+    width: 33.33%
+    padding: 0 22px
+    box-sizing: border-box
+    margin-bottom: 50px
+    +r(900)
+        width: 49%
+        padding: 0 10px
+    +r(600)
+        width: 99%
+    &__img
+        position: relative
+        overflow: hidden
+        margin-bottom: 22px
+        &:after
+            content: ''
+            display: block
+            width: 100%
+            height: 0
+            padding-bottom: 80%
+        img
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+    &__info
+        margin-bottom: auto
+        padding-right: 20px
+        p + p
+            margin-top: 5px
+    &__title
+        margin-bottom: 10px
+        font-size: 16px
+        line-height: calc(20/16)
+        font-weight: 500
+        letter-spacing: 1px
+    .button
+        margin-top: 25px
+    .link-top
+        margin-top: 20px
+
+.article-card-wrap
+    margin: 0 -15px -50px -15px
+    padding-top: 20px
+    display: flex
+    flex-flow: row wrap
+    align-items: flex-start
+    justify-content: center
+
+.article-card-title
+    margin-bottom: 60px
+    margin-top: 70px
+    letter-spacing: 2px
+    font-weight: 500
+
+.view-all-articles
+    margin: 0 auto 70px auto
+    display: block
+    width: 100%
+    max-width: 205px
+
+.article-pagination
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 60px auto 0
+    color: $main
+    +r(768)
+        margin: 40px auto 0
+    &__button
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        min-width: 27px
+        min-height: 27px
+        border-radius: 2px
+        text-decoration: none
+        color: $main
+        background: $white
+        font-size: 20px
+        font-weight: 400
+        +r(370)
+            font-size: 16px
+            min-width: 25px
+            min-height: 25px
+        &.prev
+            font-weight: 500
+        &.active
+            color: $white
+            background: $main
+        &.disable
+            pointer-events: none
+    &__prev
+        border: 1px solid #002e5d
+    &__pages
+        margin: 0 30px
+        display: flex
+        +r(370)
+            margin: 0 10px
+    &__number
+        margin: 0 2px
+    &__next
+        border: 1px solid #002e5d
+        transform: scaleX(-1)

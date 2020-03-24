@@ -1,0 +1,65 @@
+.wide-decor
+    padding: 116px 16px
+    background-repeat: no-repeat
+    background-size: cover
+    color: $main
+    +r(1024)
+        padding: 60px 16px 70px 16px
+    &--expanded
+        +rm(1025)
+            padding-top: 90px
+            min-height: 490px
+            display: flex
+            flex-flow: column nowrap
+            justify-content: center
+    &__inner
+        max-width: 900px
+        margin: 0 auto
+        text-align: center
+        p
+            max-width: 725px
+            margin: 0 auto
+        p + p
+            margin-top: 15px
+    &__title
+        &-top
+            font-weight: 400
+            font-size: 70px
+            letter-spacing: 0.18px
+            line-height: 0.88
+            margin-bottom: 45px
+            text-transform: none
+            +r(1024)
+                font-size: 50px
+                letter-spacing: 0.13px
+        &-bottom
+            font-weight: 400
+            font-size: 56px
+            letter-spacing: 0.14px
+            line-height: 0.7
+            +r(1024)
+                font-size: 50px
+                letter-spacing: 0.13px
+    &__subtitle
+        font-size: 30px
+        font-weight: 500
+        letter-spacing: 2px
+        line-height: 1.1
+        text-transform: uppercase
+        +r(1024)
+            font-size: 25px
+            letter-spacing: 1.67px
+    &__bttns
+        display: flex
+        justify-content: center
+        flex-flow: row wrap
+        margin-top: 30px
+        .button
+            margin: 15px 17px 0 17px
+    &__logo
+        display: block
+        width: 58%
+        max-width: 350px
+        margin: 0 auto
+        +r(1024)
+            margin-bottom: 10px

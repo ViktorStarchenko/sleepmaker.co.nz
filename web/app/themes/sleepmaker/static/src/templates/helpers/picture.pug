@@ -1,0 +1,9 @@
+mixin picture(srcPathWithoutExt, svg)
+	picture&attributes(attributes)
+		if svg
+			source(type="image/svg+xml" srcset=`${srcPathWithoutExt}.svg`)
+			source(srcset=`${srcPathWithoutExt}@1.png, ${srcPathWithoutExt}@2.png 2x`)
+			img(src=`${srcPathWithoutExt}@1.png`)
+		else
+			source(srcset=`${srcPathWithoutExt}@1.png, ${srcPathWithoutExt}@2.png 2x`)
+			img(src=`${srcPathWithoutExt}@1.png`)

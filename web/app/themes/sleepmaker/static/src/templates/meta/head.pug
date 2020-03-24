@@ -1,0 +1,27 @@
+//- Description
+	+head({
+		title: String,
+		description: String
+	})
+
+mixin head(props = {})
+	meta(charset="utf-8")
+	title= props.title
+	meta(http-equiv="X-UA-Compatible" content="IE=Edge")
+	meta(name="viewport" content="width=device-width, initial-scale=1")
+	meta(name="format-detection" content="telephone=no")
+	meta(name="description" content= props.description)
+
+	//- // Favicon
+	//- +favicon(props)
+
+	//- // Social
+	//- +open-graph(props)
+
+	link(rel="stylesheet" media="all" href= "/css/app.css")
+
+	//- // Libs
+	//- script(src='https://api-maps.yandex.ru/2.1/?lang=ru_RU', type='text/javascript')
+
+	// Main scripts
+	script(defer type="text/javascript" src="/js/app.js")

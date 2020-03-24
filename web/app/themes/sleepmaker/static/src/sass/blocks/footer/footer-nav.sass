@@ -1,0 +1,31 @@
+.footer-nav
+    display: flex
+    flex-flow: row wrap
+    align-items: center
+    justify-content: flex-start
+    +rm(1024)
+        padding-top: 30px
+        margin-bottom: -5px
+    +r(1024)
+        flex-flow: column nowrap
+        justify-content: center
+        align-items: flex-start
+    &__item
+        margin-top: 5px
+        margin-bottom: 5px
+        margin-right: 15px
+        +rm(1025)
+            &:not(:last-child)
+                margin-right: 40px
+            &:last-child
+                margin-right: 10px
+        +r(1024)
+            margin-bottom: 18px
+    &__link
+        color: #fdfefe
+        text-decoration: none
+        white-space: nowrap
+        font-size: 18px
+        font-weight: 400
+        letter-spacing: 1.2px
+        line-height: calc(20/18)

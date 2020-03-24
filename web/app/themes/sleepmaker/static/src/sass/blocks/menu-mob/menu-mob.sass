@@ -1,0 +1,98 @@
+.menu-mob
+	$THIS: &
+
+	z-index: 30
+	display: flex
+	justify-content: flex-end
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	overflow: hidden
+	box-sizing: border-box
+
+	&:not(.is-hidden)
+		z-index: 5
+		visibility: visible
+
+	&.is-hidden
+		visibility: hidden
+		z-index: -1
+
+	&:not(.is-visible)
+		opacity: 0
+		transition: opacity 0.3s 0.2s
+
+		#{$THIS}
+			&__inner
+				transform: translate3d(100%, 0, 0)
+				transition: transform 0.3s 0.2s
+
+			&__body
+				opacity: 0
+				transform: translate3d(0, -24px, 0)
+				transition: transform 0.2s ease-out, opacity 0.2s
+
+	&.is-visible
+		opacity: 1
+		transition: opacity 0.3s
+
+		#{$THIS}
+			&__inner
+				transform: translate3d(0, 0, 0)
+				transition: transform 0.3s
+
+			&__body
+				opacity: 1
+				transform: translate3d(0, 0, 0)
+				transition: transform 0.2s 0.3s ease-out, opacity 0.2s 0.3s
+
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		opacity: 0.7
+		background: $text-color
+		pointer-events: none
+
+	&__inner
+		display: flex
+		flex-direction: column
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		width: 100%
+		max-width: 495px
+		background-color: #fff
+		box-shadow: 0px 4px 20px rgba($text-color, 0.2)
+
+	&__header
+		flex-shrink: 0
+
+	&__body
+		display: flex
+		flex-direction: column
+		flex-wrap: nowrap
+		justify-content: flex-start
+		flex-grow: 1
+		position: relative
+		padding: 48px 60px
+		overflow-y: auto
+		overflow-x: hidden
+		background-color: #fff
+		will-change: transform
+
+		+r(640)
+			padding: 48px 32px
+
+		+r(480)
+			padding: 48px 8px
+
+	&__nav
+		margin: 0 0 32px

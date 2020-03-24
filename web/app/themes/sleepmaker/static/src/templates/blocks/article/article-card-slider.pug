@@ -1,0 +1,7 @@
+mixin article-card-slider(slides)
+    .article-card-slider
+        .swiper-container.js-article-card-slider
+            .swiper-wrapper
+                each slide in slides
+                    +article-card(slide)(class="swiper-slide")
+        .article-card-slider__pagination.js-article-card-slider-pagination

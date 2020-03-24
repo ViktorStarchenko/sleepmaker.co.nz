@@ -1,0 +1,88 @@
+.content
+	$this: &
+
+	padding-left: 64px
+	padding-right: 64px
+
+	+r(1280)
+		padding-left: 32px
+		padding-right: 32px
+
+	+r(768)
+		padding-left: 24px
+		padding-right: 24px
+
+	+r(480)
+		padding-left: 16px
+		padding-right: 16px
+
+	+r(360)
+		padding-left: 8px
+		padding-right: 8px
+
+	&__row,
+	&__row-box
+		display: flex
+		flex-flow: row wrap
+		justify-content: center
+		position: relative
+		width: 100%
+		margin: 0 auto
+		box-sizing: border-box
+		font-size: 1rem
+
+		&--nowrap,
+		&--side-left-small
+			flex-wrap: nowrap
+
+			+r(1024)
+				flex-wrap: wrap
+
+				#{$this}
+					&__col:nth-child(1),
+					&__col:nth-child(2)
+						width: 100%
+						padding-left: 0
+						padding-right: 0
+
+		&--side-left-small
+			#{$this}
+				&__col:nth-child(1)
+					width: 264px
+					padding: 0 52px 0 0
+					flex-shrink: 0
+					margin: 0 0 40px
+
+				&__col:nth-child(2)
+					width: calc(100% - 264px)
+
+	&__row-box
+		max-width: 1440px
+
+		&--small
+			max-width: 900px
+
+			+r(900)
+				#{$this}__col-2
+					width: 100%
+
+		&--medium
+			max-width: 1100px
+
+			+r(1100)
+				#{$this}__col-2
+					width: 100%
+
+		&--large
+			max-width: 1440px
+
+			+r(1440)
+				#{$this}__col-2
+					width: 100%
+
+	&__col
+		width: 100%
+		box-sizing: border-box
+
+	&__col-2
+		width: 50%

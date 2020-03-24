@@ -1,0 +1,38 @@
+.modal-container
+	z-index: 100
+	display: block
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	overflow-y: auto
+	overflow-x: hidden
+	text-align: center
+	transform: translate3d(0, 0, 0)
+	background-color: rgba(#333, 0.75)
+	white-space: nowrap
+
+	&:before
+		position: relative
+		content: ''
+		display: inline-block
+		width: 0
+		height: 100%
+		vertical-align: middle
+
+	&:not(.is-visible)
+		opacity: 0
+		transition: opacity 0.3s 0.2s
+
+	&.is-visible
+		opacity: 1
+		transition: opacity 0.3s
+
+	&:not(.is-hidden)
+		z-index: 10
+		visibility: visible
+
+	&.is-hidden
+		z-index: -1
+		visibility: hidden

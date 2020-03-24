@@ -1,0 +1,10 @@
+mixin category-card(props={})
+    .category-card
+        .category-card__img
+            +img(`/img/category/${props.img}`, 'png', props.img)
+        .category-card__title(style=`color:${props.color}`)!= props.title
+        .category-card__short
+            each text in props.short
+                p!= text
+        .category-card__btns
+            a.button(href="#") Learn more

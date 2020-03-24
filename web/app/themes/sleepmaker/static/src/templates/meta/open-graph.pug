@@ -1,0 +1,24 @@
+//- Description
+	+open-graph({
+		title: String,
+		url: String,
+		ogType: String,
+		ogImage: String,
+		ogImageWidth: Number,
+		ogImageHeight: Number,
+		description: String,
+		site_name: String,
+		admins: String
+	})
+
+mixin open-graph(props = {})
+	// Open Graph data
+	meta(property="og:title" content= props.title)
+	meta(property="og:url" content= props.url)
+	meta(property="og:type" content= props.ogType)
+	meta(property="og:image" content= props.ogImage)
+	meta(property="og:image:width" content= props.ogImageWidth)
+	meta(property="og:image:height" content= props.ogImageHeight)
+	meta(property="og:description" content= props.description)
+	meta(property="og:site_name" content= props.site_name)
+	meta(property="fb:admins" content= props.admins)

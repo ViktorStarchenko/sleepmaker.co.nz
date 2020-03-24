@@ -1,0 +1,31 @@
+.home-category-slider
+    margin: 0 -15px
+    width: calc( 100% + 30px )
+    position: relative
+    +r(650)
+        margin: 0 -20px
+        
+        width: calc( 100% + 40px )
+
+    .swiper-container
+        overflow: visible
+    .swiper-slide
+        height: auto
+        width: calc(25% - 30px)
+        min-width: 250px
+        margin: 0 15px
+        +r(650)
+            width: calc(50% - 40px)
+            flex-grow: 1
+            margin: 0 20px
+            margin-bottom: 40px
+    .swiper-wrapper
+        +r(650)
+            display: flex
+            flex-flow: row wrap
+            justify-content: center
+            margin-bottom: -40px
+            transform: none !important
+    .slider-button
+        +r(650)
+            display: none

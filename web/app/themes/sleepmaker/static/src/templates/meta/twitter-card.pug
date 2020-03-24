@@ -1,0 +1,25 @@
+//- Description
+	+twitter-card({
+		title: String,
+		url: String,
+		description: String,
+		image: String,
+		twCard: String= this.url,
+		twSite: String,
+		creator: String
+	})
+
+mixin twitter-card(props = {})
+	// Twitter Card data
+	meta(name="twitter:title"
+		content= props.title || "")
+	meta(name="twitter:card"
+		content= props.twCard || "")
+	meta(name="twitter:site"
+		content= props.twSite || props.url || "")
+	meta(name="twitter:description"
+		content= props.description || "")
+	meta(name="twitter:creator"
+		content= props.creator || "")
+	meta(name="twitter:image"
+		content= props.image || "")

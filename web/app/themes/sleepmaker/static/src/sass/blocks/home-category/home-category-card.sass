@@ -1,0 +1,52 @@
+.home-category-card
+    // width: 25%
+    // padding: 0 5px
+    box-sizing: border-box
+    height: auto
+    display: flex
+    flex-flow: column nowrap
+    height: 100%
+    width: 100%
+    // +r(1200)
+    //     padding: 0 10px
+    &__bg
+        width: 100%
+        position: relative
+        overflow: hidden
+        &:after
+            content: ''
+            display: block
+            width: 100%
+            height: 0
+            padding-bottom: 134%
+    &__img
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+    &__logo
+        position: absolute
+        right: 20px
+        bottom: 30px
+        max-width: 100px
+    &__info
+        padding: 20px 10px 0 10px
+        background: $white
+        color: $main
+        display: flex
+        flex-flow: column nowrap
+        flex-grow: 1
+        text-align: center
+        p + p
+            margin-top: 5px
+    &__title
+        margin-bottom: 17px
+        font-size: 30px
+        font-weight: 400
+        letter-spacing: 1.15px
+        line-height: 1
+    &__bttn
+        padding-top: 25px
+        margin-top: auto
