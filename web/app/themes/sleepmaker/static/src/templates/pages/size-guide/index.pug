@@ -1,0 +1,72 @@
+extends /layout
+
+block head
+    - page.title = 'Size Guide'
+
+block content
+    -
+        var sizeGuideCards = [
+            {
+                img: 'long-single',
+                name: 'Long Single',
+                size: '91cm W x 203cm L'
+            },
+            {
+                img: 'long-double',
+                name: 'Long Double',
+                size: '137cm W X 203cm L'
+            },
+            {
+                img: 'king-single',
+                name: 'King Single',
+                size: '107cm W x 203cm L'
+            },
+            {
+                img: 'queen',
+                name: 'Queen',
+                size: '153cm W x 203cm L'
+            },
+            {
+                img: 'king',
+                name: 'King',
+                size: '167cm W x 203cm L'
+            },
+            {
+                img: 'super-king',
+                name: 'Super King',
+                size: '183cm W x 203cm L'
+            },
+            {
+                img: 'california-king',
+                name: 'California King',
+                size: '203cm W x 203cm L'
+            },
+        ];
+    main.main
+        +wide-decor({bg:'home',bttns:false})
+            .content
+                h2 Sized To Suit
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis. Vestibulum sed fermentum nisl, at venenatis lacus. Vivamus quis leo at nisl commodo gravida. Integer et arcu leo. Integer est leo, ullamcorper id tristique vel.
+        .container
+            .wrap-in
+                .page-grid
+                    aside.page-grid__content
+                        .content
+                            h3 SLEEPMAKER MATTRESSES COME IN A VARIETY OF SIZES
+                            p Depending on your bedroom size, it is always worth looking at whether you can upgrade your bed size when you are upgrading your mattress to ensure you have enough space to sleep comfortably. If there's two in the bed you also need space to sleep undisturbed, so make sure you have plenty of room to stretch out and relax.
+                        .show-desktop
+                            hr.content-devider
+                            .content
+                                h3 WHICH SIZE?
+                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis. Vestibulum sed fermentum nisl, at venenatis lacus.
+                            a.link-top(href="#") Take the quiz
+                    section.page-grid__main
+                        .size-guide
+                            .size-guide-wrap
+                                each card in sizeGuideCards
+                                    +size-guide-card(card)
+                            .show-mobile
+                                .content
+                                    h3 WHICH SIZE?
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis. Vestibulum sed fermentum nisl, at venenatis lacus.
+                                a.link-top(href="#") Take the quiz

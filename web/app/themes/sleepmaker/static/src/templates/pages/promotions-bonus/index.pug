@@ -1,0 +1,111 @@
+extends /layout
+
+block head
+    - page.title = 'Promotions Bonus'
+
+block content
+    main.main
+        .container
+            .wrap-in
+                .page-grid
+                    section.page-grid__main
+                        .content
+                            h1 Bonus Luxury Sheet Set  
+                            p Purchase a Beautyrest Black, Silver, Hybrid or Platinum mattress or bed from a participating Beautyrest retail stockist between 4th April 2019 and 5th June 2019. Complete the entry form details below including uploading your store purchase receipt. Registrations close 5pm 12th June 2019.
+
+                            p See the latest retail sale offers on Sleepyhead products.
+                        a.link-top(href="#") Special offers
+                        hr.form-devider
+                        form.form-page(action="/")
+                            .input-row
+                                .input-row__label
+                                    p Upload Reciept. We accept: JPG, PNG, GIF, PDF
+                                .input-file
+                                    input(type="file", name="", accept=".png, .jpg, .jpeg, .pdf, .gif")
+                            .input-row
+                                .input-item.w100
+                                    input(type="text", name="", placeholder="Reciept Number*", required)
+                                .input-item.w50
+                                    input(type="text", name="", placeholder="Full Name")
+                                .input-item.w50
+                                    input(type="tel", name="", placeholder="Contact Number")
+                                .input-item.w100
+                                    input(type="email", name="", placeholder="Email Address", required)
+                                .input-item.w100
+                                    input(type="text", name="", placeholder="Street Address*", required)
+                                .input-item.w50
+                                    input(type="text", name="", placeholder="City")
+                                .input-item.w50
+                                    input(type="tel", name="", placeholder="Suburb")
+                                .input-item.w50
+                                    input(type="tel", name="", placeholder="ZIP / Postal Code")
+                            .input-row
+                                .input-row__label
+                                    p Region/Retailer/store/Range
+                                .input-item.w50.input-item--select
+                                    select(name="" )
+                                        option(value="" selected style="display: none") Region
+                                        option(value="Region 1") Region 1
+                                        option(value="Region 2") Region 2
+                                        option(value="Region 3") Region 3
+                                        option(value="Region 4") Region 4
+                                .input-item.w50.input-item--select
+                                    select(name="" )
+                                        option(value="" selected style="display: none") Retailer
+                                        option(value="Retailer 1") Retailer 1
+                                        option(value="Retailer 2") Retailer 2
+                                        option(value="Retailer 3") Retailer 3
+                                        option(value="Retailer 4") Retailer 4
+                                .input-item.w50.input-item--select
+                                    select(name="" )
+                                        option(value="" selected style="display: none") Store
+                                        option(value="Store 1") Store 1
+                                        option(value="Store 2") Store 2
+                                        option(value="Store 3") Store 3
+                                        option(value="Store 4") Store 4
+                                .input-item.w50.input-item--select
+                                    select(name="" )
+                                        option(value="" selected style="display: none") Range
+                                        option(value="Range 1") Range 1
+                                        option(value="Range 2") Range 2
+                                        option(value="Range 3") Range 3
+                                        option(value="Range 4") Range 4
+                                .input-row__link
+                                    a(href="#") I cant find my store
+                            
+                            .input-row
+                                .input-row__label
+                                    p What size sheets do you require?
+                                .input-item.w100.input-item--select
+                                    select(name="" )
+                                        option(value="Queen" selected) Queen
+                                        option(value="Long Single") Long Single
+                                        option(value="Long Double") Long Double
+                                        option(value="King Single") King Single
+                                        option(value="King") King
+                                        option(value="Super King") Super King
+                                        option(value="California King") California King
+                            .input-group
+                                .input-row__label 
+                                    p Warranty Registration
+                                .input-check.w100
+                                    input#Registration(type="checkbox", name="")
+                                    label(for="Registration") Would you like to automatically use the information provided above to register your product warranty?
+                                .input-row__label
+                                    p Communication Preferences
+                                .input-check.w100
+                                    input#Communication(type="checkbox", name="")
+                                    label(for="Communication") Yes, I’m happy to receive any upcoming Sleepyhead promotions, special offers, competitions or handy tips on all things sleep. View our Privacy Policy.
+                                .input-row__label
+                                    p Terms and conditions  
+                                .input-check.w100
+                                    input#Communication(type="checkbox", name="")
+                                    label(for="Communication") To register for this offer you must accept our Terms and Conditions*
+                            .input-row
+                                .input-check
+                                    img(src="/img/captcha.png", alt="")
+
+                            .input-row
+                                .input-submit
+                                    button.bttn(type="submit") Submit
+                    aside.page-grid__sidebar

@@ -1,0 +1,39 @@
+.input-row
+    display: flex
+    flex-flow: row wrap
+    width: 100%
+    +rm(651)
+        width: calc(100% + 16px)
+        margin-left: -8px
+        margin-right: -8px
+        // margin-bottom: 20px
+    &:last-child
+        margin-bottom: 0
+    &__label
+        width: 100%
+        margin-bottom: 20px
+        margin-top: 20px
+        +rm(651)
+            margin-left: 8px
+            margin-right: 8px
+    &__link
+        width: 100%
+        margin-bottom: 20px
+        a
+            color: $main
+            font-size: 16px
+            font-weight: 400
+            text-decoration: underline
+            letter-spacing: 0.34px
+            &:hover
+                text-decoration: none
+        +rm(651)
+            margin-left: 8px
+            margin-right: 8px
+
+.input-group
+    display: block
+    +rm(651)
+        width: calc(100% + 16px)
+        margin-left: -8px
+        margin-right: -8px

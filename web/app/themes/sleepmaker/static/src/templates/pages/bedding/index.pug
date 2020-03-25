@@ -1,0 +1,43 @@
+extends /layout
+
+block head
+    - page.title = 'Bedding'
+
+block content
+    -
+        var filters = [
+            {
+                name: 'Pillows',
+            },
+            {
+                name: 'Protectors',
+            },
+            {
+                name: 'Duvets',
+            }
+        ];
+        var beddingCard = {
+                img: 'bedding',
+                title: 'COMFORT BALL FIBRE PILLOW $49',
+                text: 'Snugglgle into this light soft cuffle pillow. Innerspring mattresses are the most common type of mattresses. They consist '
+            }
+    main.main
+        .container
+            .wrap-in
+                .page-grid
+                    aside.page-grid__content
+                        .stuff-sidebar
+                            .content
+                                h1 BEDDING AND ACCESSORIES
+                                p For more than 80 years, Serta have invested in the highest quality and most innovative features to ensure that every mattress delivers superior comfort and support.   
+                            .filters
+                                .filters-title.js-filter-title Filter By:
+                                    .filters-title__icon
+                                form.filters-wrap.js-filter-content
+                                    each filter in filters
+                                        +filter(filter)
+                    section.page-grid__main
+                        .stuff-card-wrap
+                            .stuff-card-tile
+                                - for (i = 0; i < 3; i++)
+                                    +stuff-card(beddingCard)

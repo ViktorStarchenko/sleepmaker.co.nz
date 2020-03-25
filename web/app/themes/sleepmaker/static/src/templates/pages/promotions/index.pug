@@ -1,0 +1,47 @@
+extends /layout
+
+block head
+    - page.title = 'Promotions'
+
+block content
+    -
+        var filters = [
+            {
+                name: 'Together Alone',
+            },
+            {
+                name: 'Miracoil Advance',
+            },
+            {
+                name: 'Miracoil Classic',
+            },
+            {
+                name: 'Lifestyle',
+            }
+        ];
+        var promotionCard = {
+                img: 'promo',
+                title: 'Innerspring Mattress $799',
+                text: 'Innerspring mattresses are the most common type of mattresses. They consist of a spring zone and a comfort layer. ',
+                period: true
+            }
+    main.main
+        .container
+            .wrap-in
+                .page-grid
+                    aside.page-grid__content
+                        .content
+                            h1 BEDDING AND ACCESSORIES
+                            p For more than 80 years, Serta have invested in the highest quality and most innovative features to ensure that every mattress delivers superior comfort and support.   
+                        .filters
+                            .filters-title.js-filter-title Filter by range:
+                                .filters-title__icon
+                            form.filters-wrap.js-filter-content
+                                each filter in filters
+                                    +filter(filter)
+                    section.page-grid__main
+                        .stuff-card-wrap
+                            +stuff-banner
+                            .stuff-card-tile
+                                - for (i = 0; i < 4; i++)
+                                    +stuff-card(promotionCard)

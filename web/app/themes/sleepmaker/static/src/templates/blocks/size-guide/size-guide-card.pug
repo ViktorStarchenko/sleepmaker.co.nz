@@ -1,0 +1,6 @@
+mixin size-guide-card(prop={})
+    .size-guide-card
+        .size-guide-card__img
+            img(src=`/img/size-guide/${prop.img}.png`, alt=prop.name)
+        .size-guide-card__name!= prop.name
+        .size-guide-card__size!= prop.size

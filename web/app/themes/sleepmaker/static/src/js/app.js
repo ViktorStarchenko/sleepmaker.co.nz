@@ -11,6 +11,7 @@
 // import MenuMobile from './blocks/menu-mob';
 // import Form from './blocks/form';
 import slidersInit from './blocks/slidersInit';
+import filtersToggle from './blocks/filtersToggle';
 
 // Init
 // AppRoot.init();
@@ -21,4 +22,5 @@ import slidersInit from './blocks/slidersInit';
 window.addEventListener('load', () => {
 	// ...
 	slidersInit();
+	filtersToggle();
 });

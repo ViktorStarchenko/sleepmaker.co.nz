@@ -1,0 +1,11 @@
+mixin stuff-card(props={})
+    .stuff-card
+        .stuff-card__img
+            +img(`/img/stuff/${props.img}`, 'png', props.img)
+        .stuff-card__info
+            h3!= props.title
+            p!= props.text
+            a.bttn(href="#") Find Out More
+        if props.period
+            .stuff-card__caption Offer ends 7th January 2020
+        

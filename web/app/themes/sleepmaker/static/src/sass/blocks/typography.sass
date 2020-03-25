@@ -4,6 +4,8 @@ h1, .h1
     letter-spacing: 2px
     line-height: 30px
     text-transform: uppercase
+    +r(768)
+        font-size: 24px
 
 h2, .h2
     font-size: 30px
@@ -11,6 +13,8 @@ h2, .h2
     letter-spacing: 2px
     line-height: 30px
     text-transform: uppercase
+    +r(768)
+        font-size: 24px
 
 h3, .h3
     font-size: 20px
@@ -23,3 +27,27 @@ h4, .h4
     font-weight: 500
     letter-spacing: 0.44px
     line-height: 22px
+
+p
+    font-size: 16px
+    line-height: 1.15
+
+.content
+    h1
+        margin-bottom: 30px
+    h2
+        margin-bottom: 30px
+    h3
+        margin-top: 40px
+        margin-bottom: 30px
+    h4
+        margin-top: 25px
+        margin-bottom: 15px
+    p + p
+        margin-top: 20px
+    a
+        color: currentColor
+    *:first-child
+        margin-top: 0
+    *:last-child
+        margin-bottom: 0

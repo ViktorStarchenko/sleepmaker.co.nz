@@ -1,0 +1,129 @@
+.filters
+    margin-top: 40px
+    +r(768)
+        margin-top: 40px
+        padding: 20px 0
+        border-top: 1px solid rgba(46, 26, 71, 0.26)
+        border-bottom: 1px solid rgba(46, 26, 71, 0.26)
+
+.filters-title
+    position: relative
+    font-family: $f1
+    font-size: 20px
+    font-weight: 500
+    letter-spacing: 0.43px
+    line-height: 1
+    &__icon
+        display: block
+        width: 14px
+        height: 8px
+        font-size: 0
+        position: absolute
+        right: 3px
+        top: 2px
+        transform: rotate(0)
+        transition: transform .3s
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTQgOCI+PGRlZnM+PGNsaXBQYXRoIGlkPSJsanZ4YSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEwLjIzNCAxMC45MzNsLTYuNy02LjkzNiA2LjctNi45MyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnPjxnIHRyYW5zZm9ybT0icm90YXRlKC05MCA3IDQpIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMwMDJlNWQiIHN0cm9rZS1taXRlcmxpbWl0PSIyMCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTAuMjM0IDEwLjkzM3YwbC02LjctNi45MzZ2MGw2LjctNi45M3YwIiBjbGlwLXBhdGg9InVybCgmcXVvdDsjbGp2eGEmcXVvdDspIi8+PC9nPjwvZz48L3N2Zz4=")
+        background-repeat: no-repeat
+
+    +r(768)
+        padding-right: 25px
+    +rm(769)
+        border-bottom: 1px solid rgba($main, 0.12)
+        padding-bottom: 25px
+        margin-bottom: 25px
+        .filters-title__icon
+            display: none
+    &.is-visible
+        .filters-title__icon
+            transform: rotate(180deg)
+
+.filters-wrap
+    +r(768)
+        margin-top: 20px
+        display: none
+    +rm(769)
+        display: block !important
+.filter
+    position: relative
+    &:not(:last-child)
+        margin-bottom: 11px
+        // +r(768)
+        //     margin-bottom: 5px
+    &__input
+        position: absolute
+        top: 0
+        left: 0
+        width: 1px
+        height: 1px
+        visibility: hidden
+        pointer-events: none
+        &:checked + .filter__label
+            &::after
+                opacity: 1
+                transform: scale(1)
+                transition: opacity .2s, transform .3s
+    &__label
+        padding: 5px 35px 5px 0
+        position: relative
+        z-index: 1
+        display: block
+        overflow: hidden
+        will-change: transform
+        cursor: pointer
+        font-size: 20px
+        font-weight: 400
+        letter-spacing: 0.43px
+        line-height: 1.1
+        &:hover
+            &::after
+                opacity: 1
+                transform: scale(0.5)
+                transition: opacity .2s, transform .3s
+        +r(768)
+            padding: 5px 35px 5px 0
+        &::before
+            content: ''
+            display: block
+            width: 18px
+            height: 18px
+            border-radius: 50%
+            border: 1px solid $main
+            position: absolute
+            right: 2px
+            top: 8px
+        &::after
+            content: ""
+            display: block
+            width: 12px
+            height: 12px
+            border-radius: 50%
+            background: $main
+            position: absolute
+            right: 5px
+            top: 11px
+            opacity: 0
+            transform: scale(0)
+            transition: opacity .2s, transform .2s
+
+
+.filter-store
+    display: flex
+    align-items: center
+    justify-content: space-between
+    font-size: 16px
+    line-height: calc(20/16)
+    letter-spacing: 1px
+    // margin-bottom: 30px
+    margin-top: 30px
+    &__elems
+        .filter__label
+            padding: 5px 0 5px 35px
+            &::before
+                left: 2px
+                right: auto
+                top: 6px
+            &::after
+                left: 2px
+                right: auto
+                top: 6px

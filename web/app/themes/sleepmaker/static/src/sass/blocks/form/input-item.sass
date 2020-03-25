@@ -1,0 +1,83 @@
+.input-item
+    font-size: 0
+    border-radius: 3px
+    border: 1px solid rgba(#002e5d, .33)
+    background-color: $white
+    position: relative
+    margin-bottom: 20px
+    overflow: hidden
+    +rm(651)
+        margin-left: 8px
+        margin-right: 8px
+    &.w50
+        width: 100%
+        +rm(651)
+            width: calc(50% - 16px)
+    &.w100
+        width: calc(100% - 16px)
+    &--select
+        &::after
+            content: ''
+            display: block
+            width: 8px
+            height: 8px
+            border-bottom: 1px solid rgba(#01295b, .76)
+            border-right: 1px solid rgba(#01295b, .76)
+            position: absolute
+            top: 50%
+            right: 30px
+            transform: translateY(-50%) rotate(45deg)
+            pointer-events: none
+
+    input:not([type="file"]), textarea, select
+        margin: 0
+        padding: 0
+        border: 0
+        width: 100%
+        height: 100%
+        font-size: 15px
+        line-height: 18px
+        letter-spacing: 1px
+        color: $main
+        padding: 15px 15px
+        resize: none
+        border: none
+        box-sizing: border-box
+        display: block
+        +r(650)
+            padding: 13px 15px
+    select
+        cursor: pointer
+        // color: rgba($main, .5)
+        color: $main
+        appearance: none
+        -webkit-appearance: none
+        background: $white
+        ::-ms-expand // для IE
+            display: none
+        &::after
+            content: ''
+            display: block
+            width: 10px
+            height: 10px
+            background: red
+        &:default
+            color: red
+        option:selected
+            display: none
+        
+
+    ::placeholder // Chrome, Firefox, Opera, Safari 10.1+
+        color: rgba($main, .5)
+        font-size: 14px
+        letter-spacing: 1px
+        opacity: 1 // Firefox
+
+    :-ms-input-placeholder // Internet Explorer 10-11
+        color: rgba($main, .5)
+        font-size: 14px
+        letter-spacing: 1px
+    ::-ms-input-placeholder // Microsoft Edge
+        color: rgba($main, .5)
+        font-size: 14px
+        letter-spacing: 1px

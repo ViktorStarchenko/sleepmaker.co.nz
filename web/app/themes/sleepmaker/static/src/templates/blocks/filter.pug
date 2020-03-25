@@ -1,0 +1,4 @@
+mixin filter(prop={})
+    .filter
+        input.filter__input(type="checkbox", name=`${prop.name}`, id=`${prop.name}`)
+        label.filter__label(for=`${prop.name}`)!= prop.name
