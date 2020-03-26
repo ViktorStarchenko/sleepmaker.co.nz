@@ -1,0 +1,26 @@
+mixin shop-card(props={})
+    .shop-card.js-special-wrap
+        .shop-card__name Harvey Norman, Wairau
+        .shop-card__address 
+            p 10 Croftfield Ln, Wairau Park, Auckland 0627
+            p 
+                a(href="tel:09-440 6300") 09-440 6300
+
+        .shop-card__selected Together Alone, Miracoil Classic
+        .shop-card__row
+            .shop-card__row-item
+                a(href="#").shop-card__site Visit site
+            .shop-card__row-item
+                a(href="#").shop-card__map Visit site
+            .shop-card__row-item
+                a(href="#").shop-card__offers.js-special-trigger View promotions
+        .shop-card__special.js-special-target
+            .shop-card-wrap
+                .shop-card-wrap__head
+                    .shop-card-wrap__title Available deals
+                    .shop-card-wrap__close.js-special-target-close
+                .shop-card-wrap__body
+                    - var n = 0
+                    while n < props.index + 2
+                        +special-card
+                        - n++

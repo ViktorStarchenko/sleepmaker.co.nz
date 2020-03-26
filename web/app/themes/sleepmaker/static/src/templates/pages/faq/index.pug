@@ -1,0 +1,50 @@
+extends /layout
+
+block head
+    - page.title = 'FAQ'
+
+block content
+    -
+        var faq1 = [
+            {
+                quest: 'How do i know what range is right for me?',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+            {
+                quest: 'How do i know what range is right for me?',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+            {
+                quest: 'How do i know what range is right for me?',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+            {
+                quest: 'How do i know what range is right for me?',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+            {
+                quest: 'How do i know what range is right for me?',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+        ]
+    main.main
+        .container
+            .wrap-in
+                .page-grid
+                    section.page-grid__main
+                        .content
+                            h1 Frequently Asked Questions
+                        .accordion-wrap
+                            h3.accordion-title Popular Questions
+                            +accordion(faq1)
+                            hr.accordion-devider
+                            h3.accordion-title Popular Questions
+                            +accordion(faq1)
+                            hr.accordion-devider
+                            h3.accordion-title Popular Questions
+                            +accordion(faq1)
+                    aside.page-grid__sidebar
+                        +contacts-sidebar
+        +wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
+            img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
+            h2.wide-decor__title-bottom Make your own dream world.

@@ -1,0 +1,221 @@
+
+.find-store
+    +rm(769)
+        max-width: 500px
+.find-store-map
+    +rm(769)
+        max-width: 695px
+        padding-left: 20px
+        margin-left: auto
+        margin-right: 0
+
+.find-form
+    &__row
+        display: flex
+        flex-flow: row wrap
+        margin-left: -10px
+        margin-right: -10px
+        & + &
+            margin-top: 15px
+    &__item
+        padding: 0 10px
+        flex-grow: 1
+        flex-shrink: 0
+        width: 50%
+        position: relative
+        +r(768)
+            width: 100%
+            & + &
+                margin-top: 15px
+    &__submit
+        position: absolute
+        right: 20px
+        top: 15px
+        width: 16px
+        height: 16px
+        padding: 2px
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48Zz48Zz48cGF0aCBkPSJNOC40OTIgOC41NTJhNC4xMzUgNC4xMzUgMCAwIDEtNS44NTggMCA0LjE2MyA0LjE2MyAwIDAgMSAwLTUuODc3IDQuMTM1IDQuMTM1IDAgMCAxIDUuODU4IDAgNC4xNjMgNC4xNjMgMCAwIDEgMCA1Ljg3N3pNMi4wNCAyLjA4MmE1LjAwMyA1LjAwMyAwIDAgMCAwIDcuMDYzIDQuOTc2IDQuOTc2IDAgMCAwIDYuNzU1LjI3MWwyLjQ5NiAyLjUwN2EuNDIuNDIgMCAxIDAgLjU5Ni0uNTkzTDkuMzg1IDguODE5YTUuMDA0IDUuMDA0IDAgMCAwLS4yOTgtNi43MzcgNC45NzUgNC45NzUgMCAwIDAtNy4wNDggMHoiLz48L2c+PC9nPjwvc3ZnPg==")
+        background-repeat: no-repeat
+        background-position: center
+    &__field
+        border: 1px solid rgba($main, 0.33)
+        border-radius: 3px
+        font-size: 16px
+        letter-spacing: 0.34px
+        line-height: 1.9
+        font-family: $f1
+
+        +r(768)
+            font-size: 15px
+        input:not(.filter-drop__check)
+            display: block
+            width: 100%
+            padding: 8px 10px
+            font-family: $f1
+            font-size: 18px
+            letter-spacing: 0.64px
+            line-height: 1.9
+            +r(768)
+                font-size: 15px
+            &::-webkit-input-placeholder 
+                color: rgba($main, 0.5)
+            &::-webkit-input-placeholder
+                color: rgba($main, 0.5)
+            &::-moz-placeholder
+                color: rgba($main, 0.5)
+            &:-ms-input-placeholder
+                color: rgba($main, 0.5)
+            &:-moz-placeholder
+                color: rgba($main, 0.5)
+    &__nothing
+        display: flex
+        flex-flow: column nowrap
+        align-items: center
+        justify-content: center
+        text-align: center
+        width: 100%
+        height: 100%
+        color: $main
+        padding: 10px
+        position: relative
+        z-index: 1
+        &-title
+            font-family: $f1
+            max-width: 230px
+            margin-bottom: 13px
+            font-size: 20px
+            font-weight: 500
+            letter-spacing: 0.43px
+            line-height: 1
+        &-text
+            font-family: $f1
+            font-size: 16px
+            line-height: calc(20/16)
+            font-weight: 400
+            letter-spacing: 0.34px
+.find-filter
+    $this: &
+    position: relative
+    &.active
+        #{$this}__drop
+            opacity: 1
+            transform: translateY(0)
+            pointer-events: all
+            visibility: visible
+            transition: visibility 0s 0s, opacity .2s 0s, transform .25s 0s
+            z-index: 10
+        #{$this}__select-icon
+            transform: rotate(-180deg)
+    &.selected
+        #{$this}__select
+            color: $main
+    &__drop
+        position: absolute
+        left: -1px
+        top: 100%
+        z-index: -1
+        width: calc(100% + 2px)
+        background: #fff
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+        border: 1px solid #d2ced8
+        padding-top: 20px
+        padding-bottom: 25px
+        max-height: 300px
+        overflow-y: auto
+        opacity: 0
+        transform: translateY(3px)
+        // visibility: hidden
+        pointer-events: none
+        transition: visibility 0s 2s, opacity .15s 0s, transform .15s 0s
+        /* width */
+        &::-webkit-scrollbar
+            width: 8px
+        /* Track */
+        &::-webkit-scrollbar-track
+            background-color: #fff
+        /* Handle */
+        &::-webkit-scrollbar-thumb
+            position: relativ
+            border-radius: 6px
+            background-color: rgba(#d8d8d8, .44)
+            transition: background-color .3s
+    &__select
+        color: rgba($main, 0.5)
+        padding: 8px 10px
+        display: flex
+        align-items: center
+        flex-flow: row nowrap
+        justify-content: space-between
+        cursor: pointer
+        &-title
+            overflow: hidden
+            white-space: nowrap
+            padding-right: 20px
+            span
+                overflow: hidden
+                width: 100%
+                text-overflow: ellipsis
+                display: block
+                width: 100%
+        &-icon
+            color: $main
+            transform: rotate(0)
+            transition: transform .2s 0s
+            width: 12px
+            height: 7px
+            flex-shrink: 0
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0xMS4wNDUuNjZhLjUwNy41MDcgMCAwIDEgLjcwNC43MjlMNi4zNDYgNi42MDhhLjUwNi41MDYgMCAwIDEtLjcwNCAwTC4yNDQgMS4zODhBLjUwNi41MDYgMCAxIDEgLjk0OC42Nmw1LjA0NiA0Ljg4eiIvPjwvc3ZnPg==")
+            background-repeat: no-repeat
+
+.filter-drop
+    &__item
+        position: relative
+        padding: 0 20px
+        line-height: calc(22/18)
+        cursor: pointer
+        & + &
+            margin-top: 10px
+    &__check
+        position: absolute
+        width: 1px
+        height: 1px
+        visibility: hidden
+        padding: 0
+        &:checked + .filter-drop__label
+            &::after
+                opacity: 1
+                transform: scale(1)
+            
+    &__label
+        color: #221048
+        font-family: $f1
+        font-size: 18px
+        line-height: calc(22/18)
+        position: relative
+        padding-left: 33px
+        display: block
+        &:hover
+            text-decoration: underline
+        &::before
+            content: ''
+            display: block
+            width: 15px
+            height: 15px
+            border: 1px solid $main
+            border-radius: 50%
+            position: absolute
+            top: 2px
+            left: 0
+        &::after
+            content: ''
+            display: block
+            width: 15px
+            height: 15px
+            background: $main
+            border-radius: 50%
+            position: absolute
+            top: 2px
+            left: 0
+            opacity: 0
+            transform: scale(0.5)
+            transition: opacity .2s, transform .2s

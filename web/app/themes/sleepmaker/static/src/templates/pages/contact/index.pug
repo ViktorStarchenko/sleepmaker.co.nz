@@ -9,4 +9,42 @@ block content
             .wrap-in
                 .page-grid
                     section.page-grid__main
+                        .content
+                            h1 Contact us
+                            p We welcome your comments and feedback. Please contact us at SleepMaker if you have any comments, or if the information provided on our website does not cover a specific question or query you may have.
+                        form.form-page(action="/")
+                            .input-row
+                                .input-item.w50
+                                    input(type="text", name="", placeholder="Full Name")
+                                .input-item.w50
+                                    input(type="tel", name="", placeholder="Phone Number* ")
+                                .input-item.w50
+                                    input(type="email", name="", placeholder="Email Address", required)
+                                .input-item.w50.input-item--select
+                                    select(name="" )
+                                        option(value="" selected style="display: none") Enquiry Type
+                                        option(value="Enquiry Type 1") Enquiry Type 1
+                                        option(value="Enquiry Type 2") Enquiry Type 2
+                                        option(value="Enquiry Type 3") Enquiry Type 3
+                                        option(value="Enquiry Type 4") Enquiry Type 4
+                                .input-item.w100
+                                    textarea(name="", cols="30", rows="5", placeholder="Message Text field")
+                            .input-row
+                                .input-submit
+                                    button.bttn(type="submit") Submit
                     aside.page-grid__sidebar
+                        +contacts-sidebar
+
+            .wrap-in
+                .page-grid
+                    section.page-grid__main
+                        .content
+                            h1 Success, Your Email Has Been Submitted
+                            p Thank you. Your enquiry has been sent. The Serta team will respond within 2 business days.
+                        a.link-top(href="#") Back to homepage
+                    aside.page-grid__sidebar
+                        +contacts-sidebar
+
+        +wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
+            img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
+            h2.wide-decor__title-bottom Make your own dream world.

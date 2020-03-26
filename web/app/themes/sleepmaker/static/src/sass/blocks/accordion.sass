@@ -1,0 +1,78 @@
+.accordion
+	display: block
+	text-align: left
+
+.accordion-item
+	position: relative
+	padding: 7px 0 17px 0
+	border-top: 1px solid rgba($main, .05)
+	// &:last-child
+	// 	border-bottom: 1px solid rgba($main, .05)
+		
+
+.accordion__quest
+	width: 100%
+	display: block
+	padding-top: 10px
+	cursor: pointer
+	user-select: none
+	color: $main
+	transition: color .3s
+	font-size: 16px
+	line-height: calc(20/16)
+	font-weight: 600
+	letter-spacing: 1px
+	position: relative
+	text-decoration: none
+	padding-right: 35px
+	+r(1024)
+		font-size: 16px
+	&:hover
+		color: rgba($main, .8)
+	&-icon
+		display: block
+		width: 14px
+		height: 8px
+		font-size: 0
+		position: absolute
+		right: 6px
+		top: 17px
+		transform: rotate(0)
+		transition: transform .3s
+		background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTQgOCI+PGRlZnM+PGNsaXBQYXRoIGlkPSJsanZ4YSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEwLjIzNCAxMC45MzNsLTYuNy02LjkzNiA2LjctNi45MyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnPjxnIHRyYW5zZm9ybT0icm90YXRlKC05MCA3IDQpIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMwMDJlNWQiIHN0cm9rZS1taXRlcmxpbWl0PSIyMCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTAuMjM0IDEwLjkzM3YwbC02LjctNi45MzZ2MGw2LjctNi45M3YwIiBjbGlwLXBhdGg9InVybCgmcXVvdDsjbGp2eGEmcXVvdDspIi8+PC9nPjwvZz48L3N2Zz4=")
+		background-repeat: no-repeat
+	&.active
+		.accordion__quest-icon
+			transform: rotate(180deg)
+
+.accordion__answer
+	display: none
+	padding: 15px 20px 5px 20px
+	opacity: 0
+	transition: opacity .2s 0s
+	+r(768)
+		padding-left: 0
+	p + p
+		margin-top: 5px
+	&.active
+		opacity: 1
+		transition: opacity .2s .2s
+
+.accordion-wrap
+	display: block
+	margin-top: 45px
+
+.accordion-title
+	margin: 0
+	margin-bottom: 35px
+
+
+.accordion-devider
+	border: none
+	width: 100%
+	height: 1px
+	padding: 0
+	margin: 0
+	background: $main
+	opacity: 0.5
+	margin-bottom: 20px

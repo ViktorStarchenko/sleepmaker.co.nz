@@ -16,6 +16,9 @@ PageList:
 - file: /category/
   name: category
   ready: 100
+- file: /product/
+  name: product
+  ready: 10
 - file: /bedding/
   name: bedding
   ready: 100
@@ -24,18 +27,27 @@ PageList:
   ready: 100
 - file: /promotions-bonus/
   name: promotions bonus
-  ready: 10
+  ready: 100
 - file: /size-guide/
   name: size guide
   ready: 100
 - file: /shopping-tips/
   name: shopping tips
-  ready: 10
+  ready: 100
 - file: /contact/
   name: contact
-  ready: 10
+  ready: 100
 - file: /register-warranty/
   name: register warranty
+  ready: 100
+- file: /faq/
+  name: faq
+  ready: 100
+- file: /find-a-store/
+  name: find a store
+  ready: 100
+- file: /technologies/
+  name: technologies
   ready: 10
 - file: /404/
   name: 404

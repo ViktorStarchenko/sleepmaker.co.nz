@@ -1,0 +1,7 @@
+mixin accordion(faqs)
+	ul.accordion.js-acc&attributes(attributes)
+		each faq in faqs
+			li.accordion-item
+				a.accordion__quest.js-acc-trig(href="")!= faq.quest
+					span.accordion__quest-icon
+				.accordion__answer.js-acc-targ!= faq.answer
