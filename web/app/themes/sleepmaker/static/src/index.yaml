@@ -48,7 +48,7 @@ PageList:
   ready: 100
 - file: /technologies/
   name: technologies
-  ready: 10
+  ready: 100
 - file: /404/
   name: 404
   ready: 1

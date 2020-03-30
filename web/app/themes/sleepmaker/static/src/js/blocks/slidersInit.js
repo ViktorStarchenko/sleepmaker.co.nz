@@ -8,14 +8,13 @@ export default function slidersInit() {
 		let homeCategorySlider = homeCategorySliderParent.querySelector('.js-home-category-slider');
 		let homeCategorySLiderNext = homeCategorySliderParent.querySelector('.js-home-category-next');
 		let homeCategorySLiderPrev= homeCategorySliderParent.querySelector('.js-home-category-prev');
-        
+
 		let homeCategorySliderInit;
 		let homeCategoryInit = false;
 
 		function homeCategoryCheck() {
 
 			if(window.matchMedia('(min-width:651px)').matches && !homeCategoryInit) {
-				console.log('kkkkkkk');
 				homeCategorySliderInit = new Swiper(homeCategorySlider,{
 					watchOverflow: true,
 					slidesPerView: 'auto',
@@ -25,11 +24,9 @@ export default function slidersInit() {
 					},
 					on:{
 						init: () => {
-							console.log('init');
 							homeCategoryInit = true;
 						},
 						destroy: () => {
-							console.log('destroy');
 							homeCategoryInit = false;
 						}
 					}
@@ -39,7 +36,6 @@ export default function slidersInit() {
 
 		window.addEventListener('resize', debounce(() => {
 			if(window.matchMedia('(max-width:650px)').matches && homeCategoryInit) {
-				console.log('aajaja');
 				homeCategorySliderInit.destroy(true, false);
 			} else {
 				homeCategoryCheck();
@@ -75,4 +71,58 @@ export default function slidersInit() {
 		});
 	}
 	
+	let technologiesSlider = document.querySelector('.js-technologies-slider');
+	if(technologiesSlider) {
+		let technologiesSlides = technologiesSlider.querySelectorAll('.swiper-slide');
+		let technologiesSliderInit = new Swiper(technologiesSlider,{
+			slidesPerView : 'auto',
+			on: {
+				init() {
+					setTimeout(() => {
+						console.log(technologiesSliderInit.slides[0]);
+						technologiesSliderInit.slides[0].classList.add('swiper-slide-selected');
+					}, 50);
+				},
+				reachEnd() {
+					technologiesSlider.classList.add('is-end');
+				},
+				slideChangeTransitionStart() {
+					if(technologiesSliderInit.isEnd) {
+						technologiesSlider.classList.add('is-end');
+					} else {
+						technologiesSlider.classList.remove('is-end');
+					}
+				},
+				click() {
+					let activeClickSlide = technologiesSliderInit.clickedIndex;
+					
+					technologiesSlides.forEach((slide) => {
+						slide.classList.remove('swiper-slide-selected');
+					});
+					technologiesSliderInit.slides[activeClickSlide].classList.add('swiper-slide-selected');
+					setTimeout(() => {
+						technologiesSliderInit.slideTo(activeClickSlide);
+					}, 300);
+
+				}
+
+			}
+
+		});
+	}
+
+	let rowSLider = document.querySelectorAll('.js-row-slider');
+	if(rowSLider.length) {
+		rowSLider.forEach(rowSLiderItem => {
+			let rowSliderInit = new Swiper(rowSLiderItem, {
+				slidesPerView: 'auto',
+				on: {
+					click() {
+						let activeClick = rowSliderInit.clickedIndex;
+						rowSliderInit.slideTo(activeClick);
+					}
+				}
+			});
+		});
+	}
 }

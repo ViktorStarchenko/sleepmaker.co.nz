@@ -48,6 +48,40 @@ svg
 	opacity: 0.5
 	margin: 60px auto 40px
 
+.content
+    h1
+        margin-bottom: 30px
+    h2
+        margin-bottom: 30px
+    h3
+        margin-top: 40px
+        margin-bottom: 20px
+        +r(768)
+            margin-top: 25px
+            margin-bottom: 10px
+    h4
+        margin-top: 25px
+        margin-bottom: 15px
+    p + p
+        margin-top: 20px
+    a
+        color: currentColor
+    *:first-child
+        margin-top: 0
+    *:last-child
+        margin-bottom: 0
+
+.content-sidebar
+    +rm(769)
+        max-width: 440px
+
+.content-restriction
+    width: 100%
+    +rm(769)
+        max-width: 700px
+        margin-left: auto
+        padding-left: 20px
+
 .bg-gray
 	background: rgba($main, .05)
 
@@ -89,8 +123,12 @@ svg
 .page-grid
 	display: flex
 	flex-flow: row wrap
+	&--top
+		margin-top: 30px
 	&__content
 		width: 41%
+		.content-sidebar
+			height: 100%
 		+r(768)
 			width: 100%
 	&__main

@@ -29,7 +29,13 @@ html
 
 	body.body(class= page.class)
 		// SVG Sprite
-		+svg-icon()
+		//- +svg-icon()
+		.svg-icon(style="display: none;")
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<symbol id="menu-arrow" width="8" height="12" viewBox="0 0 8 12">
+					<path fill="none" stroke="#002e5d" stroke-miterlimit="20" stroke-width="1" d="M6.488 11.333v0L1.333 5.998v0L6.488.667v0" />
+				</symbol>
+			</svg>
 
 		
 		block header
@@ -45,6 +51,7 @@ html
 
 		block menu-mobile
 			// Menu mobile
+			+menu-mob
 
 		block modal
 			// Modals

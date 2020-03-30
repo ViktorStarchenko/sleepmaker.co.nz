@@ -6,9 +6,17 @@
     +r(768)
         flex-flow: column-reverse wrap
     &-wrap
-        padding: 70px 0
-        +r(1024)
-            padding: 60px 0 80px 0
+        // padding: 70px 0
+        // +r(1024)
+        //     padding: 60px 0 80px 0
+        &:not(:only-child)
+            margin-top: 70px
+            &:not(:last-child)
+                margin-bottom: 70px
+                +r(1024)
+                    margin-bottom: 50px
+            +r(1024)
+                margin-top: 50px
         &--border
             border-top: 1px solid rgba(#231148,0.07)
         &--inside

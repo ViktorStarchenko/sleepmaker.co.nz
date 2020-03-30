@@ -1,0 +1,177 @@
+extends /layout
+
+block head
+    - page.title = 'Product'
+
+block content
+    -
+        var featuresArr = [
+            {
+                img: "product-features-1.png",
+                title: "Climatex® Quilt: Breathable Sleep Surface",
+                info: "The Climatex® Quilt pressure-relieving quilted sleep surface provides you with a luxurious cushioning effect."
+            },
+            {
+                img: "product-features-2.png",
+                title: "Allergy Control Pressure Relieving Comfort",
+                info: "Available with a variety of quality pressure relieving comfort layers. Such as the conforming pressure relieving comfort of latex."
+            },
+            {
+                img: "product-features-3.png",
+                title: "SleepMaker® Pocket Spring",
+                info: "Premium pocket spring support is delivered through pocket spring technology, that cradles the areas that need it most."
+            },
+        ];
+        var spec = [
+            {
+                quest: 'Features and Technology',
+                answer: '<p>SleepMaker Together Alone® has been specifically designed to conform beautifully to the body whilst minimising disturbance from your sleeping partner. (Specifications vary by store, for detailed range information check in-store for specifications)</p>'
+            },
+            {
+                quest: 'Specifications',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+            {
+                quest: 'Sizes',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+            {
+                quest: 'Ideal for',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+        ];
+        var quest = [
+            {
+                quest: 'What should I do to prolong the life of my Serta mattress?',
+                answer: '<p>SleepMaker Together Alone® has been specifically designed to conform beautifully to the body whilst minimising disturbance from your sleeping partner. (Specifications vary by store, for detailed range information check in-store for specifications)</p>'
+            },
+            {
+                quest: 'Will I get body impressions in my mattress? What can I do about them?',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+            {
+                quest: 'What sizes do Serta mattresses come in?',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+            {
+                quest: 'Where can I find a Serta mattress on sale?',
+                answer: '<p>Lorem ipsum dolor sit amet, fusce pariatur, accumsan et integer et elit, quis augue ut integer potenti vivamus vestibulum, scelerisque wisi bibendum penatibus in. Ipsum ac euismod ac elit nec interdum.</p>'
+            },
+        ];
+    main.main
+        +wide-decor({bg:'hero-product',bttns:false})(class="wide-decor--product")
+            img.wide-decor__logo-top(src="/img/wide-logo.png", alt="logo")
+            h1.wide-decor__title-top Together Alone
+        .container
+            .wrap-in
+                .tabs.js-tabs-wrapper
+                    // если табы не нужны - не вешаем класс js-tabs-wrapper
+                    .tabs__title 
+                        h2 THE SLEEPMAKER RANGE
+                    .tabs__container
+                        .swiper-container.tabs__header.js-row-slider
+                            ul.swiper-wrapper.tabs__list
+                                li.swiper-slide.tabs__item
+                                    a.tabs__link.js-tab-trigger.active(href="#tab-product-1" style="color:#00263e;") Together Alone 
+                                li.swiper-slide.tabs__item
+                                    a.tabs__link.js-tab-trigger(href="#tab-product-2" style="color:#768692;") Miracoil Advance
+                                li.swiper-slide.tabs__item
+                                    a.tabs__link.js-tab-trigger(href="#tab-product-3" style="color:#86c8a9;") Miracoil Classic 
+                                li.swiper-slide.tabs__item
+                                    a.tabs__link.js-tab-trigger(href="#tab-product-4" style="color:#a4c8e1;") Lifestyle
+                    .tabs__body
+                        .tabs__content.js-tab-content(id="tab-product-1")
+                            .product-card
+                                .product-card-img
+                                    img(src="/img/product/product.png", alt="product")
+                                .product-card-info
+                                    .product-info
+                                        .product-info__title SleepMaker Together Alone
+                                        .product-info__description
+                                            p Are you woken at night by the movements of your sleeping partner? Excess movement within your mattress may be resulting in partner disturbance. A combination of comfort layers and SleepMaker's pocket spring technology works perfectly together so you and your partner can sleep together...alone.
+                                        .product-info__features
+                                            each features in featuresArr
+                                                +product-features(features)
+                                        .product-info__bttns
+                                            a.bttn(href="#") Learn More
+                        .tabs__content.js-tab-content(id="tab-product-2")
+                            .product-card
+                                .product-card-img
+                                    img(src="/img/product/product.png", alt="product")
+                                .product-card-info
+                                    .product-card-info__title SleepMaker Together Alone
+                                    .product-card-info__description
+                                        p Are you woken at night by the movements of your sleeping partner? Excess movement within your mattress may be resulting in partner disturbance. A combination of comfort layers and SleepMaker's pocket spring technology works perfectly together so you and your partner can sleep together...alone.
+                                    .product-card-info__features
+                                        each features in featuresArr
+                                            +product-features(features)
+                                    .product-info__bttns
+                                        a.bttn(href="#") Learn More
+                        .tabs__content.js-tab-content(id="tab-product-3")
+                            .product-card
+                                .product-card-img
+                                    img(src="/img/product/product.png", alt="product")
+                                .product-card-info
+                                    .product-card-info__title SleepMaker Together Alone
+                                    .product-card-info__description
+                                        p Are you woken at night by the movements of your sleeping partner? Excess movement within your mattress may be resulting in partner disturbance. A combination of comfort layers and SleepMaker's pocket spring technology works perfectly together so you and your partner can sleep together...alone.
+                                    .product-card-info__features
+                                        each features in featuresArr
+                                            +product-features(features)
+                                    .product-info__bttns
+                                        a.bttn(href="#") Learn More
+                        .tabs__content.js-tab-content(id="tab-product-4")
+                            .product-card
+                                .product-card-img
+                                    img(src="/img/product/product.png", alt="product")
+                                .product-card-info
+                                    .product-card-info__title SleepMaker Together Alone
+                                    .product-card-info__description
+                                        p Are you woken at night by the movements of your sleeping partner? Excess movement within your mattress may be resulting in partner disturbance. A combination of comfort layers and SleepMaker's pocket spring technology works perfectly together so you and your partner can sleep together...alone.
+                                    .product-card-info__features
+                                        each features in featuresArr
+                                            +product-features(features)
+                                    .product-info__bttns
+                                        a.bttn(href="#") Learn More
+        .bg-gray
+            .container
+                .wrap-in
+                    .product-additionally.product-additionally--reverse
+                        .product-additionally__content
+                            .content
+                                h2 PRODUCT SPECIFICATIONS
+                                p The SleepMaker Together Alone range not only assists with help you sleep soundly throughout the night but also offers you peace of mind.
+                            .accordion-wrap.accordion-wrap--product
+                                +accordion(spec)(class="accordion--product")
+                        .product-additionally__aside
+                            ul.product-icons
+                                li.product-icons__item
+                                    img.product-icons__img(src="/img/product/product-specifications-1.png", alt="")
+                                li.product-icons__item
+                                    img.product-icons__img(src="/img/product/product-specifications-2.png", alt="")
+                                li.product-icons__item
+                                    img.product-icons__img(src="/img/product/product-specifications-3.png", alt="")
+                                li.product-icons__item
+                                    img.product-icons__img(src="/img/product/product-specifications-4.png", alt="")
+
+        .container
+            .wrap-in
+                .product-additionally
+                    .product-additionally__aside
+                        .content
+                            h2 FREQUENTLY ASKED QUESTIONS
+                    .product-additionally__content
+                        .accordion-wrap.accordion-wrap--product
+                            +accordion(quest)(class="accordion--product")
+                .long-card-wrap
+                    +long-card({
+                        img: 'long-img-1',
+                        bg: '#002e5d',
+                        color: '#ffffff'
+                    })
+                        .long-card__title TRY OUR SLEEPMAKER SLEEP SELECTOR 
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis.
+                        a.bttn.bttn--inverse(href="#") Find out more
+        +wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
+            img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
+            h2.wide-decor__title-bottom Make your own dream world.

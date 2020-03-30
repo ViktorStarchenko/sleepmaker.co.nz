@@ -1,0 +1,8 @@
+mixin product-features(props={})
+    .product-features
+        .product-features__icon
+            img.product-features__img(src=`/img/product/${props.img}`, alt=`${props.img}`)
+        .product-features__desc
+            .product-features__title!= props.title
+            .product-features__info
+                p!= props.info

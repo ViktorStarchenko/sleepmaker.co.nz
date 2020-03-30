@@ -1,0 +1,39 @@
+.technologies-slider
+    position: relative
+    &.is-end
+        &::before
+            opacity: 0
+    &::before,
+        content: ''
+        display: block
+        height: 100%
+        width: 30%
+        max-width: 130px
+        position: absolute
+        z-index: 2
+        opacity: 1
+        transition: opacity .2s
+        pointer-events: none
+        top: 0
+        right: 0
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 100%)
+    .swiper-slide
+        width: auto
+        &:not(:last-child)
+            margin-right: 35px
+        &.swiper-slide-selected
+            a
+                border-color: $main 
+                transition: border-color .3s
+
+    a
+        display: block
+        font-size: 20px
+        font-weight: 500
+        letter-spacing: 0.43px
+        line-height: 20px
+        padding: 10px 0
+        text-decoration: none
+        color: $main
+        border-bottom: 1px solid transparent
+        transition: border-color .3s

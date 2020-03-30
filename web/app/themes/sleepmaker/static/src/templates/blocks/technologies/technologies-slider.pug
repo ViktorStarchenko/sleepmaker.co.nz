@@ -1,0 +1,6 @@
+mixin technologies-slider(props={})
+    .technologies-slider.swiper-container.js-technologies-slider
+        .swiper-wrapper
+            each anchor in props.hrefs
+                .swiper-slide
+                    a.js-scroll-to(href=`#${anchor.href}`)!= anchor.title

@@ -1,0 +1,45 @@
+-
+    var lvls = [
+        {
+            index: 0,
+            title: 'Mattress',
+            toNext: true,
+            list: ['Together Alone', 'Miracoil Advance', 'Miracoil Classic', 'Lifestyle', 'Compare Ranges'],
+        },
+        {
+            index: 1,
+            title: 'Mattress Selector',
+            toNext: true,
+            list: ['Mattress Selector 1', 'Mattress Selector 2', 'Mattress Selector 3'],
+        },
+        {
+            index: 2,
+            title: 'Buying guide',
+            toNext: true,
+            list: ['Buying guide 1', 'Buying guide 2', 'Buying guide 3'],
+        },
+    ]
+
+each lvl in lvls
+    .menu-mob-lvl.js-menu-lvl-targ(data-targ-lvl=`lvl-item-${lvl.index}`)
+        .menu-mob-lvl__head
+            button.menu-mob-lvl__back.js-menu-lvl-close(class=`${lvl.toNext ? 'lvl-begin' : ''}`)
+                span.menu-mob-lvl__icon
+                    +icon('menu-arrow')
+                | Back
+            .menu-mob-lvl__title!= lvl.title
+        .menu-mob-lvl__body
+            .menu-mob-lvl-nav
+                //- if lvl.toNext
+                    ul.menu-mob-lvl-nav__list
+                        each item, index in lvl.list
+                            li.menu-mob-lvl-nav__item.js-menu-lvl-trig(data-trig-lvl=`lvl-item-${index}`)
+                                a(href="#").menu-mob-lvl-nav__link.menu-mob-lvl-nav__link--begin #{item}
+                                span.menu-mob-nav__icon
+                                    +icon('menu-arrow')
+                //- else 
+                ul.menu-mob-lvl-nav__list
+                    each item in lvl.list
+                        li.menu-mob-lvl-nav__item
+                            a(href="#").menu-mob-lvl-nav__link #{item}
+                            

@@ -1,7 +1,17 @@
 .accordion
+	$this: &
 	display: block
 	text-align: left
-
+	&--product
+		#{$this}__quest
+			font-size: 20px
+			line-height: 1
+			padding-top: 17px
+			padding-bottom: 10px
+		.accordion-item
+			border-top: 1px solid $main
+			&:last-child
+				border-bottom: 1px solid $main
 .accordion-item
 	position: relative
 	padding: 7px 0 17px 0
@@ -47,7 +57,7 @@
 
 .accordion__answer
 	display: none
-	padding: 15px 20px 5px 20px
+	padding: 15px 50px 5px 20px
 	opacity: 0
 	transition: opacity .2s 0s
 	+r(768)
@@ -60,8 +70,13 @@
 
 .accordion-wrap
 	display: block
-	margin-top: 45px
-
+	&:not(:only-child)
+		margin-top: 45px
+		+r(768)
+			margin-top: 30px
+	&--product
+		+r(768)
+			margin-top: 30px
 .accordion-title
 	margin: 0
 	margin-bottom: 35px

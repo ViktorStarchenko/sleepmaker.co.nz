@@ -1,9 +1,13 @@
 mixin menu-mob(props = {})
 	.menu-mob.is-hidden.js-menu-mob&attributes(attributes)
 		.menu-mob__inner.content
-			.menu-mob__header.content__row-box
+			//- .menu-mob__header.content__row-box
 				include menu-mob-header
 
 			.menu-mob__body
 				.menu-mob__nav
 					include menu-mob-nav
+				.menu-mob__lvl
+					include menu-mob-lvl
+				
+			a(href="#").menu-mob__bottom-btn.bttn Where To Buy

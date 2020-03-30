@@ -1,6 +1,14 @@
 nav.menu-mob-nav
 	ul.menu-mob-nav__list
-		each item in [1,2,3,4,5]
-			li.menu-mob-nav__list-item
-				a.menu-mob-nav__link(href='#item-' + item)
-					span.text Элемент меню #{item}
+		each item, index in ['Mattress', 'Mattress Selector', 'Buying guide']
+			//- if index === 2
+			li.menu-mob-nav__list-item.js-menu-lvl-trig(data-trig-lvl=`lvl-item-${index}`)
+				a.menu-mob-nav__link(href='#') #{item}
+				span.menu-mob-nav__icon
+					svg
+						use(xlink:href="#menu-arrow")
+		li.menu-mob-nav__list-item
+			a.menu-mob-nav__link(href='#') Support
+			span.menu-mob-nav__icon
+					svg
+						use(xlink:href="#menu-arrow")

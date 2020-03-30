@@ -1,0 +1,75 @@
+.menu-mob-lvl
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    padding-top: 20px
+    // display: none
+    opacity: 0
+    transform: translate3d(-10px, 0, 0)
+    transition: transform 0.2s ease-out, opacity 0.2s
+    background: $white
+    height: 100%
+    &.is-visible
+        opacity: 1
+        transform: translate3d(0, 0, 0)
+        transition: transform 0.2s ease-out, opacity 0.2s
+    &.is-z
+        z-index: 1
+    &.next-visible
+        opacity: 0
+        transition: opacity 0.2s
+    &__head
+        display: flex
+        flex-flow: row nowrap
+        justify-content: space-between
+        margin-bottom: 10px
+    &__back
+        color: $main
+        // text-transform: uppercase
+        line-height: calc(30/19)
+        font-size: 19px
+        font-weight: 400
+        letter-spacing: 1.19px
+    &__title
+        line-height: calc(30/19)
+        font-size: 19px
+        font-weight: 400
+        letter-spacing: 1.19px
+        color: rgba($main, 0.48)
+        // text-transform: uppercase
+    &__icon
+        display: inline-block
+        vertical-align: middle
+        font-size: 0
+        width: 8px
+        height: 12px
+        margin-right: 10px
+        svg
+            vertical-align: middle
+        
+.menu-mob-lvl-nav
+    &__link
+        display: block
+        padding: 6px 0
+        max-width: 190px
+        text-decoration: none
+        color: $white
+        transition: color 0.3s
+        font-family: $f1
+        line-height: 1.2
+        font-size: 19px
+        font-weight: 400
+        letter-spacing: 1.19px
+        &--begin
+            font-family: $f2
+            font-size: 22px
+            font-weight: 700
+            letter-spacing: -0.42px
+            line-height: calc(29/22)
+    &__item
+        display: flex
+        flex-flow: row nowrap
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 10px

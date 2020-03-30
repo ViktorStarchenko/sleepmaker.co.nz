@@ -1,0 +1,14 @@
+.product-additionally
+    display: flex
+    flex-flow: row wrap
+    &__aside
+        width: 100%
+        &:first-child
+            padding-right: 20px
+        +rm(1025)
+            width: 32%
+    &__content
+        width: 100%
+        // padding-left: calc((100vw - #{$max-content-width}) / 2 - #{$scroll-width} / 2)
+        +rm(1025)
+            width: 68%

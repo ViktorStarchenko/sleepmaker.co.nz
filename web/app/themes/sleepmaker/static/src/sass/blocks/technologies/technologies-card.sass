@@ -1,0 +1,30 @@
+.technologies-card
+    &:not(:last-child)
+        padding-bottom: 60px
+        margin-bottom: 50px
+        border-bottom: 1px solid rgba($main, 0.05)
+        +r(768)
+            padding-bottom: 30px
+            margin-bottom: 20px
+    &__head
+        display: flex
+        margin-bottom: 45px
+    &__icon
+        width: 11%
+        max-width: 50px
+        flex-shrink: 0
+    &__description
+        flex-grow: 1
+        padding-left: 18px
+        padding-top: 9px
+        +r(768)
+            padding-left: 13px
+        p
+            letter-spacing: 0.34px
+        p + p
+            margin-top: 25px
+    &__tilte
+        text-transform: uppercase
+        margin-bottom: 12px
+
+        letter-spacing: 1.33px

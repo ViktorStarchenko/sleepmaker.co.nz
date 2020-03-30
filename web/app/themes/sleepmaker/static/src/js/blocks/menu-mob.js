@@ -85,6 +85,7 @@ function menuToggle(isOpen) {
 
 	setTimeout(() => {
 		hideScroll(isOpen);
+		_state.body.classList[isOpen ? 'add' : 'remove']('modal-open');
 		_state.menuElem.classList[isOpen ? 'remove' : 'add'](_state.isHiddenClassName);
 		_state.menuElem.style.right = isOpen ? getScrollWidth() + 'px' : '';
 	}, isOpen ? 0 : _state.delayClose + scrollDellay);
@@ -92,6 +93,7 @@ function menuToggle(isOpen) {
 	setTimeout(() => {
 		requestAnimationFrame(() => {
 			_state.menuElem.classList[isOpen ? 'add' : 'remove'](_state.isVisibleClassName);
+			
 		});
 	}, scrollDellay);
 }

@@ -1,0 +1,14 @@
+mixin technologies-card(props={})
+    .technologies-card(id!= props.anchor)
+        .technologies-card__head
+            .technologies-card__icon
+                img(src="/img/technologies/tech-logo.png", alt="tech-logo")
+            .technologies-card__description
+                h3.technologies-card__tilte!= props.title
+                each text in props.text
+                    p!= text
+        .technologies-card__body
+            figure.video
+                video(poster="/img/technologies/poster.png")
+                    source( src="/img/technologies/movie.mp4" type="video/mp4")
+                button.video__button.js-video-button(type="button")

@@ -10,81 +10,81 @@ block content
             .wrap-in
                 .page-grid
                     aside.page-grid__content
-                        .find-store
-                            form.find-form(action="/")
-                                .find-form__row
-                                    .find-form__item
-                                        .find-form__field
-                                            input(type="search", name="findSearch", placeholder="Search by suburb, city or postcode")
-                                            button.find-form__submit(type="submit")
-                                .find-form__row
-                                    .find-form__item
-                                        .find-form__field
-                                            .find-filter.js-drop-filter
-                                                .find-filter__select.js-drop-filter-trigger(data-select="Filter by range")
-                                                    .find-filter__select-title
-                                                        span.js-drop-filter-selected Search by range
-                                                    .find-filter__select-icon
-                                                .find-filter__drop
-                                                    ul.filter-drop
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#range-1(type="checkbox", name="retailer", checked, value="")
-                                                            label.filter-drop__label(for="range-1") Together Alone
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#range-2(type="checkbox", name="retailer", value="")
-                                                            label.filter-drop__label(for="range-2") Miracoil Advance
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#range-3(type="checkbox", name="retailer", value="")
-                                                            label.filter-drop__label(for="range-3") Miracoil Classic
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#range-4(type="checkbox", name="retailer", checked, value="")
-                                                            label.filter-drop__label(for="range-4") Lifestyle
+                        
+                        form.find-form(action="/")
+                            .find-form__row
+                                .find-form__item
+                                    .find-form__field
+                                        input(type="search", name="findSearch", placeholder="Search by suburb, city or postcode")
+                                        button.find-form__submit(type="submit")
+                            .find-form__row
+                                .find-form__item
+                                    .find-form__field
+                                        .find-filter.js-drop-filter
+                                            .find-filter__select.js-drop-filter-trigger(data-select="Filter by range")
+                                                .find-filter__select-title
+                                                    span.js-drop-filter-selected Search by range
+                                                .find-filter__select-icon
+                                            .find-filter__drop
+                                                ul.filter-drop
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#range-1(type="checkbox", name="retailer", checked, value="")
+                                                        label.filter-drop__label(for="range-1") Together Alone
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#range-2(type="checkbox", name="retailer", value="")
+                                                        label.filter-drop__label(for="range-2") Miracoil Advance
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#range-3(type="checkbox", name="retailer", value="")
+                                                        label.filter-drop__label(for="range-3") Miracoil Classic
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#range-4(type="checkbox", name="retailer", checked, value="")
+                                                        label.filter-drop__label(for="range-4") Lifestyle
 
-                                    .find-form__item
-                                        .find-form__field
-                                            .find-filter.js-drop-filter
-                                                .find-filter__select.js-drop-filter-trigger(data-select="Filter by retailer")
-                                                    .find-filter__select-title
-                                                        span.js-drop-filter-selected Search by retailer
-                                                    .find-filter__select-icon
-                                                .find-filter__drop
-                                                    ul.filter-drop
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#retailer-1(type="checkbox", name="range", value="")
-                                                            label.filter-drop__label(for="retailer-1") check 1
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#retailer-2(type="checkbox", name="range", value="")
-                                                            label.filter-drop__label(for="retailer-2") check 2
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#retailer-3(type="checkbox", name="range", value="")
-                                                            label.filter-drop__label(for="retailer-3") check 3
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#retailer-4(type="checkbox", name="range", value="")
-                                                            label.filter-drop__label(for="retailer-4") check 4
-                                                        li.filter-drop__item.js-drop-filter-item
-                                                            input.filter-drop__check#retailer-5(type="checkbox", name="range", value="")
-                                                            label.filter-drop__label(for="retailer-5") check 5
-                                                        
-                            .tabs-find.js-tabs-wrapper
-                                .tabs-find__result Showing 25 results
-                                .tabs-find__container
-                                    .tabs-find__list
-                                        .tabs-find__item
-                                            a.tabs-find__link.js-tab-trigger.active(href="#tab-1") RETAIL STORES
-                                        .tabs-find__item
-                                            a.tabs-find__link.js-tab-trigger(href="#tab-2") ONLINE STORES
-                                .tabs-find__body
-                                    .tabs-find__content.js-tab-content(id="tab-1")
-                                        +shop-card({index:1})
-                                        +shop-card({index:2})
-                                        +shop-card({index:3})
-                                        +shop-card({index:4})
-                                    .tabs-find__content.js-tab-content(id="tab-2")
-                                        .find-form__nothing
-                                            .find-form__nothing-title The selected retailer does not stock this range. 
-                                            .find-form__nothing-text Please select another retailer.
+                                .find-form__item
+                                    .find-form__field
+                                        .find-filter.js-drop-filter
+                                            .find-filter__select.js-drop-filter-trigger(data-select="Filter by retailer")
+                                                .find-filter__select-title
+                                                    span.js-drop-filter-selected Search by retailer
+                                                .find-filter__select-icon
+                                            .find-filter__drop
+                                                ul.filter-drop
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#retailer-1(type="checkbox", name="range", value="")
+                                                        label.filter-drop__label(for="retailer-1") check 1
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#retailer-2(type="checkbox", name="range", value="")
+                                                        label.filter-drop__label(for="retailer-2") check 2
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#retailer-3(type="checkbox", name="range", value="")
+                                                        label.filter-drop__label(for="retailer-3") check 3
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#retailer-4(type="checkbox", name="range", value="")
+                                                        label.filter-drop__label(for="retailer-4") check 4
+                                                    li.filter-drop__item.js-drop-filter-item
+                                                        input.filter-drop__check#retailer-5(type="checkbox", name="range", value="")
+                                                        label.filter-drop__label(for="retailer-5") check 5
+                                                    
+                        .tabs-find.js-tabs-wrapper
+                            .tabs-find__result Showing 25 results
+                            .tabs-find__container
+                                .tabs-find__list
+                                    .tabs-find__item
+                                        a.tabs-find__link.js-tab-trigger.active(href="#tab-1") RETAIL STORES
+                                    .tabs-find__item
+                                        a.tabs-find__link.js-tab-trigger(href="#tab-2") ONLINE STORES
+                            .tabs-find__body
+                                .tabs-find__content.js-tab-content(id="tab-1")
+                                    +shop-card({index:1})
+                                    +shop-card({index:2})
+                                    +shop-card({index:3})
+                                    +shop-card({index:4})
+                                .tabs-find__content.js-tab-content(id="tab-2")
+                                    .find-form__nothing
+                                        .find-form__nothing-title The selected retailer does not stock this range. 
+                                        .find-form__nothing-text Please select another retailer.
                     section.page-grid__main
-                        .find-store-map
+                        .content-restriction
                             .map
                                 img(src="/img/map.png", alt="map")
 

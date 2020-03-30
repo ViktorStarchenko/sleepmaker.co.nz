@@ -1,0 +1,109 @@
+extends /layout
+
+block head
+    - page.title = 'Technologies'
+
+block content
+    -
+        technologiesCard = [
+            {
+                title: 'Sensorzone',
+                anchor: 'sensorzone',
+                text: ["The Sensorzone Sleep System doubles the comfort and support compared with traditional mattresses. The springs in a Sensorzone core are not connected in anyway. Each individually electronically heat tempered spring is contained in it's own individual zone within the Dreamfoam core.This enables it to respond independently to pressure and movement."],
+            },
+            {
+                title: 'Swisstek',
+                anchor: 'swisstek',
+                text: ["The revolutionary Swisstek Pocket Spring features increased turns per spring and utilises a heavier gauge of wire than a traditional pocket spring. Swisstek uses its unique spring technology to create 7 dedicated posture zones which provides optimal spinal alignment and additional lower back support."],
+            },
+            {
+                title: 'Pocket Spring',
+                anchor: 'pocket-spring',
+                text: ["Our Australian made pocket spring beds feature full height, heat tempered pocket springs that sit independent of each other in the mattress, so only those springs in direct contact with the body move to provide support where needed.", "The Comfort For YOU range features a 5 Zone pocket spring system with individual zones that contour to your unique body shape, providing excellent support and deep cushioning comfort. while minimizing the effects of partner disturbance."],
+            },
+            {
+                title: 'B.O.S.S',
+                anchor: 'boss',
+                text: ["Balanced Orthopaedic Spring System - provides 7 zone support, helps correct spinal alignment and minimises partner disturbance by reducing sideways movement giving you a more restful night's sleep."],
+            },
+            {
+                title: 'Truflex',
+                anchor: 'truflex',
+                text: ["Truflex™ – heat tempered springs provide durability and support you can rely on, proven over time."],
+            },
+            {
+                title: 'Latex Gold',
+                anchor: 'latex-gold',
+                text: ["Latex Gold is a natural and sustainable foam."],
+            },
+            {
+                title: 'DREAMFOAM',
+                anchor: 'dreamfoam',
+                text: ["Dreamfoam® is a new generation foam made with you and the environment in mind. We make our eco-friendly Dreamfoam right here in Australia  to ensure it has the silky softness we need for our beds. Dreamfoam uses a new CO2 manufacturing process and won a green ribbon award for reducing emissions."],
+            },
+            {
+                title: 'FusionGel™',
+                anchor: 'fusiongel',
+                text: ["FusionGel™ combines memory foam properties with the superior pressure relief, support and temperature management properties of advanced gel particles."],
+            },
+        ];
+        technologiesAnchor = [
+            {
+                title: 'Sensorzone',
+                href: 'sensorzone',
+            },
+            {
+                title: 'Swisstek',
+                href: ['swisstek'],
+            },
+            {
+                title: 'Pocket Spring',
+                href: ['pocket-spring'],
+            },
+            {
+                title: 'B.O.S.S',
+                href: ['boss'],
+            },
+            {
+                title: 'Truflex',
+                href: ['truflex'],
+            },
+            {
+                title: 'Latex Gold',
+                href: ['latex-gold'],
+            },
+            {
+                title: 'Dreamfoam',
+                href: ['dreamfoam'],
+            },
+            {
+                title: 'FusionGel™',
+                href: ['fusiongel'],
+            },
+        ];
+
+    main.main
+        .container
+            .wrap-in
+                .content-sidebar
+                    .content
+                        h1 CORE TECHNOLOGIES
+                        p There are a number of Core Technologies that Sleepyhead use to manufacture beds to give you a great nights sleep. They include:
+                .page-grid.page-grid--top
+                    aside.page-grid__content
+                        .content-sidebar(data-sticky-container)
+                            .show-desktop
+                                .technologies-anchor-wrap.js-sticky(data-sticky-class="is-sticky" data-margin-top="150" data-sticky-for="768")
+                                    each anchor in technologiesAnchor
+                                        +technologies-anchor(anchor)
+                            .show-mobile
+                                +technologies-slider({hrefs: technologiesAnchor})
+
+                    section.page-grid__main
+                        .content-restriction
+                            each card in technologiesCard
+                                +technologies-card(card)
+                            
+        +wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
+            img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
+            h2.wide-decor__title-bottom Make your own dream world.

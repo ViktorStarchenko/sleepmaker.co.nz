@@ -12,6 +12,14 @@
             display: flex
             flex-flow: column nowrap
             justify-content: center
+    &--product
+        background-position: center bottom
+        +rm(1025)
+            padding-top: 90px
+            min-height: 560px
+            display: flex
+            flex-flow: column nowrap
+            justify-content: center
     &__inner
         max-width: 900px
         margin: 0 auto
@@ -63,3 +71,11 @@
         margin: 0 auto
         +r(1024)
             margin-bottom: 10px
+        &-top
+            display: block
+            width: 58%
+            max-width: 230px
+            margin: 0 auto
+            margin-bottom: 5px
+            +r(1024)
+                margin-bottom: 10px

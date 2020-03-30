@@ -1,0 +1,113 @@
+.tabs
+	position: relative
+	// overflow: hidden
+
+.tabs__container
+	position: relative
+	width: 100%
+	margin-bottom: 50px
+	+r(768)
+		margin-bottom: 30px
+		overflow: visible
+		margin-left: -20px
+		margin-right: -20px
+		width: calc(100% + 40px)
+
+
+.tabs__header
+	position: relative
+	width: 100%
+	margin: 0
+	padding-bottom: 24px
+	font-size: 0
+	line-height: 0
+	letter-spacing: 0
+	+r(768)
+		overflow: visible
+		margin-left: -8px
+		margin-right: -8px
+		width: calc(100% + 40px)
+		padding-right: 15px
+		padding-left: 15px
+		padding-bottom: 13px
+		&::after
+			height: 2px
+	&::after
+		content: ''
+		display: block
+		width: 100%
+		height: 1px
+		background: rgba($main, 0.1)
+		position: absolute
+		left: 0
+		bottom: 0
+
+.tabs__list
+	width: 100%
+	display: flex
+	flex-flow: row nowrpap
+	+rm(769)
+		justify-content: center
+
+.tabs__item
+	width: auto
+	padding: 0 8px
+	flex-shrink: 0
+
+
+.tabs__link
+	position: relative
+	padding: 9px 18px
+
+	font-size: 24px
+	font-weight: 400
+	letter-spacing: 0.92px
+	line-height: calc(26/24)
+	
+	color: $main
+	transition: color 0.2s ease-in
+	text-decoration: none
+
+	+r(768)
+		padding: 9px 15px
+		font-size: 18px
+		font-weight: 400
+		letter-spacing: 0.69px
+
+	&::after
+		content: ''
+		position: absolute
+		left: 0
+		bottom: -15px
+		width: 100%
+		height: 1px
+		background-color: currentColor
+		transform: scaleX(0)
+		transform-origin: 50% 50%
+		transition: transform 0.2s ease-in
+		+r(768)
+			bottom: -4px
+
+	&:hover, &:focus, &:active
+		transition: color 0.2s ease-out
+		&::after
+			transform: scaleX(0.5)
+			transition: transform 0.2s ease-out
+	&.active
+		// color: green
+		// transition: color 0.2s ease-out
+		&::after
+			transform: none
+			transition: transform 0.2s ease-out
+
+.tabs__body
+	// max-width: 980px
+	margin: 0 auto
+
+.tabs__content
+	position: relative
+	transition: transform 0.3s ease, opacity 0.2s ease
+
+.tabs__title
+	margin-bottom: 50px
+	text-align: center
