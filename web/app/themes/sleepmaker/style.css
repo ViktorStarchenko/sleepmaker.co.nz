@@ -473,3 +473,17 @@ input::placeholder, textarea::placeholder, select::placeholder{
         max-width: 100% !important;
     }
 }
+li a.header-nav__list-link {
+   color: #002e5d;
+}
+nav.header-nav .header-nav__drop {
+    background-color: #fdfefe;
+    min-width: 330px;
+}
+ul.header-nav__list {
+    margin: 0;
+}
+nav .header-nav__drop-nav {
+    padding: 0;
+    width: 90%;
+}

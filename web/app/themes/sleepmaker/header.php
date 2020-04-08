@@ -59,7 +59,7 @@ $bodyClass = "body";
                     <?php if ($dropdownFlag) : ?>
                     <div class="header-nav__drop">
                         <div class="header-nav__drop-nav">
-                        <a class="header-nav__drop-section" href="#"><?php echo $item['sublinks_title']?></a>
+                        <!--<a class="header-nav__drop-section" href="#"><?php /*echo $item['sublinks_title']*/?></a>-->
                         <ul class="header-nav__list">
                             <?php foreach ( $item['links'] as $link ) : ?>
                                 <?php if (!empty($link['sublink'])) : ?>
@@ -75,7 +75,7 @@ $bodyClass = "body";
         </nav>
     </div>
     <div class="header__logo">
-        <div class="header-logo" style="background-image:url(app/themes/sleepmaker/static/build/img/oval.svg)"><a class="header-logo__link" href="#"><img class="header-logo__img" src="app/themes/sleepmaker/static/build//img/logo-header.png" alt="logo"/></a></div>
+        <div class="header-logo" style="background-image:url(<?php echo get_template_directory_uri();?>/static/build/img/oval.svg)"><a class="header-logo__link" href="<?= get_home_url(); ?>"><img class="header-logo__img" src="<?php echo $headerLogo['header']['url'];?>" alt="logo"/></a></div>
     </div>
     <?php if (!empty($headerFindButton)) : ?>
     <div class="header__find">

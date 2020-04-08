@@ -35,17 +35,20 @@ $ID = get_the_ID();
     </div>
 <?php endif; ?>
 <?php
-    $advantages = get_field('advantages', $ID);
+    $advantages = get_field('home_categories', $ID);
     if (!empty($advantages['enable'])) {
-        echo template_part('advantages', $advantages);
+        echo template_part('home-categories', $advantages);
     }
 
     $content = get_field('tabs', $ID);
 ?>
 <?php if (!empty($content['enable'])) : ?>
     <div class="container">
+      <div class="wrap-in">
         <?php if (!empty($content['title'])) : ?>
-        <h2 class="h1 product-title"><?= $content['title'] ?></h2>
+            <div class="tabs__title">
+                <h2><?= $content['title'] ?></h2>
+            </div>
         <?php endif; ?>
         <?php if (!empty($content['items'])) : ?>
             <div class="tabs js-tabs-wrapper">
@@ -83,45 +86,49 @@ $ID = get_the_ID();
                         }
                         ?>
                         <div class="tabs__content js-tab-content <?= $active ?>" id="perfect-sleep-<?= $key ?>">
-                            <div class="product-info">
+                          <div class="product-card">
+                            <div class="product-card-img">
                                 <?php if (!empty($item['image'])) : ?>
-                                <div class="product-info-img">
-                                    <img src="<?= $item['image']['url'] ?>" alt="<?= $title ?>"/>
-                                </div>
+                                        <img src="<?= $item['image']['url'] ?>" alt="<?= $title ?>"/>
                                 <?php endif; ?>
-                                <div class="product-info-desc">
-                                    <?php if (!empty($title)) : ?>
-                                    <h3 class="h1 product-info__title"><?= $title ?></h3>
-                                    <?php endif; ?>
-                                    <?php if (!empty($item['description'])) : ?>
-                                        <div class="product-info__text">
-                                            <?= $item['description'] ?>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($item['icons'])) : ?>
-                                        <?php foreach ($item['icons'] as $icon) : ?>
-                                        <div class="product-info-detail">
-                                            <?php if (!empty($icon['icon'])) : ?>
-                                            <div class="product-info-detail__icon">
-                                                <img src="<?= $icon['icon']['url'] ?>" alt=""/>
-                                            </div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($icon['content'])) : ?>
-                                                <?= $icon['content'] ?>
-                                            <?php endif; ?>
-                                        </div>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                    <?php if (!empty($item['link'])) : ?>
-                                    <a class="product-info__link button button--accent" href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>"><?= $item['link']['title'] ?></a>
-                                    <?php endif; ?>
-                                </div>
                             </div>
+                              <div class="product-card-info">
+                                <div class="product-info">
+                                    <div class="product-info__title"><?= $title ?></div>
+                                    <div class="product-info__description"> <?= $item['description'] ?></div>
+                                    <div class="product-info__features">
+                                        <?php if (!empty($item['icons'])) : ?>
+                                            <?php foreach ($item['icons'] as $icon) : ?>
+                                            <div class="product-features">
+                                                <?php if (!empty($icon['icon'])) : ?>
+                                                <div class="product-features__icon">
+                                                    <img class="product-features__img" src="<?= $icon['icon']['url'] ?>" alt=""/>
+                                                </div>
+                                                <?php endif; ?>
+                                                <?php if (!empty($icon['content'])) : ?>
+                                                <div class="product-features__desc">
+                                                    <div class="product-features__title"><?= $icon['feature_title'] ?></div>
+                                                    <div class="product-features__info">
+                                                        <?= $icon['content'] ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                                </div>
+                                            </div>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                        <?php if (!empty($item['link'])) : ?>
+                                        <a class="product-info__link button button--accent" href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>"><?= $item['link']['title'] ?></a>
+                                        <?php endif; ?>
+                                    </div>
+                            </div>
+                              </div>
+                          </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
         <?php endif; ?>
+      </div>
     </div>
 <?php endif; ?>
 <?php
@@ -134,39 +141,50 @@ $ID = get_the_ID();
 <?php if (!empty($specifications['enable'])) : ?>
     <div class="bg-gray">
         <div class="container">
-            <div class="pdoduct-specifications">
-                <?php if (!empty($title)) : ?>
-                        <h2 class="h1 pdoduct-specifications__title"><?= $title ?></h2>
-                <?php endif; ?>
-                <?php if (!empty($specifications['description'])) : ?>
-                <div class="pdoduct-specifications__text">
-                    <?= $specifications['description'] ?>
-                </div>
-                <?php endif; ?>
-                <div class="accordion-wrap">
-                <?php if (!empty($specifications['items'])) : ?>
-                    <div class="accordion-inner">
-                        <ul class="accordion js-acc">
-                            <?php foreach ($specifications['items'] as $item) : ?>
-                                <li class="accordion-item">
-                                    <?php if (!empty($item['title'])) : ?>
-                                        <a class="accordion__quest js-acc-trig" href=""><?= $item['title'] ?><span class="accordion__quest-icon"></span></a>
-                                    <?php endif; ?>
-                                    <?php if (!empty($item['content'])) : ?>
-                                        <div class="accordion__answer js-acc-targ">
-                                            <?= $item['content'] ?>
-                                        </div>
-                                    <?php endif; ?>
-                                </li>
-                            <?php endforeach; ?>
+            <div class="wrap-in">
+                <div class="product-additionally product-additionally--reverse">
+                    <div class="product-additionally__content">
+                        <div class="content">
+                            <?php if (!empty($title)) : ?>
+                                <h2><?= $title ?></h2>
+                            <?php endif; ?>
+                            <?php if (!empty($specifications['description'])) : ?>
+                            <div>
+                                <p><?= $specifications['description'] ?></p>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+                            <div class="accordion-wrap accordion-wrap--product">
+                            <?php if (!empty($specifications['items'])) : ?>
+                                    <ul class="accordion js-acc accordion--product">
+                                        <?php foreach ($specifications['items'] as $item) : ?>
+                                            <li class="accordion-item">
+                                                <?php if (!empty($item['title'])) : ?>
+                                                    <a class="accordion__quest js-acc-trig" href=""><?= $item['title'] ?><span class="accordion__quest-icon"></span></a>
+                                                <?php endif; ?>
+                                                <?php if (!empty($item['content'])) : ?>
+                                                    <div class="accordion__answer js-acc-targ">
+                                                        <?= $item['content'] ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+
+                            <?php endif; ?>
+                            </div>
+
+
+                    </div>
+                    <div class="product-additionally__aside">
+                        <ul class="product-icons">
+                            <li class="product-icons__item"><img class="product-icons__img" src="<?php echo get_template_directory_uri();?>/static/build/img/product/product-specifications-1.png" alt=""></li>
+                            <li class="product-icons__item"><img class="product-icons__img" src="<?php echo get_template_directory_uri();?>/static/build/img/product/product-specifications-2.png" alt=""></li>
+                            <li class="product-icons__item"><img class="product-icons__img" src="<?php echo get_template_directory_uri();?>/static/build/img/product/product-specifications-3.png" alt=""></li>
+                            <li class="product-icons__item"><img class="product-icons__img" src="<?php echo get_template_directory_uri();?>/static/build/img/product/product-specifications-4.png" alt=""></li>
                         </ul>
                     </div>
-                    <?php if (!empty($specifications['image'])) : ?>
-                        <div class="accordion-decor">
-                            <img class="accordion-decor__img" src="<?= $specifications['image']['url'] ?>" alt="<?= $title ?>"/>
-                        </div>
-                    <?php endif; ?>
-                <?php endif; ?>
+
                 </div>
             </div>
         </div>
@@ -177,31 +195,46 @@ $ID = get_the_ID();
 ?>
 <?php if (!empty($faq['enable'])) : ?>
     <div class="container">
-        <div class="pdoduct-specifications">
-            <div class="accordion-wrap">
-                <?php if (!empty($faq['title'])) : ?>
-                <div class="accordion-title">
-                    <h2 class="h1 pdoduct-specifications__title"><?= $faq['title'] ?></h2>
-                </div>
-                <?php endif; ?>
-                <?php if (!empty($faq['items'])) : ?>
-                <div class="accordion-inner">
-                    <ul class="accordion js-acc">
-                        <?php foreach ($faq['items'] as $item) : ?>
-                        <li class="accordion-item">
-                            <?php if (!empty($item['title'])) : ?>
-                            <a class="accordion__quest js-acc-trig" href=""><?= $item['title'] ?><span class="accordion__quest-icon"></span></a>
-                            <?php endif; ?>
-                            <?php if (!empty($item['content'])) : ?>
-                            <div class="accordion__answer js-acc-targ">
-                                <?= $item['content'] ?>
+        <div class="wrap-in">
+            <div class="product-additionally">
+                    <?php if (!empty($faq['title'])) : ?>
+                        <div class="product-additionally__aside">
+                            <div class="content">
+                                <h2><?= $faq['title'] ?></h2>
                             </div>
-                            <?php endif; ?>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($faq['items'])) : ?>
+                    <div class="product-additionally__content">
+                        <div class="accordion-wrap accordion-wrap--produc">
+                            <ul class="accordion js-acc accordion--product">
+                                <?php foreach ($faq['items'] as $item) : ?>
+                                <li class="accordion-item">
+                                    <?php if (!empty($item['title'])) : ?>
+                                    <a class="accordion__quest js-acc-trig" href=""><?= $item['title'] ?><span class="accordion__quest-icon"></span></a>
+                                    <?php endif; ?>
+                                    <?php if (!empty($item['content'])) : ?>
+                                    <div class="accordion__answer js-acc-targ">
+                                        <?= $item['content'] ?>
+                                    </div>
+                                    <?php endif; ?>
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+            </div>
+            <div class="long-card-wrap">
+                <div class="long-card">
+                    <div class="long-card__info" style="background:#002e5d; color:#ffffff">
+                        <div class="long-card__info-inner">
+                            <div class="long-card__title">TRY OUR SLEEPMAKER SLEEP SELECTOR </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis.</p><a class="bttn bttn--inverse" href="#">Find out more</a>
+                        </div>
+                    </div>
+                    <div class="long-card__image"><img src="<?php echo get_template_directory_uri();?>/static/build/img/long/long-img-1.png" alt="long-img-1"/></div>
                 </div>
-                <?php endif; ?>
             </div>
         </div>
     </div>

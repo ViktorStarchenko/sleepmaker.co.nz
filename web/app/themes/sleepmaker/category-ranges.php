@@ -13,7 +13,7 @@
     if (!empty($hero['background'])) {
         $bg = $hero['background']['url'];
     }
-
+    var_dump($bg);
     $heroTitle = $title;
     if (!empty($hero['title'])) {
         $heroTitle = $hero['title'];
@@ -25,26 +25,19 @@
         'numberposts' => -1
     ]);
 
-    //dump($posts);
 ?>
 <?php get_header(); ?>
 
-    <div class="first-screen" style="background-image: url(<?= $bg ?>)">
-        <div class="container">
-            <?php if (!empty($hero['icon'])) : ?>
-            <img class="first-screen__logo" src="<?= $hero['icon']['url'] ?>" alt="<?= $heroTitle ?>">
-            <?php endif; ?>
-            <h1 class="first-screen__title first-screen__title--category"><?= $heroTitle ?></h1>
+
+    <div class="wide-decor wide-decor--expanded" style="background-image:url(<?= $bg ?>)">
+        <div class="wide-decor__inner">
+            <h2 class="wide-decor__title-top"><?= $title ?></h2>
+            <p><?= $description ?></p>
         </div>
     </div>
 
     <div class="container">
-        <div class="text-row">
-            <h2 class="h1 text-row__title"><?= $title ?></h2>
-            <div class="text-row__text">
-                <?= $description ?>
-            </div>
-        </div>
+      <div class="wrap-in">
         <?php if (!empty($products)) : ?>
         <div class="category-card-wrap">
             <?php foreach ($products as $key => $product) : ?>
@@ -94,23 +87,17 @@
                         <?php endforeach; ?>
                     </div>
                     <?php endif; ?>
-                    <div class="category-card__btns"><a class="button button--accent" href="<?= $url ?>"><?= $cta ?></a></div>
+                    <div class="category-card__btns"><a class="bttn" href="<?= $url ?>"><?= $cta ?></a></div>
                 </div>
             <?php endforeach; ?>
         </div>
-        <hr class="section-devider">
+
         <?php endif; ?>
         <div class="long-card-wrap">
             <?php
-            $quiz = get_field('quiz_banner_enable', $term);
-            if (!empty($quiz)) {
-                echo template_part('cardBanner', ['data'=>'quiz']);
-            }
-            $warranty = get_field('warranty_banner_enable', $term);
-            if (!empty($warranty)) {
-                echo template_part('cardBanner', ['data'=>'warranty']);
-            }
+            echo template_part('selectorWarranty');
             ?>
         </div>
+      </div>
     </div>
 <?php get_footer();

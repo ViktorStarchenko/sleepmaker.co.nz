@@ -26,8 +26,8 @@ if (is_category()) {
         $bg = $footerBanner['background']['url'];
     }
 ?>
-    <div class="wide-decor" style="background-image:url(app/themes/sleepmaker/static/build/img/bg/footer.png)">
-        <div class="wide-decor__inner"><img class="wide-decor__logo" src="app/themes/sleepmaker/static/build/img/wide-logo.png" alt="logo">
+    <div class="wide-decor" style="background-image:url(<?php echo get_template_directory_uri();?>/static/build/img/bg/footer.png)">
+        <div class="wide-decor__inner"><img class="wide-decor__logo" src="<?php echo get_template_directory_uri();?>/static/build/img/wide-logo.png" alt="logo">
             <h2 class="wide-decor__title-bottom">Make your own dream world.</h2>
             <div class="wide-decor__bttns"><a class="bttn" href="#">Find a store near you</a><a class="bttn" href="#">View latest deals</a>
             </div>
@@ -61,7 +61,7 @@ if (is_category()) {
                 <?php endif; ?>
             </div>
             <div class="footer__rights">
-                <a class="footer-logo" href=""><img class="footer-logo__img" src="app/themes/sleepmaker/static/build/img/logo-footer.png" alt="logo"/></a>
+                <a class="footer-logo" href=""><img class="footer-logo__img" src="<?php echo get_template_directory_uri();?>/static/build/img/logo-footer.png" alt="logo"/></a>
                 <div class="footer-rights">
                     <?= get_field( 'bottom_text', 'option') ?>
                 </div>
