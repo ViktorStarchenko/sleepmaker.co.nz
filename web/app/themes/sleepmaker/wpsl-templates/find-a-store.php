@@ -7,6 +7,11 @@ if (isset($_GET['retailer_id'])) {
     $selectedRetailerId = $_GET['retailer_id'];
 }
 
+$selectedRangeId = null;
+if (isset($_GET['range_id'])) {
+    $selectedRangeId = $_GET['range_id'];
+}
+
 $postId = null;
 if (isset($_GET['post_id'])) {
     $postId = $_GET['post_id'];
@@ -33,6 +38,7 @@ if (isset($_GET['address'])) {
 }
 
 $retailersGroupCategory = get_category_by_slug('retailer-groups');
+$rangesCategory = get_category_by_slug('ranges');
 $metaQuery = [
     [
         'key'     => 'enable',
@@ -63,6 +69,13 @@ if ($collectionId) {
 
 $args = [
     'numberposts'   => -1,
+    'category'      => $rangesCategory->cat_ID,
+];
+
+$ranges = get_posts($args);
+
+$args = [
+    'numberposts'   => -1,
     'category'      => $retailersGroupCategory->cat_ID,
     'post__in'      => get_field('retailers_groups_filter_order'),
     'meta_query'    => $metaQuery,
@@ -89,42 +102,32 @@ ob_start();
         #wpsl-direction-details {
             display: none !important;
         }
+        #wpsl-gmap{
+            width: 100%;
+        }
+        #wpsl-result-list{
+            width: 100%;
+            /*border-bottom: 0;*/
+        }
+        #wpsl-stores{
+            max-height: 500px;
+            height: 100%;
+        }
+        #wpsl-search-input{
+            width: 100%;
+            font-size: 14px;
+            padding: 16px 45px 16px 24px;
+        }
+        #wpsl-search-btn{
+            border: 0;
+            background-color: unset;
+            background-image: none;
+            box-shadow: unset;
+            color: black;
+            padding: unset;
+            margin-right: unset;
+        }
     </style>
-
-     <?php /*
-                        <div class="app-store-filter__title"><span>Mattresses</span></div>
-                        <div class="app-store-filter__list">
-                            <?php foreach ($matresses as $matresse): ?>
-                                <ul class="app-store-filter__list-nav">
-                                    <li><label class="app-button-filter _inline<?= $matresse->ID == $postId ? ' active' : '' ?>"><?= $matresse->post_title ?>
-                                            <input type="checkbox" name="range" value="<?= $matresse->ID ?>" <?= $matresse->ID == $postId ? ' checked="checked"' : '' ?> style="display: none;"/>
-                                        </label></li>
-
-                                    <?php $subRanges = get_field('sub_ranges', $matresse); ?>
-                                    <?php foreach ($subRanges as $subRange): ?>
-                                        <?php $lowerCase = preg_match('/([0-9]+)i/', $subRange->post_title) ?>
-                                        <li>
-                                            <label  class="app-button-filter _inline<?= $lowerCase ? ' _lower-case' : '' ?>">&#8985; &nbsp;<?= $subRange->post_title ?>
-                                                <input type="checkbox" name="sub_range" value="<?= $subRange->ID ?>" style="display: none;"/>
-                                            </label></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endforeach; ?>
-                        </div>
-                        */ ?>
-     <?php /*
-                        <div class="app-store-filter__title"><span>Collections</span></div>
-                        <div class="app-store-filter__list">
-                            <?php foreach ($collections as $collection): ?>
-                                <ul class="app-store-filter__list-nav">
-                                    <li><label class="app-button-filter _inline<?= $collection->ID == $collectionId ? ' active' : '' ?>"><?= $collection->post_title ?>
-                                            <input type="checkbox" name="collections" value="<?= $collection->ID ?>" <?= $collection->ID == $collectionId ? ' checked="checked"' : '' ?> style="display: none;"/>
-                                        </label>
-                                    </li>
-                                </ul>
-                            <?php endforeach; ?>
-                        </div>
-                        */ ?>
 
 <?php /*
 <?php foreach ($retailers as $retailer): ?>
@@ -134,51 +137,129 @@ ob_start();
         <input class="retailer-filter-button" type="checkbox" name="retailer" data-name="<?= $retailer->post_name ?>" value="<?= $retailer->ID ?>" style="display: none;" <?= $retailer->ID == $selectedRetailerId ? 'checked="checked"' : null ?>/>
     </label>
 <?php endforeach; ?>
- */ ?>
 
-    <div class="container">
-        <div class="inner-page">
-            <h1><?= get_the_title() ?></h1>
-            <div class="map-greed">
-                <div class="map-greed__side">
-                    <div class="map-search">
-                        <form action="" class="search-form">
-                            <div class="input-search">
-                                <input id="wpsl-search-input" type="text" value="<?= $query ?>" placeholder="Search by suburb, city or postcode" name="wpsl-search-input">
-                                <button id="wpsl-search-btn" class="input-search__btn">
-                                    <span class="input-search__btn-icon">
-												<svg class="icon search">
-													<use xlink:href="#search"></use>
-												</svg></span>
-                                </button>
-                            </div>
-                        </form>
-                        <!--<div class="show-mobile">
-                            <div class="current-position">
-                                <div class="current-position__title">OR</div><a class="current-position__link" href="#"><span class="current-position__link-icon">
-												<svg class="icon pin">
-													<use xlink:href="#pin"></use>
-												</svg></span>Use my current location</a>
-                            </div>
-                        </div>-->
-                    </div>
-                    <div class="map-result">
-                        <div id="wpsl-result-list">
-                            <div class="search-list" id="wpsl-stores"></div>
-                            <div id="wpsl-direction-details" style="display: none;">
-                                <ul></ul>
-                            </div>
+                    <div class="filter-store">
+                        <div class="filter-store__title">Filter by:</div>
+                        <div class="filter filter-store__elems">
+                            <input class="filter__input" type="checkbox" name="" id="find-store">
+                            <label class="filter__label" for="find-store">Memory</label>
                         </div>
                     </div>
-                </div>
-                <div class="map-greed__base">
-                    <div class="map-wrap">
-                        <div class="map">
-                            <div id="wpsl-gmap" class="wpsl-gmap-canvas app-map-big displaysNoneTabs"></div>
+
+ */ ?>
+<?php $fields = get_fields(get_page_by_path('find-a-store')->ID); ?>
+    <main class="main">
+        <div class="container">
+            <div class="wrap-in">
+                <div class="page-grid">
+                    <aside class="page-grid__content">
+                        <div class="map-greed__title">
+                            <h1><?= $fields['title'] ?></h1>
+                            <p><?= $fields['text'] ?></p>
                         </div>
-                    </div>
+
+                        <div class="map-search">
+                            <form class="find-form" action="/">
+                                <div class="find-form__row">
+                                    <div class="find-form__field">
+                                        <input id="wpsl-search-input" type="text" name="findSearch" placeholder="Search by suburb, city or postcode">
+                                        <button id="wpsl-search-btn" class="input-search__btn find-form__submit" type="submit"><span class="input-search__btn-icon">
+                                                    <svg class="icon search">
+                                                        <use xlink:href="#search"></use>
+                                                    </svg></span></button>
+                                    </div>
+                                </div>
+                                <div class="find-form__row">
+                                    <div class="find-form__item">
+                                        <div class="find-form__field">
+                                            <div class="find-filter js-drop-filter">
+                                                <div class="find-filter__select js-drop-filter-trigger" data-select="Filter by range">
+                                                    <div class="find-filter__select-title"><span class="js-drop-filter-selected">Search by range</span></div>
+                                                    <div class="find-filter__select-icon"></div>
+                                                </div>
+                                                <div class="find-filter__drop">
+                                                    <ul class="filter-drop">
+
+                                                        <?php foreach ($ranges as $range): ?>
+                                                            <li class="filter-drop__item js-drop-filter-item">
+                                                                <input  class="filter-drop__check" type="checkbox" id="<?= $range->ID ?>" name="retailer" value="<?= $range->ID ?>" style="display: none;" <?= $range->ID == $selectedRangeId ? 'checked="checked"' : null ?>/>
+                                                                <label class="filter-drop__label  <?= $range->ID == $selectedRangeId ? 'active' : null ?>" for="<?= $range->ID ?>"><?=  $range->post_title;  ?></label>
+                                                            </li>
+                                                        <?php endforeach; ?>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="find-form__item">
+                                        <div class="find-form__field">
+                                            <div class="find-filter js-drop-filter">
+                                                <div class="find-filter__select js-drop-filter-trigger" data-select="Filter by retailer">
+                                                    <div class="find-filter__select-title"><span class="js-drop-filter-selected">Search by retailer</span></div>
+                                                    <div class="find-filter__select-icon"></div>
+                                                </div>
+                                                <div class="find-filter__drop">
+                                                    <ul class="filter-drop">
+                                                        <?php foreach ($retailers as $retailer): ?>
+                                                            <li class="filter-drop__item js-drop-filter-item">
+                                                                <input  class="filter-drop__check" id="<?= $retailer->ID ?>" type="checkbox" name="retailer" value="<?= $retailer->ID ?>" style="display: none;" <?= $retailer->ID == $selectedRetailerId ? 'checked="checked"' : null ?>/>
+                                                                <label class="filter-drop__label <?= $retailer->ID == $selectedRetailerId ? 'active' : null ?>"  for="<?= $retailer->ID ?>"><?= get_field('name', $retailer->ID);  ?></label>
+                                                            </li>
+                                                        <?php endforeach; ?>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </form>
+
+                        </div>
+                        <div class="tabs-find js-tabs-wrapper">
+                            <div class="tabs-find__result">Showing 25 results</div>
+                            <div class="tabs-find__container">
+                                <div class="tabs-find__list">
+                                    <div class="tabs-find__item"><a class="tabs-find__link js-tab-trigger active" href="#tab-1">RETAIL STORES</a></div>
+                                    <div class="tabs-find__item"><a class="tabs-find__link js-tab-trigger" href="#tab-2">ONLINE STORES</a></div>
+                                </div>
+                            </div>
+                            <div class="tabs-find__body">
+                                <div class="tabs-find__content js-tab-content" id="tab-1">
+                                    <div id="wpsl-result-list" class="find-item">
+                                        <div class="search-list" id="wpsl-stores"></div>
+                                        <div id="wpsl-direction-details" style="display: none;">
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="map-result">
+                            <div id="wpsl-result-list" class="find-item">
+                                <div class="search-list" id="wpsl-stores"></div>
+                                <div id="wpsl-direction-details" style="display: none;">
+                                    <ul></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                    <section class="page-grid__main">
+                        <div class="content-restriction">
+                            <div class="map-wrap">
+                                <div class="map">
+                                    <div id="wpsl-gmap" class="map-wrap wpsl-gmap-canvas"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+
+
+
+
 <?php return ob_get_clean();

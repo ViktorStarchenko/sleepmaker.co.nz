@@ -13,7 +13,7 @@
     if (!empty($hero['background'])) {
         $bg = $hero['background']['url'];
     }
-    var_dump($bg);
+
     $heroTitle = $title;
     if (!empty($hero['title'])) {
         $heroTitle = $hero['title'];

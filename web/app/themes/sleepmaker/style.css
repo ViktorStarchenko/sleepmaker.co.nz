@@ -487,3 +487,32 @@ nav .header-nav__drop-nav {
     padding: 0;
     width: 90%;
 }
+.page-numbers.current {
+    color: #fff;
+    background: #002e5d;
+}
+.page-numbers {
+    display: inline-flex;
+    min-width: 27px;
+    min-height: 27px;
+    border-radius: 2px;
+    text-decoration: none;
+    background: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+}
+.map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+}
+.map-wrap {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+}

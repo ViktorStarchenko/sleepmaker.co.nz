@@ -37,10 +37,11 @@
         $content = $fields["content"];
     }
 ?>
+ <div class="container">
+    <div class="wrap-in">
+       <?php if ( $paged == 1) : ?>
 
-<?php if ( $paged == 1) : ?>
-    <div class="container">
-        <div class="text-row">
+        <div class="text-row text-row--center">
             <?php if (!empty($title)) : ?>
             <h1 class="text-row__title"><?= $title ?></h1>
             <?php endif; ?>
@@ -71,13 +72,7 @@
         ?>
         <div class="long-card-wrap">
             <div class="long-card">
-                <div class="long-card__image">
-                    <img
-                        src="<?= $imageUrl ?>"
-                        alt="<?= $title ?>"
-                    />
-                </div>
-                <div class="long-card__info">
+                <div class="long-card__info" style="background:#002e5d; color:#ffffff">
                     <div class="long-card__info-inner">
                         <?php if (!empty($title)) : ?>
                         <div class="long-card__title"><?= $title ?></div>
@@ -85,16 +80,16 @@
                         <?php if (!empty($excerpt)) : ?>
                         <p><?= $excerpt ?></p>
                         <?php endif; ?>
-                        <a class="button" href="<?= $url ?>"><?= $cta ?></a>
+                        <a class="bttn bttn--inverse" href="<?= $url ?>"><?= $cta ?></a>
                     </div>
                 </div>
+                <div class="long-card__image"><img src="<?php echo get_template_directory_uri();?>/static/build/img/long/long-img-1.png" alt="long-img-1"/></div>
             </div>
         </div>
         <?php endif; ?>
-    </div>
-    <hr class="page-devider">
-<?php endif; ?>
-    <div class="container">
+
+        <?php endif; ?>
+
         <div class="article-card-wrap">
             <?php while( have_posts() ) : ?>
                 <?php
@@ -125,7 +120,7 @@
                             <p><?= $excerpt ?></p>
                         <?php endif; ?>
                     </div>
-                    <a class="link-top" href="<?= get_permalink() ?>"><?= $cta ?></a>
+                    <a class="bttn" href="<?= get_permalink() ?>"><?= $cta ?></a>
                 </div>
             <?php endwhile; ?>
         </div>
@@ -138,13 +133,18 @@
         $pagination =  paginate_links($args);
         ?>
         <?php if (!empty($pagination)) : ?>
-            <div class="pagination">
+            <div class="article-pagination">
+                <ul class="article-pagination__pages">
                 <?php foreach ($pagination as $item) : ?>
-                    <div class="list-item"><?= $item; ?></div>
+                    <li class="article-pagination__number"> <?= $item; ?></li>
                 <?php endforeach; ?>
+                </ul>
             </div>
         <?php endif; ?>
         <?php wp_reset_query(); ?>
     </div>
+    </div>
+</div>
+
 
 <?php get_footer();

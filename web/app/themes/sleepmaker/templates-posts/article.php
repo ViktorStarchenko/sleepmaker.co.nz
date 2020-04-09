@@ -27,14 +27,19 @@
             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
         }
     ?>
-    <div class="first-screen first-screen--article" style="background-image: url(<?= $image[0] ?>)"></div>
+    <div class="screen-hero" style="background-image: url(<?= $image[0] ?>)"></div>
     <div class="container">
-        <article class="article">
-            <h1><?= get_the_title() ?></h1>
-            <div class="content">
-                <?= get_the_content() ?>
-            </div>
-        </article>
+        <div class="wrap-in">
+            <article class="article">
+                <h1><?= get_the_title() ?></h1>
+                <div class="content">
+                    <?php  $id=get_the_ID();
+                    $post = get_post($id);
+                    $content = apply_filters('the_content', $post->post_content);
+                    echo $content; ?>
+                </div>
+            </article>
+        </div>
     </div>
     <div class="share-wrap">
         <div class="container">

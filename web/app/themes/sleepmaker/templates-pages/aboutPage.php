@@ -24,28 +24,20 @@
     }
 ?>
 
-<div class="decor-block" style="background-image: url(<?= $bg ?>)">
+<div class="screen-hero" style="background-image: url(<?= $bg ?>)"></div>
     <div class="container">
-        <div class="sheep-advantages">
-            <div class="decor-block-content">
-                <h1><?= $title; ?></h1>
-                <?php if (!empty($fields['hero']['description'])) : ?>
-                <p><?= $fields['hero']['description'] ?></p>
-                <?php endif; ?>
-            </div>
-            <div class="advantages-wrap advantages-wrap--center">
-                <div class="advantages">
-                    <?php if ($fields['hero']['icon']) : ?>
-                    <div class="advantages__logo"><img src="<?= $fields['hero']['icon']['url'] ?>" alt="<?= $sub_title ?>"/></div>
-                    <?php endif; ?>
-                    <?php if (!empty($sub_title)) : ?>
-                    <div class="advantages__text"><?= $sub_title ?></div>
+        <div class="wrap-in">
+            <article class="article">
+                <div class="content">
+                    <h1><?= $title; ?></h1>
+                    <?php if (!empty($fields['hero']['description'])) : ?>
+                    <p><?= $fields['hero']['description'] ?></p>
                     <?php endif; ?>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
-</div>
+
 <?php if (!empty($fields['tabs']['enable']) && !empty($fields['tabs']['tabs'])) : ?>
 <div class="container">
     <div class="tabs js-tabs-wrapper">

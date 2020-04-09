@@ -2,9 +2,6 @@
 
 add_action( 'wp_ajax_update_entry_retailer', 'update_entry_retailer' );
 add_action( 'wp_ajax_nopriv_update_entry_retailer', 'update_entry_retailer' );
-
-
-
 add_filter('wpsl_templates', 'custom_templates');
 
 //Store locator
@@ -25,31 +22,52 @@ function custom_templates($templates)
     return $templates;
 }
 
-add_filter('wpsl_listing_template', 'custom_listing_template');
+add_filter( 'wpsl_info_window_template', 'custom_info_window_template' );
+function custom_info_window_template() {
+    global $wpsl_settings, $wpsl;
+    $info_window_template = '<div data-store-id="<%= id %>" class="wpsl-info-window">' . "\r\n";
+    $info_window_template .= "\t\t" . '<p>' . "\r\n";
+    $info_window_template .= "\t\t\t" .  wpsl_store_header_template() . "\r\n";
+    $info_window_template .= "\t\t\t" . '<span><%= address %></span>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<span><%= address2 %></span>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
+    $info_window_template .= "\t\t" . '</p>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( phone ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'phone_label', __( 'Phone', 'wpsl' ) ) ) . '</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( fax ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'fax_label', __( 'Fax', 'wpsl' ) ) ) . '</strong>: <%= fax %></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'email_label', __( 'Email', 'wpsl' ) ) ) . '</strong>: <a href="mailto:<%= email %>" ><%= email %></a></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    return $info_window_template;
+}
 
+add_filter('wpsl_listing_template', 'custom_listing_template');
 function custom_listing_template()
 {
     global $wpsl, $wpsl_settings;
 
     $getDirection = '<a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=<%= encodeURIComponent(address) %>,<%= encodeURIComponent(city) %>,<%= encodeURIComponent(country) %>"  class="btn btn-round hidden-sm-min"><span class="ic ic-btn-arrow"></span><span>Get Directions</span></a>';
 
-    /* type="button" data-toggle="modal" data-target="#promotionsModal-<%= id %>" */
-    $url = "/special-offers/";
     $getDirection = '';
     $listing_template = '<div class="find-item list-item app-filter-result__list-item app-filter-result__list-vi" data-store-id="<%= id %>" >
-                            <h3 class=""><%= store %></h3>
-                            <div class="find-item__text"><p><%= address %>,</p><p><%= city %> <%= zip %></p><p><%= phone %></p></div>
+                            <h5 class=""><%= store %></h5>
+                            <div class="find-item__text"><p style="padding-left: 0"><%= address %>,</p><p style="padding-left: 0"><%= city %> <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
                             <div class="find-item__links">
                                 <div class="item-buttons__wrap">
-                                    <button type="button" class="_custom-link btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
-                                        View on Map
-                                    </button>                    
+                                    <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
+                                        <a href="#">View on Map</a>
+                                    </button><span></span>                    
                                     '.$getDirection.'
                                 </div>
                                 <% if(offers){ %>
                                     <% if(offers.length > 0) { %>
                                     <div class="item-buttons__wrap">
-                                        <span></span><a href="'.$url.'"  class="_custom-link btn btn-round">View Promotions</a>
+                                        <button type="button" data-toggle="modal" data-target="#promotionsModal-<%= id %>" class="btn btn-round">View promotions</button>
                                     </div>
                                     <% } %>
                                 <% } %>
