@@ -110,7 +110,6 @@ ob_start();
             /*border-bottom: 0;*/
         }
         #wpsl-stores{
-            max-height: 500px;
             height: 100%;
         }
         #wpsl-search-input{
@@ -157,16 +156,14 @@ ob_start();
                             <h1><?= $fields['title'] ?></h1>
                             <p><?= $fields['text'] ?></p>
                         </div>
-
                         <div class="map-search">
                             <form class="find-form" action="/">
                                 <div class="find-form__row">
-                                    <div class="find-form__field">
-                                        <input id="wpsl-search-input" type="text" name="findSearch" placeholder="Search by suburb, city or postcode">
-                                        <button id="wpsl-search-btn" class="input-search__btn find-form__submit" type="submit"><span class="input-search__btn-icon">
-                                                    <svg class="icon search">
-                                                        <use xlink:href="#search"></use>
-                                                    </svg></span></button>
+                                    <div class="find-form__item">
+                                        <div class="find-form__field">
+                                            <input id="wpsl-search-input" type="search" name="findSearch" placeholder="Search by suburb, city or postcode">
+                                            <button class="find-form__submit" type="button"></button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="find-form__row">
@@ -182,7 +179,7 @@ ob_start();
 
                                                         <?php foreach ($ranges as $range): ?>
                                                             <li class="filter-drop__item js-drop-filter-item">
-                                                                <input  class="filter-drop__check" type="checkbox" id="<?= $range->ID ?>" name="retailer" value="<?= $range->ID ?>" style="display: none;" <?= $range->ID == $selectedRangeId ? 'checked="checked"' : null ?>/>
+                                                                <input  class="filter-drop__check" type="checkbox" id="<?= $range->ID ?>" name="range" value="<?= $range->ID ?>" style="display: none;" <?= $range->ID == $selectedRangeId ? 'checked="checked"' : null ?>/>
                                                                 <label class="filter-drop__label  <?= $range->ID == $selectedRangeId ? 'active' : null ?>" for="<?= $range->ID ?>"><?=  $range->post_title;  ?></label>
                                                             </li>
                                                         <?php endforeach; ?>
@@ -216,7 +213,7 @@ ob_start();
 
                         </div>
                         <div class="tabs-find js-tabs-wrapper">
-                            <div class="tabs-find__result">Showing 25 results</div>
+                            <div class="tabs-find__result"></div>
                             <div class="tabs-find__container">
                                 <div class="tabs-find__list">
                                     <div class="tabs-find__item"><a class="tabs-find__link js-tab-trigger active" href="#tab-1">RETAIL STORES</a></div>
@@ -225,7 +222,7 @@ ob_start();
                             </div>
                             <div class="tabs-find__body">
                                 <div class="tabs-find__content js-tab-content" id="tab-1">
-                                    <div id="wpsl-result-list" class="find-item">
+                                    <div id="wpsl-result-list" >
                                         <div class="search-list" id="wpsl-stores"></div>
                                         <div id="wpsl-direction-details" style="display: none;">
                                             <ul></ul>
@@ -235,15 +232,6 @@ ob_start();
                             </div>
                         </div>
 
-
-                        <div class="map-result">
-                            <div id="wpsl-result-list" class="find-item">
-                                <div class="search-list" id="wpsl-stores"></div>
-                                <div id="wpsl-direction-details" style="display: none;">
-                                    <ul></ul>
-                                </div>
-                            </div>
-                        </div>
                     </aside>
                     <section class="page-grid__main">
                         <div class="content-restriction">

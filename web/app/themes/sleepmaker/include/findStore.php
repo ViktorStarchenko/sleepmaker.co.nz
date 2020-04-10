@@ -56,13 +56,25 @@ function custom_listing_template()
     $getDirection = '';
     $listing_template = '<div class="find-item list-item app-filter-result__list-item app-filter-result__list-vi" data-store-id="<%= id %>" >
                             <h5 class=""><%= store %></h5>
-                            <div class="find-item__text"><p style="padding-left: 0"><%= address %>,</p><p style="padding-left: 0"><%= city %> <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
+                            <div class="find-item__text"><p style="padding-left: 0"><%= address %>,<%= city %>, <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
                             <div class="find-item__links">
-                                <div class="item-buttons__wrap">
-                                    <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
-                                        <a href="#">View on Map</a>
-                                    </button><span></span>                    
-                                    '.$getDirection.'
+                                <div class="shop-card__row">
+                                    <div class="shop-card__row-item">
+                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
+                                            <a href="#">View on Map</a>
+                                        </button><span></span>  
+                                    </div>
+                                    <div class="shop-card__row-item">
+                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
+                                            <a href="<%= url %>">Visit site</a>
+                                        </button><span></span> 
+                                     </div> 
+                                     <div class="shop-card__row-item">
+                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
+                                            <a href="<%= url %>">Promotions</a>
+                                        </button><span></span> 
+                                     </div>                   
+                                        '.$getDirection.'
                                 </div>
                                 <% if(offers){ %>
                                     <% if(offers.length > 0) { %>

@@ -2,7 +2,7 @@
 $data = get_field('sidebar', 'option');
 ?>
 <?php if (!empty($data['enable'])) : ?>
-<div class="contacts-wrap">
+<div class="contacts-sidebar">
     <?php if (!empty($data['items'])) : ?>
         <?php foreach ($data['items'] as $item) : ?>
             <div class="contacts">

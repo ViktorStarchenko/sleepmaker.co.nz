@@ -16,45 +16,49 @@
 ?>
 
 <div class="container">
-    <div class="inner-page inner-page--reverse">
-        <?php if (!empty($sideBarEnable)) : ?>
-        <div class="inner-page__side">
-            <?php
-                echo template_part('sideBar', []);
-            ?>
-        </div>
-        <?php endif; ?>
-        <div class="inner-page__base">
-            <h1 class="inner-page__title"><?= $title ?></h1>
-            <?php if (!empty($data['enable']) && !empty($data['faq'])) : ?>
-            <div class="content content--bottom">
-                <?php
-                    $cnt = count($data['faq']) - 1;
-                    foreach ($data['faq'] as $key => $items) : ?>
-                    <?php if (!empty($items['title'])) : ?>
-                    <h2><?= $items['title']; ?></h2>
-                    <?php endif; ?>
-                    <?php if (!empty($items['questions'])) : ?>
-                    <ul class="accordion js-acc accordion--content">
-                        <?php foreach ($items['questions'] as $question) : ?>
-                            <li class="accordion-item">
-                                <?php if (!empty($question['question'])) : ?>
-                                <a class="accordion__quest js-acc-trig" href=""><?= $question['question'] ?><span class="accordion__quest-icon"></span></a>
+    <div class="wrap-in">
+        <div class="page-grid">
+                <section class="page-grid__main">
+                        <div class="content">
+                            <h1 class="inner-page__title"><?= $title ?></h1>
+                        </div>
+                        <?php if (!empty($data['enable']) && !empty($data['faq'])) : ?><div class="accordion-wrap">
+                            <?php
+                                $cnt = count($data['faq']) - 1;
+                                foreach ($data['faq'] as $key => $items) : ?>
+                                <?php if (!empty($items['title'])) : ?>
+                                <h3 class="accordion-title"><?= $items['title']; ?></h3>
                                 <?php endif; ?>
-                                <?php if (!empty($question['answer'])) : ?>
-                                <div class="accordion__answer js-acc-targ">
-                                    <?= $question['answer'] ?>
-                                </div>
+                                <?php if (!empty($items['questions'])) : ?>
+                                <ul class="accordion js-acc">
+                                    <?php foreach ($items['questions'] as $question) : ?>
+                                        <li class="accordion-item">
+                                            <?php if (!empty($question['question'])) : ?>
+                                            <a class="accordion__quest js-acc-trig" href=""><?= $question['question'] ?><span class="accordion__quest-icon"></span></a>
+                                            <?php endif; ?>
+                                            <?php if (!empty($question['answer'])) : ?>
+                                            <div class="accordion__answer js-acc-targ">
+                                                <?= $question['answer'] ?>
+                                            </div>
+                                            <?php endif; ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
                                 <?php endif; ?>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <?php endif; ?>
-                    <?php if ($cnt > $key) : ?>
-                    <hr class="content-devider">
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
+                                <?php if ($cnt > $key) : ?>
+                                <hr class="content-devider">
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+                </section>
+
+            <?php if (!empty($sideBarEnable)) : ?>
+            <aside class="page-grid__sidebar">
+                    <?php
+                    echo template_part('sideBar', []);
+                    ?>
+            </aside>
             <?php endif; ?>
         </div>
     </div>

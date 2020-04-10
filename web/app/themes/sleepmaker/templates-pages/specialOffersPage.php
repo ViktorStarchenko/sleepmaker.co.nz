@@ -134,125 +134,129 @@
     $title = get_the_title();
     $description = get_the_content();
 ?>
-
     <div class="container">
-        <div class="inner-page">
-            <div class="inner-page__side">
-                <h1 class="inner-page__title"><?= $title ?></h1>
-                <?php if (!empty($description)) : ?>
-                <div class="content">
-                    <?= $description ?>
-                </div>
-                <?php endif; ?>
-                <!-- Filter -->
-                <div class="filters">
-                    <div class="filters-title js-filter-title">Filter By:
-                        <div class="filters-title__icon"></div>
-                    </div>
-                    <div class="filters-wrap js-filter-content">
-                        <?php
-                        $activeAll = '';
-                        if ( $productID == null){
-                            $activeAll = ' active ';
-                        }
-                        ?>
-                        <div>
-                            <a href="<?= get_permalink( get_the_ID() ) ?>" class="filter-item <?= $activeAll ?>">
-                                <span class="filter-item__text">All</span>
-                                <span class="filter-item__icon"></span>
-                            </a>
-                        </div>
-                        <?php if (!empty($filtersOrder)) : ?>
-                            <?php foreach ( $filtersOrder as $filter ) : ?>
+        <div class="wrap-in">
+            <div class="page-grid">
+                <aside class="page-grid__content">
+                    <div class="content-sidebar">
+                        <h1 class="inner-page__title"><?= get_the_title() ?></h1>
+                        <div class="content">
+                            <p>
                                 <?php
-                                $args = [
-                                    'category'   => $specialOffersCategory->cat_ID,
-                                    'meta_query' => array_merge($baseQuery, [[
-                                        'key'     => 'product',
-                                        'value'   => '"' . $filter->ID . '"',
-                                        'compare' => 'LIKE',
-                                    ]]),
-                                ];
-                                $hasOffers = get_posts($args);
-                                if (empty($hasOffers)) {
-                                    continue;
-                                }
-                                $active = '';
-                                if ( $productID == $filter->ID ){
-                                    $active = ' active ';
+                                $id=get_the_ID();
+                                $post = get_post($id);
+                                $content = apply_filters('the_content', $post->post_content);
+                                echo $content;
+                                ?>
+                            </p>
+                        </div>
+                        <!-- Filter -->
+                        <div class="filters">
+                            <div class="filters-title js-filter-title">Filter By:
+                                <div class="filters-title__icon"></div>
+                            </div>
+                            <form class="filters-wrap js-filter-content">
+                                <?php
+                                $activeAll = '';
+                                if ( $productID == null){
+                                    $activeAll = ' active ';
                                 }
                                 ?>
-                                <div >
-                                    <a href="?product=<?= $filter->ID ?>" class="filter-item <?= $active ?>">
-                                        <span class="filter-item__text"><?= $filter->post_title ?></span>
+                                <div>
+                                    <a href="<?= get_permalink( get_the_ID() ) ?>" class="filter-item <?= $activeAll ?>">
+                                        <span class="filter-item__text">All</span>
                                         <span class="filter-item__icon"></span>
                                     </a>
                                 </div>
+                                <?php if (!empty($filtersOrder)) : ?>
+                                    <?php foreach ( $filtersOrder as $filter ) : ?>
+                                        <?php
+                                        $args = [
+                                            'category'   => $specialOffersCategory->cat_ID,
+                                            'meta_query' => array_merge($baseQuery, [[
+                                                'key'     => 'product',
+                                                'value'   => '"' . $filter->ID . '"',
+                                                'compare' => 'LIKE',
+                                            ]]),
+                                        ];
+                                        $hasOffers = get_posts($args);
+                                        if (empty($hasOffers)) {
+                                            continue;
+                                        }
+                                        $active = '';
+                                        if ( $productID == $filter->ID ){
+                                            $active = ' active ';
+                                        }
+                                        ?>
+                                        <div>
+                                            <a href="?product=<?= $filter->ID ?>" class="filter-item <?= $active ?>">
+                                                <span class="filter-item__text"><?= $filter->post_title ?></span>
+                                                <span class="filter-item__icon"></span>
+                                            </a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </form>
+                        </div>
+                        <!-- Filter -->
+                    </div>
+                </aside>
+                <section class="page-grid__main">
+                    <div class="content-restriction">
+                        <?php if ( !empty($promotions) ) : ?>
+                            <?php foreach ( $promotions as $promotion) : ?>
+                                <?php $image[0] = ''; ?>
+                                <?php if (has_post_thumbnail( $promotion->ID ) ): ?>
+                                    <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $promotion->ID ), 'large' ); ?>
+                                <?php endif; ?>
+                                <div style="background-image: url(<?= $image[0]; ?>)" class="stuff-banner" >
+                                    <h2 class="stuff-banner__title"><?= $promotion->post_title ?></h2>
+                                    <p class="stuff-banner__text"><?= get_field('note', $promotion->ID) ?></p>
+                                    <div class="stuff-banner__bttn"><a href="<?= get_permalink( $promotion->ID ) ?>" class="bttn bttn--reverse">Find Out More</a></div>
+                                </div>
                             <?php endforeach; ?>
                         <?php endif; ?>
-                    </div>
-                </div>
-                <!-- Filter -->
-            </div>
-            <div class="inner-page__base">
-                <?php if ( !empty($promotions) ) : ?>
-                    <?php foreach ( $promotions as $promotion) : ?>
-                        <?php $image[0] = ''; ?>
-                        <?php if (has_post_thumbnail( $promotion->ID ) ): ?>
-                            <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $promotion->ID ), 'large' ); ?>
-                        <?php endif; ?>
-                        <div style="background-image: url(<?= $image[0]; ?>)" class="promo-banner" >
-                            <div class="h1 promo-banner__title"><?= $promotion->post_title ?></div>
-                            <div class="promo-banner__text"><?= get_field('note', $promotion->ID) ?></div>
-                            <div class="promo-banner__btns"><a href="<?= get_permalink( $promotion->ID ) ?>" class="button">Find Out More</a></div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-                <div class="promo-card-wrap">
-                    <!-- Posts -->
-                    <?php foreach ($retailerGroups as $retailer) : ?>
-                        <?php foreach ($orderedPosts as $posts): ?>
-                            <?php foreach ($filtersOrder as $filter) : ?>
-                                <?php foreach ($posts as $data): $post = $data['post']; setup_postdata($post); ?>
-                                    <?php if( $data['retailer_id'] == $retailer ) : ?>
-                                        <?php if( $data['product'] == $filter->ID ) : ?>
-                                            <?php $fields = get_fields($post->ID); ?>
-                                            <?php $title = !empty( $fields["title"] ) ? $fields["title"] :  $post->post_title; ?>
-                                            <?php $description = get_the_excerpt($post->ID); ?>
-                                            <?php $date = new DateTime($fields["end_date"], new DateTimeZone($tz)); ?>
-                                            <?php $cta = !empty( $fields["cta_button"] ) ? $fields["cta_button"] : "Find out more"; ?>
-                                            <?php $url = !empty( $data['promo_url'] ) ? $data['promo_url'] : "#"; ?>
-                                            <div class="promo-card">
-                                                <?php $image[0] = ''; ?>
-                                                <?php if (has_post_thumbnail( $post->ID ) ): ?>
-                                                    <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' ); ?>
-                                                <?php endif; ?>
-                                                <?php if (!empty($image[0])) : ?>
-                                                    <div class="promo-card__image"><img src="<?= $image[0]; ?>" alt="<?= $title ?>"/></div>
-                                                <?php endif; ?>
-                                                <?php $image[0] = ''; ?>
-                                                <?php if (has_post_thumbnail( $data['retailer_id'] ) ): ?>
-                                                    <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $data['retailer_id'] ), 'large' ); ?>
-                                                <?php endif; ?>
-                                                <?php if (!empty($image[0])) : ?>
-                                                    <div class="promo-card__logo"><img src="<?= $image[0]; ?>" alt="<?= $title ?>"/></div>
-                                                <?php endif; ?>
-                                                <div class="promo-card__title"><?= $title ?></div>
-                                                <?php if($description) : ?>
-                                                <p class="promo-card__text"><?= $description; ?></p>
-                                                <?php endif; ?>
-                                                <div class="promo-card__btn"><a class="button button--accent" href="<?= $url ?>"><?= $cta ?></a></div>
-                                                <p class="promo-card__period">Offer ends <?php echo $date->format('d F Y'); ?></p>
-                                            </div>
-                                        <?php  endif; ?>
-                                    <?php endif; ?>
+
+                        <div class="stuff-card-tile">
+                            <!-- Posts -->
+                            <?php foreach ($retailerGroups as $retailer) : ?>
+                                <?php foreach ($orderedPosts as $posts): ?>
+                                    <?php foreach ($filtersOrder as $filter) : ?>
+                                        <?php foreach ($posts as $data): $post = $data['post']; setup_postdata($post); ?>
+                                            <?php if( $data['retailer_id'] == $retailer ) : ?>
+                                                <?php if( $data['product'] == $filter->ID ) : ?>
+                                                    <?php $fields = get_fields($post->ID); ?>
+                                                    <?php $title = !empty( $fields["title"] ) ? $fields["title"] :  $post->post_title; ?>
+                                                    <?php $description = get_the_excerpt($post->ID); ?>
+                                                    <?php $date = new DateTime($fields["end_date"], new DateTimeZone($tz)); ?>
+                                                    <?php $cta = !empty( $fields["cta_button"] ) ? $fields["cta_button"] : "Find out more"; ?>
+                                                    <?php $url = !empty( $data['promo_url'] ) ? $data['promo_url'] : "#"; ?>
+                                                    <div class="stuff-card">
+                                                        <?php $image[0] = ''; ?>
+                                                        <?php if (has_post_thumbnail( $post->ID ) ): ?>
+                                                            <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' ); ?>
+                                                        <?php endif; ?>
+                                                        <?php if (!empty($image[0])) : ?>
+                                                            <div class="stuff-card__img"><img src="<?= $image[0]; ?>" alt="<?= $title ?>"/></div>
+                                                        <?php endif; ?>
+                                                        <div class="stuff-card__info">
+                                                            <h3><?= $title ?></h3>
+                                                            <p><?= $description; ?></p>
+                                                        </div>
+                                                        <div class="promo-card__btn"><a class="bttn" href="<?= $url ?>"><?= $cta ?></a></div>
+                                                        <p class="stuff-card__caption">Offer ends <?php echo $date->format('d F Y'); ?></p>
+                                                    </div>
+                                                <?php  endif; ?>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    <?php endforeach;
+                                    wp_reset_postdata(); ?>
                                 <?php endforeach; ?>
-                            <?php endforeach;
-                            wp_reset_postdata(); ?>
-                        <?php endforeach; ?>
-                    <?php endforeach; ?>
-                    <!-- Posts -->
-                </div>
+                            <?php endforeach; ?>
+                            <!-- Posts -->
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
