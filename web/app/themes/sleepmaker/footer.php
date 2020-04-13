@@ -25,11 +25,18 @@ if (is_category()) {
     if (!empty($footerBanner['background'])) {
         $bg = $footerBanner['background']['url'];
     }
+    $logo = "";
+    if (!empty($footerBanner['logo'])) {
+        $logo = $footerBanner['logo']['url'];
+    }
 ?>
-    <div class="wide-decor" style="background-image:url(<?php echo get_template_directory_uri();?>/static/build/img/bg/footer.png)">
-        <div class="wide-decor__inner"><img class="wide-decor__logo" src="<?php echo get_template_directory_uri();?>/static/build/img/wide-logo.png" alt="logo">
-            <h2 class="wide-decor__title-bottom">Make your own dream world.</h2>
-            <div class="wide-decor__bttns"><a class="bttn" href="#">Find a store near you</a><a class="bttn" href="#">View latest deals</a>
+    <div class="wide-decor" style="background-image:url(<?= $bg;?>)">
+        <div class="wide-decor__inner"><img class="wide-decor__logo" src="<?= $logo;?>" alt="logo">
+            <h2 class="wide-decor__title-bottom"><?= $title;?></h2>
+            <div class="wide-decor__bttns">
+                <?php foreach ($footerBanner['buttons'] as $button) : ?>
+                    <a class="bttn" href="<?= $button['link']['url']?>"><?= $button['link']['title']?></a>
+                <?php endforeach;?>
             </div>
         </div>
     </div>
@@ -61,7 +68,7 @@ if (is_category()) {
                 <?php endif; ?>
             </div>
             <div class="footer__rights">
-                <a class="footer-logo" href=""><img class="footer-logo__img" src="<?php echo get_template_directory_uri();?>/static/build/img/logo-footer.png" alt="logo"/></a>
+                <a class="footer-logo" href=""><img class="footer-logo__img" src="<?= $logo;?>" alt="logo"/></a>
                 <div class="footer-rights">
                     <?= get_field( 'bottom_text', 'option') ?>
                 </div>

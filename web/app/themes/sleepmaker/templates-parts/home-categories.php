@@ -72,9 +72,9 @@ if (!empty($data['title'])) {
                                 <div class="home-category-card__bg"><img class="home-category-card__img" src="<?= $product_details['category_image']['url']; ?>" srcset="/img/home-category/home-category-1@2x.png 2x" alt="home-category-1"/>
                                 </div>
                                 <div class="home-category-card__info">
-                                    <div class="home-category-card__title" style="color:#00263e"><?= $post->post_title; ?></div>
+                                    <div class="home-category-card__title" style="color: <?= $product_details['title_color']; ?>"><?= $post->post_title; ?></div>
                                     <p><?= $product_details['short_details'][0]['text']; ?></p>
-                                    <div class="home-category-card__bttn"><a class="bttn" href="#">Learn More</a></div>
+                                    <div class="home-category-card__bttn"><a class="bttn" href="<?= $product_details['link']['url']?>"><?= $product_details['link']['label']; ?></a></div>
                                 </div>
                             </div>
                         </div>

@@ -83,7 +83,7 @@
                         <a class="bttn bttn--inverse" href="<?= $url ?>"><?= $cta ?></a>
                     </div>
                 </div>
-                <div class="long-card__image"><img src="<?php echo get_template_directory_uri();?>/static/build/img/long/long-img-1.png" alt="long-img-1"/></div>
+                <div class="long-card__image"><img src="<?= $imageUrl ?>" alt="long-img-1"/></div>
             </div>
         </div>
         <?php endif; ?>

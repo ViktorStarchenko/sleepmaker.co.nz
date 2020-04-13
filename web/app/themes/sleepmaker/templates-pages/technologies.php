@@ -79,10 +79,16 @@
                                 <?php  foreach ($technologies as $technology) :
                                     $icon = get_field("icon", $technology->ID);
                                     $itemDescription = get_field("description", $technology->ID);
+                                    $itemPoster = get_field("poster", $technology->ID);
+                                    $itemVideo = get_field("video", $technology->ID);
                                     ?>
                                     <div class="technologies-card" id="<?= $technology->post_name; ?>">
                                         <div class="technologies-card__head">
-                                            <div class="technologies-card__icon"><img src="<?= $icon['url']?>" alt="tech-logo"/></div>
+                                            <?php if (!empty($icon['url'])) :?>
+                                                <div class="technologies-card__icon">
+                                                    <img src="<?= $icon['url']?>" alt="tech-logo"/>
+                                                </div>
+                                            <?php endif;?>
                                             <div class="technologies-card__description">
                                                 <h3 class="technologies-card__tilte"><?= $technology->post_title; ?></h3>
                                                 <p><?= $itemDescription; ?></p>
@@ -90,8 +96,8 @@
                                         </div>
                                         <div class="technologies-card__body">
                                             <figure class="video">
-                                                <video poster="<?= get_template_directory_uri() ?>/static/build/img/technologies/poster.png">
-                                                    <source src="<?= get_template_directory_uri() ?>/static/build/img/technologies/movie.mp4" type="video/mp4"/>
+                                                <video poster="<?= $itemPoster['url']; ?>">
+                                                    <source src="<?= $itemVideo['url']; ?>" type="video/mp4"/>
                                                 </video>
                                                 <button class="video__button js-video-button" type="button"></button>
                                             </figure>

@@ -19,6 +19,7 @@
         'posts_per_page' => 3,
         'post__not_in' => $excludedPosts
     ));
+    $icons = get_field('social_icons', get_the_ID());
 ?>
 <?php get_header(); ?>
     <?php
@@ -47,13 +48,27 @@
                 <div class="share-item share-item--social">
                     <div class="share-item__title">Share via:</div>
                     <div class="flex-center">
-                        <?=do_shortcode("[Sassy_Social_Share]"); ?>
                         <ul class="share-social share-item__list">
-                            <li class="share-social__item">
-                                <a class="share-social__link" href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site <?= $_SERVER['WP_HOME'] ?>">
-                                    <img class="share-social__img share-social__envelope" src="<?= get_template_directory_uri() ?>/static/build/img/icons/envelope.png" alt="envelope"/>
-                                </a>
-                            </li>
+                            <?php foreach ($icons as $icon){
+                                switch($icon['type']) {
+                                    case 'fb':
+                                        ?>
+                                        <li class="share-social__item"><a class="share-social__link" href="<?= $icon['link']?>"><img class="share-social__img share-social__facebook" src="<?= $icon['icon']['url']?>" alt="facebook"/></a></li>
+                                     <?php break;
+                                    case 'tw': ?>
+                                        <li class="share-social__item"><a class="share-social__link" href="<?= $icon['link']?>"><img class="share-social__img share-social__twitter" src="<?= $icon['icon']['url']?>" alt="twitter"/></a></li>
+                                    <?php break;
+                                    default: ?>
+                                        <li class="share-social__item">
+                                            <a class="share-social__link" href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site <?= $_SERVER['WP_HOME'] ?>">
+                                                <img class="share-social__img share-social__envelope" src="<?= $icon['icon']['url']?>" alt="envelope"/>
+                                            </a>
+                                        </li>
+                                    <?php
+                                }
+                            }
+                                ?>
+
                         </ul>
                     </div>
                 </div>

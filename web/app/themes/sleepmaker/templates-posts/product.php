@@ -67,7 +67,7 @@ $ID = get_the_ID();
                                     }
                                 ?>
                                 <li class="swiper-slide tabs__item">
-                                    <a class="tabs__link js-tab-trigger <?= $active ?>" href="#perfect-sleep-<?= $key ?>"><?= $shortTitle ?></a>
+                                    <a class="tabs__link js-tab-trigger <?= $active ?>" style="color: <?= $item['tabs_color']; ?>" href="#perfect-sleep-<?= $key ?>"><?= $shortTitle ?></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
@@ -160,7 +160,7 @@ $ID = get_the_ID();
                                         <?php foreach ($specifications['items'] as $item) : ?>
                                             <li class="accordion-item">
                                                 <?php if (!empty($item['title'])) : ?>
-                                                    <a class="accordion__quest js-acc-trig" href=""><?= $item['title'] ?><span class="accordion__quest-icon"></span></a>
+                                                    <a class="accordion__quest js-acc-trig" href="" ><?= $item['title'] ?><span class="accordion__quest-icon"></span></a>
                                                 <?php endif; ?>
                                                 <?php if (!empty($item['content'])) : ?>
                                                     <div class="accordion__answer js-acc-targ">
@@ -178,11 +178,10 @@ $ID = get_the_ID();
                     </div>
                     <div class="product-additionally__aside">
                         <ul class="product-icons">
-                            <li class="product-icons__item"><img class="product-icons__img" src="<?php echo get_template_directory_uri();?>/static/build/img/product/product-specifications-1.png" alt=""></li>
-                            <li class="product-icons__item"><img class="product-icons__img" src="<?php echo get_template_directory_uri();?>/static/build/img/product/product-specifications-2.png" alt=""></li>
-                            <li class="product-icons__item"><img class="product-icons__img" src="<?php echo get_template_directory_uri();?>/static/build/img/product/product-specifications-3.png" alt=""></li>
-                            <li class="product-icons__item"><img class="product-icons__img" src="<?php echo get_template_directory_uri();?>/static/build/img/product/product-specifications-4.png" alt=""></li>
-                        </ul>
+                            <?php foreach($specifications['icons'] as $icon):?>
+                                <li class="product-icons__item"><img class="product-icons__img" src="<?= $icon['icon']['url']?>" alt=""></li>
+                            <?php endforeach;?>
+                          </ul>
                     </div>
 
                 </div>
@@ -225,17 +224,21 @@ $ID = get_the_ID();
                     </div>
                     <?php endif; ?>
             </div>
-            <div class="long-card-wrap">
-                <div class="long-card">
-                    <div class="long-card__info" style="background:#002e5d; color:#ffffff">
-                        <div class="long-card__info-inner">
-                            <div class="long-card__title">TRY OUR SLEEPMAKER SLEEP SELECTOR </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis.</p><a class="bttn bttn--inverse" href="#">Find out more</a>
+            <?php
+                $selectorBlock = get_field('selector_block', get_the_ID());
+                if ($selectorBlock['enabled']):?>
+                <div class="long-card-wrap">
+                    <div class="long-card">
+                        <div class="long-card__info" style="background:#002e5d; color:#ffffff">
+                            <div class="long-card__info-inner">
+                                <div class="long-card__title"><?= $selectorBlock['title'] ?></div>
+                                <p><?= $selectorBlock['description'] ?></p><a class="bttn bttn--inverse" href="<?= $selectorBlock['button']['link'] ?>"><?= $selectorBlock['button']['label'] ?></a>
+                            </div>
                         </div>
+                        <div class="long-card__image"><img src="<?= $selectorBlock['bg_image']['url'] ?>" alt="long-img-1"/></div>
                     </div>
-                    <div class="long-card__image"><img src="<?php echo get_template_directory_uri();?>/static/build/img/long/long-img-1.png" alt="long-img-1"/></div>
                 </div>
-            </div>
+                <?php endif; ?>
         </div>
     </div>
 <?php endif; ?>

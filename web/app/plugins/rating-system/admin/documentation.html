@@ -1,0 +1,34 @@
+<strong>Shortcode</strong>
+<p>Use <strong>[rating-system-posts]</strong> to show like &amp; dislike for a page, post,bbPress,buddyPress etc (DO NOT USE FOR COMMENTS).</p>
+<p>Use <strong>[rating-system-posts-disable-dislike]</strong> to show only the like button for a page, post,bbPress,buddyPress etc (DO NOT USE FOR COMMENTS).</p>
+<p>Use <strong>[rating-system-comments]</strong> to show like &amp; dislike for comments (USE ONLY FOR STANDARD WORDPRESS COMMENTS).</p>
+<p>Use <strong>[rating-system-comments-disable-dislike]</strong> to show only the like button for commens (USE ONLY FOR STANDARD WORDPRESS COMMENTS).</p>
+<p>Use <strong>[rating-system-top-posts]</strong> to display all posts ordered by their likes.
+<br><br>
+<strong>Shortcode parameters for [rating-system-top-posts]</strong>:</p>
+<p><strong>number</strong> = the number of posts to be dislayed (type a number here)(default 5)</p>
+<p><strong>display_counter</strong> = display the number of likes after the title (type yes or no)(default yes)</p>
+<p><strong>display_content</strong> = display the content for each post (type yes or no)(default no)</p>
+<p><strong>link_to_post</strong> = make the title of the post a link to original post (type yes or no)(default yes)</p>
+<p><strong>category_slugs</strong> = only display posts from certain categories (type categories slugs here)(default empty)</p>
+<p><br>
+<strong>Examples</strong>:</p>
+<p>Display top 5 posts: <strong>[rating-system-top-posts number="5"]</strong></p>
+<p>Display top 5 posts without link to original post: <strong>[rating-system-top-posts number="5" link_to_post="no"]</strong></p>
+<p>Display top 5 posts from category with slug cats: <strong>[rating-system-top-posts number="5" category_slugs="cats"]</strong></p>
+<p>Display top 10 posts from multiple categories: <strong>[rating-system-top-posts number="10" category_slugs="cats,dogs,planes"]</strong></p>
+<p>Display top 10 posts from multiple categories with content and no counter: <strong>[rating-system-top-posts display_counter="no" display_content="yes" number="10" category_slugs="cats,dogs,planes"]</strong>
+<br><br></p>
+<h3>Developers</h3>
+<p>To get the number of likes/dislike you can use</p>
+<pre><code class="language-php">$post_id = 1; //the post id
+$likes = get_post_meta($post_id,'vortex_system_likes',true);
+$dislikes = get_post_meta($post_id,'vortex_system_dislikes',true);</code></pre>
+<p>Custom WP_QUERY arguments to oder by likes</p>
+<pre>$args = array (
+            'posts_per_page'         =&gt; '10',
+            'order'                  =&gt; 'DESC',
+            'orderby'                =&gt; 'meta_value_num',
+            'meta_key'               =&gt; 'vortex_system_likes'
+        );      
+</pre>
