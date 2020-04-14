@@ -92,12 +92,13 @@ function custom_listing_template()
                                             <div class="details-list">
                                             
                                             <% for(var i in offers) { %>
+                                            <% if (offers[i].title) { %>
                                                 <div class="special-card">
-                                                    <div class="detail-item">
-                                                        <div class="detail-item__wrap">
+                                                        <div class="special-card__head">
                                                             <div class="h5 special-card__head-title"><%= offers[i].title %></div>
-                                                            <div class="special-card__desc"><%= offers[i].excerpt %></div>
                                                         </div>
+                                                         <div class="special-card__desc"><%= offers[i].excerpt %></div>
+                                                        
                                                         <div class="special-card__footer">
                                                         <% if(retailer_url[offers[i].id]) { %>
                                                             <div class="detail-item__button"><a href="<%= retailer_url[offers[i].id] %>" data-name="<%= offers[i].name %>" class="special-card__footer-link"><span class="ic ic-btn-arrow"></span><span>View Promotion</span></a></div>
@@ -106,8 +107,9 @@ function custom_listing_template()
                                                         <% } %>
                                                             <div class="special-card__footer-date">Offer ends <%= offers[i].ends %></div>
                                                         </div>
-                                                    </div>
+                                                   
                                                 </div>
+                                                  <% } %>
                                             <% } %>
                                     
                                             </div>
