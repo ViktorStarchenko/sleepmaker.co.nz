@@ -34,9 +34,11 @@ if (is_category()) {
         <div class="wide-decor__inner"><img class="wide-decor__logo" src="<?= $logo;?>" alt="logo">
             <h2 class="wide-decor__title-bottom"><?= $title;?></h2>
             <div class="wide-decor__bttns">
-                <?php foreach ($footerBanner['buttons'] as $button) : ?>
-                    <a class="bttn" href="<?= $button['link']['url']?>"><?= $button['link']['title']?></a>
-                <?php endforeach;?>
+               <?php if(!empty($footerBanner['buttons'])): ?>
+                    <?php foreach ($footerBanner['buttons'] as $button) : ?>
+                       <a class="bttn" href="<?= $button['link']['url']?>"><?= $button['link']['title']?></a>
+                    <?php endforeach;?>
+                <?php endif;?>
             </div>
         </div>
     </div>
