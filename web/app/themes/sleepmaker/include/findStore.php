@@ -71,8 +71,8 @@ function custom_listing_template()
                                      </div>  
                                      <% if(offers){ %>
                                         <% if(offers.length > 0) { %>
-                                        <div class="shop-card__row-item">
-                                        <a href="#"  class="_custom-link btn btn-round shop-card__offers js-special-trigger">View Promotions</a>
+                                        <div class="item-buttons__wrap shop-card__row-item">
+                                        <span></span><a href="#"  class="_custom-link btn btn-round shop-card__offers js-special-trigger">View Promotions</a>
                                     </div>
                                         <% } %>
                                      <% } %>                
