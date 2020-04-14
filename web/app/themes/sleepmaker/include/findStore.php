@@ -54,7 +54,7 @@ function custom_listing_template()
     $getDirection = '<a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=<%= encodeURIComponent(address) %>,<%= encodeURIComponent(city) %>,<%= encodeURIComponent(country) %>"  class="btn btn-round hidden-sm-min"><span class="ic ic-btn-arrow"></span><span>Get Directions</span></a>';
 
     $getDirection = '';
-    $listing_template = '<div class="find-item list-item app-filter-result__list-item app-filter-result__list-vi" data-store-id="<%= id %>" >
+    $listing_template = '<div class="find-item shop-card js-special-wrap list-item app-filter-result__list-item app-filter-result__list-vi" data-store-id="<%= id %>" >
                             <h5 class=""><%= store %></h5>
                             <div class="find-item__text"><p style="padding-left: 0"><%= address %>,<%= city %>, <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
                             <div class="find-item__links">
@@ -68,48 +68,45 @@ function custom_listing_template()
                                         <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
                                             <a href="<%= url %>">Visit site</a>
                                         </button><span></span> 
-                                     </div> 
-                                     <div class="shop-card__row-item">
-                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
-                                            <a href="<%= url %>">Promotions</a>
-                                        </button><span></span> 
-                                     </div>                   
+                                     </div>  
+                                     <% if(offers){ %>
+                                        <% if(offers.length > 0) { %>
+                                        <div class="item-buttons__wrap">
+                                        <span></span><a href="#"  class="_custom-link btn btn-round shop-card__offers js-special-trigger">View Promotions</a>
+                                    </div>
+                                        <% } %>
+                                     <% } %>                
                                         '.$getDirection.'
                                 </div>
-                                <% if(offers){ %>
-                                    <% if(offers.length > 0) { %>
-                                    <div class="item-buttons__wrap">
-                                        <button type="button" data-toggle="modal" data-target="#promotionsModal-<%= id %>" class="btn btn-round">View promotions</button>
-                                    </div>
-                                    <% } %>
-                                <% } %>
+                              
                             </div>
                             <% if(offers){ %>
                                     <% if(offers.length > 0) { %>
-                            <div id="promotionsModal-<%= id %>" tabindex="-1" role="dialog" aria-hidden="true" class="modal modal-promotions fade" style="display: none">
-                                <div class="modal-dialog modal-dialog-centered">
+                            <div id="promotionsModal-<%= id %>" tabindex="-1" role="dialog" aria-hidden="true" class="modal modal-promotions fade shop-card__special js-special-target" style="display: none">
+                                <div class="modal-dialog modal-dialog-centered shop-card-wrap">
                                     <div class="modal-content">
                                         <button type="button" data-dismiss="modal" aria-hidden="true" class="modal-close"><span class="ic ic-icon-cross"></span></button>
-                                        <div class="modal-header">
-                                            <div class="h5 modal-title">Available Deals At:</div>
-                                        </div>
-                                        <div class="modal-body">
+                                        <div class="shop-card-wrap__head">
+															<div class="shop-card-wrap__title">Available deals</div>
+															<div class="shop-card-wrap__close js-special-target-close"></div>
+										</div>
+                                        <div class="shop-card-wrap__body">
                                             <div class="details-list">
                                             
                                             <% for(var i in offers) { %>
-                                                <div class="details-list__cell">
+                                                <div class="special-card">
                                                     <div class="detail-item">
                                                         <div class="detail-item__wrap">
-                                                            <div class="h5 detail-item__title"><%= offers[i].title %></div>
-                                                            <div class="detail-item__text"><%= offers[i].excerpt %></div>
+                                                            <div class="h5 special-card__head-title"><%= offers[i].title %></div>
+                                                            <div class="special-card__desc"><%= offers[i].excerpt %></div>
                                                         </div>
-                                                        <div class="detail-item__wrap">
+                                                        <div class="special-card__footer">
                                                         <% if(retailer_url[offers[i].id]) { %>
-                                                            <div class="detail-item__button"><a href="<%= retailer_url[offers[i].id] %>" data-name="<%= offers[i].name %>" class="btn btn-round"><span class="ic ic-btn-arrow"></span><span>View Promotion</span></a></div>
+                                                            <div class="detail-item__button"><a href="<%= retailer_url[offers[i].id] %>" data-name="<%= offers[i].name %>" class="special-card__footer-link"><span class="ic ic-btn-arrow"></span><span>View Promotion</span></a></div>
                                                         <% } else { %>
-                                                            <div class="detail-item__button"><a href="<%= retailer_url %>" data-name="<%= offers[i].name %>" class="btn btn-round"><span class="ic ic-btn-arrow"></span><span>View Promotion</span></a></div>
+                                                            <div class="detail-item__button"><a href="<%= retailer_url %>" data-name="<%= offers[i].name %>" class="special-card__footer-link"><span class="ic ic-btn-arrow"></span><span>View Promotion</span></a></div>
                                                         <% } %>
-                                                            <div class="detail-item__date">Offer ends <%= offers[i].ends %></div>
+                                                            <div class="special-card__footer-date">Offer ends <%= offers[i].ends %></div>
                                                         </div>
                                                     </div>
                                                 </div>

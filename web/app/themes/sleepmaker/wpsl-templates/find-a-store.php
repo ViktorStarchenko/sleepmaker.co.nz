@@ -166,6 +166,7 @@ ob_start();
                                         </div>
                                     </div>
                                 </div>
+                                <?php if($fields['find_filters_enable']):?>
                                 <div class="find-form__row">
                                     <div class="find-form__item">
                                         <div class="find-form__field">
@@ -196,7 +197,7 @@ ob_start();
                                                     <div class="find-filter__select-icon"></div>
                                                 </div>
                                                 <div class="find-filter__drop">
-                                                    <ul class="filter-drop">
+                                                    <ul classdo_shortcode="filter-drop">
                                                         <?php foreach ($retailers as $retailer): ?>
                                                             <li class="filter-drop__item js-drop-filter-item">
                                                                 <input  class="filter-drop__check" id="<?= $retailer->ID ?>" type="checkbox" name="retailer" value="<?= $retailer->ID ?>" style="display: none;" <?= $retailer->ID == $selectedRetailerId ? 'checked="checked"' : null ?>/>
@@ -209,6 +210,8 @@ ob_start();
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <?php endif; ?>
                             </form>
 
                         </div>
