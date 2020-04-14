@@ -94,7 +94,6 @@ function custom_listing_template()
                                             <% for(var i in offers) { %>
                                             <% if (offers[i].title) { %>
                                                 <div class="special-card">
-                                                    <% offers %>
                                                         <div class="special-card__head">
                                                             <div class="h5 special-card__head-title"><%= offers[i].title %></div>
                                                         </div>
