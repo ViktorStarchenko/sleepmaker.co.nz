@@ -84,9 +84,7 @@ function custom_listing_template()
                                     <% if(offers.length > 0) { %>
                             <div id="promotionsModal-<%= id %>" tabindex="-1" role="dialog" aria-hidden="true" class="modal modal-promotions fade shop-card__special js-special-target" style="display: none">
                                 <div class="modal-dialog modal-dialog-centered shop-card-wrap">
-                                    <div class="modal-content">
-                                        <button type="button" data-dismiss="modal" aria-hidden="true" class="modal-close"><span class="ic ic-icon-cross"></span></button>
-                                        <div class="shop-card-wrap__head">
+                                     <div class="shop-card-wrap__head">
 															<div class="shop-card-wrap__title">Available deals</div>
 															<div class="shop-card-wrap__close js-special-target-close"></div>
 										</div>
@@ -114,7 +112,7 @@ function custom_listing_template()
                                     
                                             </div>
                                         </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                                     <% } %>
