@@ -1,6 +1,6 @@
 .header
     background: $white
-    padding: 20px 40px
+    padding: 20px
     display: flex
     flex-flow: row nowrap
     align-items: center
@@ -13,11 +13,12 @@
     width: 100%
     min-height: 85px
     z-index: 5
-    +r(1024)
-        min-height: 50px
+    +rm(1800)
+        padding: 20px 40px
     +r(1200)
         padding: 16px 20px
     +r(1024)
+        min-height: 50px
         padding: 8px 20px
     &__logo
         // margin: 0 20px
@@ -28,6 +29,15 @@
         width: 22%
         max-width: 320px
         min-width: 180px
+        +r(1350)
+            +rm(1201)
+                position: relative
+                transform: none
+                left: auto
+                top: -20px
+                margin-bottom: -40px
+                max-height: 85px
+
         +r(1200)
             width: 27%
         +r(1024)
@@ -36,19 +46,19 @@
         margin-right: 15px
         +rm(1201)
             align-self: flex-start
-        +r(1024)
+        +r(1200)
             display: none
     &__find
         margin-left: 15px
         display: flex
         flex-flow: row nowrap
         align-items: center
-        +rm(1025)
+        +rm(1351)
             width: 36%
             max-width: 340px
         //     max-width: 230px
         //     width: 10%
     &__burger
         margin-right: 15px
-        +rm(1025)
+        +rm(1201)
             display: none
