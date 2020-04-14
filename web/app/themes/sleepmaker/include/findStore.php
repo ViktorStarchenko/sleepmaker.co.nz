@@ -71,8 +71,8 @@ function custom_listing_template()
                                      </div>  
                                      <% if(offers){ %>
                                         <% if(offers.length > 0) { %>
-                                        <div class="item-buttons__wrap">
-                                        <span></span><a href="#"  class="_custom-link btn btn-round shop-card__offers js-special-trigger">View Promotions</a>
+                                        <div class="shop-card__row-item">
+                                        <a href="#"  class="_custom-link btn btn-round shop-card__offers js-special-trigger">View Promotions</a>
                                     </div>
                                         <% } %>
                                      <% } %>                
@@ -82,41 +82,44 @@ function custom_listing_template()
                             </div>
                             <% if(offers){ %>
                                     <% if(offers.length > 0) { %>
-                            <div id="promotionsModal-<%= id %>" tabindex="-1" role="dialog" aria-hidden="true" class="modal modal-promotions fade shop-card__special js-special-target" style="display: none">
-                                <div class="modal-dialog modal-dialog-centered shop-card-wrap">
-                                     <div class="shop-card-wrap__head">
-															<div class="shop-card-wrap__title">Available deals</div>
-															<div class="shop-card-wrap__close js-special-target-close"></div>
-										</div>
-                                        <div class="shop-card-wrap__body">
-                                            <div class="details-list">
-                                            
-                                            <% for(var i in offers) { %>
-                                            <% if (offers[i].title) { %>
-                                                <div class="special-card">
+                                <div class="shop-card__special js-special-target" style="display: none;">
+                                        <div class="shop-card-wrap">
+                                            <div class="shop-card-wrap__head">
+                                                <div class="shop-card-wrap__title">Available deals</div>
+                                                <div class="shop-card-wrap__close js-special-target-close"></div>
+                                            </div>
+                                            <div class="shop-card-wrap__body">
+                                                <% for(var i in offers) { %>
+                                                    <% if (offers[i].title) { %>
+                                                    <div class="special-card">
                                                         <div class="special-card__head">
-                                                            <div class="h5 special-card__head-title"><%= offers[i].title %></div>
+                                                            <% if(offers[i].hot) { %>
+                                                                <img class="special-card__head-icon" src="'.get_stylesheet_directory_uri().'/static/build/img/icons/special-card-dollar.png">
+                                                            <% } %>
+                                                            <span class="special-card__head-title"><%= offers[i].title %></span>
                                                         </div>
-                                                         <div class="special-card__desc"><%= offers[i].excerpt %></div>
-                                                        
-                                                        <div class="special-card__footer">
-                                                        <% if(retailer_url[offers[i].id]) { %>
-                                                            <div class="detail-item__button"><a href="<%= retailer_url[offers[i].id] %>" data-name="<%= offers[i].name %>" class="special-card__footer-link"><span class="ic ic-btn-arrow"></span><span>View Promotion</span></a></div>
-                                                        <% } else { %>
-                                                            <div class="detail-item__button"><a href="<%= retailer_url %>" data-name="<%= offers[i].name %>" class="special-card__footer-link"><span class="ic ic-btn-arrow"></span><span>View Promotion</span></a></div>
+                                                        <% if(offers[i].sub_title){ %>
+                                                        <div class="deal-content-subtitle">
+                                                            <%= offers[i].sub_title %>
+                                                        </div>
                                                         <% } %>
+                                                        <div class="special-card__desc">
+                                                            <p><%= offers[i].excerpt %></p>
+                                                        </div>
+                                                        <div class="special-card__footer">
+                                                            <% if(retailer_url[offers[i].id]) { %>
+                                                                <a href="<%= retailer_url[offers[i].id] %>" class="ga-link" target="_blank" data-name="<%= offers[i].name %>"><%= offers[i].cta_button %></a>
+                                                            <% } else { %>
+                                                                <a href="<%= retailer_url %>" class="ga-link special-card__footer-link" data-name="<%= offers[i].name %>"><%= offers[i].cta_button %></a>
+                                                            <% } %>
                                                             <div class="special-card__footer-date">Offer ends <%= offers[i].ends %></div>
                                                         </div>
-                                                   
-                                                </div>
-                                                  <% } %>
-                                            <% } %>
-                                    
+                                                    </div>
+                                                    <% } %>
+                                                <% } %>
                                             </div>
                                         </div>
-                                   
-                                </div>
-                            </div>
+                                    </div>
                                     <% } %>
                             <% } %>
                         </div>';
