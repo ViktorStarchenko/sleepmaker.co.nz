@@ -178,9 +178,11 @@ $ID = get_the_ID();
                     </div>
                     <div class="product-additionally__aside">
                         <ul class="product-icons">
-                            <?php foreach($specifications['icons'] as $icon):?>
-                                <li class="product-icons__item"><img class="product-icons__img" src="<?= $icon['icon']['url']?>" alt=""></li>
-                            <?php endforeach;?>
+                            <?php if(!empty($specifications['icons'])) : ?>
+                                <?php foreach($specifications['icons'] as $icon):?>
+                                    <li class="product-icons__item"><img class="product-icons__img" src="<?= $icon['icon']['url']?>" alt=""></li>
+                                <?php endforeach;?>
+                            <?php endif;?>
                           </ul>
                     </div>
 
