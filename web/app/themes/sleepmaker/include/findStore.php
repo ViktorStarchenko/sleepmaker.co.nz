@@ -54,6 +54,7 @@ function custom_listing_template()
     $getDirection = '<a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=<%= encodeURIComponent(address) %>,<%= encodeURIComponent(city) %>,<%= encodeURIComponent(country) %>"  class="btn btn-round hidden-sm-min"><span class="ic ic-btn-arrow"></span><span>Get Directions</span></a>';
 
     $getDirection = '';
+
     $listing_template = '<div class="find-item shop-card js-special-wrap list-item app-filter-result__list-item app-filter-result__list-vi" data-store-id="<%= id %>" >
                             <h5 class=""><%= store %></h5>
                             <div class="find-item__text"><p style="padding-left: 0"><%= address %>,<%= city %>, <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
@@ -72,8 +73,8 @@ function custom_listing_template()
                                      <% if(offers){ %>
                                         <% if(offers.length > 0) { %>
                                         <div class="item-buttons__wrap shop-card__row-item">
-                                        <span></span><a href="#"  class="_custom-link btn btn-round shop-card__offers js-special-trigger">View Promotions</a>
-                                    </div>
+                                       <a href="#"  class="_custom-link btn btn-round shop-card__offers js-special-trigger">View Promotions</a>
+                                            </div>
                                         <% } %>
                                      <% } %>                
                                         '.$getDirection.'
