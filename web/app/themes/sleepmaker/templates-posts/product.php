@@ -52,27 +52,29 @@ $ID = get_the_ID();
         <?php endif; ?>
         <?php if (!empty($content['items'])) : ?>
             <div class="tabs js-tabs-wrapper">
-                <div class="tabs__container">
-                    <div class="swiper-container tabs__header js-row-slider">
-                        <ul class="swiper-wrapper tabs__list">
-                            <?php foreach ($content['items'] as $key => $item ) : ?>
-                                <?php
-                                    $active = "";
-                                    if ($key == 0) {
-                                        $active = " active ";
-                                    }
-                                    $shortTitle = "";
-                                    if (!empty($item['short_title'])) {
-                                        $shortTitle = $item['short_title'];
-                                    }
-                                ?>
-                                <li class="swiper-slide tabs__item">
-                                    <a class="tabs__link js-tab-trigger <?= $active ?>" style="color: <?= $item['tabs_color']; ?>" href="#perfect-sleep-<?= $key ?>"><?= $shortTitle ?></a>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
+                <?php if (count($content['items']) > 1) : ?>
+                    <div class="tabs__container">
+                        <div class="swiper-container tabs__header js-row-slider">
+                            <ul class="swiper-wrapper tabs__list">
+                                <?php foreach ($content['items'] as $key => $item ) : ?>
+                                    <?php
+                                        $active = "";
+                                        if ($key == 0) {
+                                            $active = " active ";
+                                        }
+                                        $shortTitle = "";
+                                        if (!empty($item['short_title'])) {
+                                            $shortTitle = $item['short_title'];
+                                        }
+                                    ?>
+                                    <li class="swiper-slide tabs__item">
+                                        <a class="tabs__link js-tab-trigger <?= $active ?>" style="color: <?= $item['tabs_color']; ?>" href="#perfect-sleep-<?= $key ?>"><?= $shortTitle ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
                 <div class="tabs__body">
                     <?php foreach ($content['items'] as $key => $item ) : ?>
                         <?php
