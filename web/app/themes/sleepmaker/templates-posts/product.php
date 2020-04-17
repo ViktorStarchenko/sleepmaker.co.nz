@@ -106,7 +106,7 @@ $ID = get_the_ID();
                                                 </div>
                                                 <?php endif; ?>
                                                 <?php if (!empty($icon['content'])) : ?>
-                                                <div class="product-features__desc">
+                                                <div class="product-features__desc <?php if (empty($icon['icon'])) : ?> no-padding  <?php endif; ?>">
                                                     <div class="product-features__title"><?= $icon['feature_title'] ?></div>
                                                     <div class="product-features__info">
                                                         <?= $icon['content'] ?>
@@ -117,7 +117,9 @@ $ID = get_the_ID();
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                         <?php if (!empty($item['link'])) : ?>
-                                        <a class="product-info__link button button--accent" href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>"><?= $item['link']['title'] ?></a>
+                                            <div class="product-info__bttns">
+                                                <a class="bttn" href="<?= $item['link']['url'] ?>" target="<?= $item['link']['target'] ?>"><?= $item['link']['title'] ?></a>
+                                            </div>
                                         <?php endif; ?>
                                     </div>
                             </div>

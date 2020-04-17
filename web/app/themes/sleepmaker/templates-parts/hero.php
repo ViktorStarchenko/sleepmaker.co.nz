@@ -1,10 +1,14 @@
 <?php
 $bg = "";
+$bgMobile = "";
 if (!empty($data['background'])) {
     $bg = $data['background']['url'];
 }
+if (!empty($data['background_mobile'])) {
+    $bgMobile = $data['background_mobile']['url'];
+}
 ?>
-<div class="wide-decor" style="background-image:url(app/themes/sleepmaker/static/build/img/bg/home.png)">
+<div class="wide-decor" style="background-image:url(<?= getMobileBackground($bg, $bgMobile) ?>)">
     <div class="wide-decor__inner">
         <h2 class="wide-decor__subtitle"><?= $data['title'] ?></h2>
         <h1 class="wide-decor__title-top"><?= $data['subtitle'] ?></h1>

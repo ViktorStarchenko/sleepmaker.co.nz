@@ -79,107 +79,111 @@ if (is_category()) {
     </div>
 </footer>
 
+<!-- Menu mobile-->
 <div class="menu-mob is-hidden js-menu-mob">
     <div class="menu-mob__inner content">
+
         <?php if (!empty($mobileMenu)) : ?>
-        <div class="menu-mob__body">
-            <div class="menu-mob__nav">
-                <nav class="menu-mob-nav">
-                    <ul class="menu-mob-nav__list">
-                        <?php foreach ( $mobileMenu as $key => $item ) : ?>
-                            <?php
-                            $dropdownClass = "";
-                            $dropdownDataLvl = "";
-                            $dropdownFlag = false;;
-                            if (!empty($item['dropdown'])) {
-                                $dropdownClass = "js-menu-lvl-trig";
-                                $dropdownDataLvl = "data-trig-lvl='lvl-item-".$key."'";
-                                $dropdownFlag = true;
-                            }
+            <div class="menu-mob__body">
+                <div class="menu-mob__nav">
+                    <nav class="menu-mob-nav">
+                        <ul class="menu-mob-nav__list">
+                            <?php foreach ( $mobileMenu as $key => $item ) : ?>
+                                <?php
+                                $dropdownClass = "";
+                                $dropdownDataLvl = "";
+                                $dropdownFlag = false;;
+                                if (!empty($item['dropdown'])) {
+                                    $dropdownClass = "js-menu-lvl-trig";
+                                    $dropdownDataLvl = "data-trig-lvl='lvl-item-".$key."'";
+                                    $dropdownFlag = true;
+                                }
 
-                            $title = "";
-                            $url = "";
-                            $target = "";
-                            if (!empty($item["link"])) {
-                                $title = $item["link"]['title'];
-                                $url = " href='".$item["link"]['url']."' ";
-                                $target = "_target='".$item["link"]['target']."'";
-                            }
+                                $title = "";
+                                $url = "";
+                                $target = "";
+                                if (!empty($item["link"])) {
+                                    $title = $item["link"]['title'];
+                                    $url = " href='".$item["link"]['url']."' ";
+                                    $target = "_target='".$item["link"]['target']."'";
+                                }
 
-                            if (!empty($item["title"])) {
-                                $title = $item["title"];
-                            }
-                            ?>
-                            <li class="menu-mob-nav__list-item <?= $dropdownClass ?>" <?= $dropdownDataLvl ?>>
-                                <a class="menu-mob-nav__link" <?= $url ?> <?= $target ?> ><?= $title ?></a>
-                                <?php if ($dropdownFlag) : ?>
-                                <span class="menu-mob-nav__icon">
-                                    <svg class="icon menu-arrow">
-                                        <use xlink:href="#menu-arrow"></use>
-                                    </svg>
-                                </span>
+                                if (!empty($item["title"])) {
+                                    $title = $item["title"];
+                                }
+                                ?>
+                                <li class="menu-mob-nav__list-item <?= $dropdownClass ?>" <?= $dropdownDataLvl ?>>
+                                    <a class="menu-mob-nav__link" <?= $url ?> <?= $target ?>><?= $title ?></a>
+                                    <?php if ($dropdownFlag) : ?>
+                                    <span class="menu-mob-nav__icon">
+                                        <svg>
+                                            <use xlink:href="#menu-arrow"></use>
+                                        </svg>
+                                    </span>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu-mob__lvl">
+                    <?php foreach ( $mobileMenu as $key => $item ) : ?>
+                        <?php
+                        $dropdownClass = "";
+                        $dropdownDataLvl = "";
+                        $dropdownFlag = false;;
+                        if (!empty($item['dropdown'])) {
+                            $dropdownClass = "js-menu-lvl-trig";
+                            $dropdownDataLvl = "data-trig-lvl='lvl-item-'.$key.'";
+                            $dropdownFlag = true;
+                        }
+
+                        $title = "";
+                        $url = "";
+                        $target = "";
+                        if (!empty($item["link"])) {
+                            $title = $item["link"]['title'];
+                            $url = " href='".$item["link"]['url']."' ";
+                            $target = "_target='".$item["link"]['target']."'";
+                        }
+
+                        if (!empty($item["title"])) {
+                            $title = $item["title"];
+                        }
+                        ?>
+                        <?php if ($dropdownFlag) : ?>
+                            <div class="menu-mob-lvl js-menu-lvl-targ" data-targ-lvl="lvl-item-<?= $key ?>">
+                                <div class="menu-mob-lvl__head">
+                                    <button class="menu-mob-lvl__back js-menu-lvl-close lvl-begin"><span class="menu-mob-lvl__icon">
+										<svg class="icon menu-arrow">
+											<use xlink:href="#menu-arrow"></use>
+										</svg></span>Back</button>
+                                    <div class="menu-mob-lvl__title"><?= $title ?></div>
+                                </div>
+                                <?php if (!empty($item['links'])) : ?>
+                                <div class="menu-mob-lvl__body">
+                                    <div class="menu-mob-lvl-nav">
+                                        <ul class="menu-mob-lvl-nav__list">
+                                            <?php foreach ($item['links'] as $subItem) : ?>
+                                                <?php if (!empty($subItem['sublink'])) : ?>
+                                                    <li class="menu-mob-lvl-nav__item"><a class="menu-mob-lvl-nav__link" href="<?= $subItem['sublink']['url'] ?>"><?= $subItem['sublink']['title'] ?></a></li>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <?php endif; ?>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </nav>
-            </div>
-            <div class="menu-mob__lvl">
-                <?php foreach ( $mobileMenu as $key => $item ) : ?>
-                    <?php
-                    $dropdownClass = "";
-                    $dropdownDataLvl = "";
-                    $dropdownFlag = false;;
-                    if (!empty($item['dropdown'])) {
-                        $dropdownClass = "js-menu-lvl-trig";
-                        $dropdownDataLvl = "data-trig-lvl='lvl-item-'.$key.'";
-                        $dropdownFlag = true;
-                    }
-
-                    $title = "";
-                    $url = "";
-                    $target = "";
-                    if (!empty($item["link"])) {
-                        $title = $item["link"]['title'];
-                        $url = " href='".$item["link"]['url']."' ";
-                        $target = "_target='".$item["link"]['target']."'";
-                    }
-
-                    if (!empty($item["title"])) {
-                        $title = $item["title"];
-                    }
-                    ?>
-                    <?php if ($dropdownFlag) : ?>
-                    <div class="menu-mob-lvl js-menu-lvl-targ" data-targ-lvl="lvl-item-<?= $key ?>">
-                        <div class="menu-mob-lvl__head">
-                            <div class="menu-mob-lvl__back js-menu-lvl-close">< Back</div>
-                            <div class="menu-mob-lvl__title"><?= $title ?></div>
-                        </div>
-                        <?php if (!empty($item['links'])) : ?>
-                        <div class="menu-mob-lvl__body">
-                            <div class="menu-mob-lvl-nav">
-                                <ul class="menu-mob-lvl-nav__list">
-                                    <?php foreach ($item['links'] as $subItem) : ?>
-                                        <?php if (!empty($subItem['sublink'])) : ?>
-                                        <li class="menu-mob-lvl-nav__item"><a class="menu-mob-lvl-nav__link" href="<?= $subItem['sublink']['url'] ?>"><?= $subItem['sublink']['title'] ?></a></li>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </ul>
                             </div>
-                        </div>
                         <?php endif; ?>
-                    </div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
         <?php endif; ?>
         <?php if (!empty($mobileButton)) : ?>
-            <a class="menu-mob__bottom-btn button" href="<?= $mobileButton['url'] ?>" target="<?= $mobileButton['target'] ?>"><?= $mobileButton['title'] ?></a>
+            <a class="menu-mob__bottom-btn bttn" href="<?= $mobileButton['url'] ?>" target="<?= $mobileButton['target'] ?>"><?= $mobileButton['title'] ?></a>
         <?php endif; ?>
     </div>
 </div>
-<!-- Menu mobile-->
 
 <!--<div class="modal-container is-hidden js-modal-container">
     <div class="modal is-hidden" id="modal" style="max-width:1160px">

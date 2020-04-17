@@ -93,6 +93,8 @@ $collectionsCategory = get_category_by_slug('sleep-collections');
 $collections = get_posts(['numberposts' => -1, 'category' => $collectionsCategory->cat_ID]);
 */
 
+$mobile = getMobile();
+
 ob_start();
 ?>
     <style>
@@ -126,6 +128,33 @@ ob_start();
             padding: unset;
             margin-right: unset;
         }
+        .tabs-find__container{
+            display: none;
+        }
+
+        <?php if ($mobile) : ?>
+            .page-grid__content{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .map-greed__title{
+                order: 1;
+            }
+            .map-search{
+                order: 2;
+            }
+            .content-restriction{
+                order: 3;
+                margin-top: 30px;
+                padding-left: 0;
+                max-width: 100%;
+            }
+            .tabs-find{
+                order: 4;
+                margin-top: 45px;
+            }
+        <?php endif; ?>
     </style>
 
 <?php /*
@@ -197,14 +226,13 @@ ob_start();
                                                     <div class="find-filter__select-icon"></div>
                                                 </div>
                                                 <div class="find-filter__drop">
-                                                    <ul classdo_shortcode="filter-drop">
+                                                    <ul class="filter-drop">
                                                         <?php foreach ($retailers as $retailer): ?>
                                                             <li class="filter-drop__item js-drop-filter-item">
                                                                 <input  class="filter-drop__check" id="<?= $retailer->ID ?>" type="checkbox" name="retailer" value="<?= $retailer->ID ?>" style="display: none;" <?= $retailer->ID == $selectedRetailerId ? 'checked="checked"' : null ?>/>
                                                                 <label class="filter-drop__label <?= $retailer->ID == $selectedRetailerId ? 'active' : null ?>"  for="<?= $retailer->ID ?>"><?= get_field('name', $retailer->ID);  ?></label>
                                                             </li>
                                                         <?php endforeach; ?>
-
                                                     </ul>
                                                 </div>
                                             </div>
@@ -213,7 +241,6 @@ ob_start();
                                 </div>
                                 <?php endif; ?>
                             </form>
-
                         </div>
                         <div class="tabs-find js-tabs-wrapper">
                             <div class="tabs-find__result"></div>
@@ -234,9 +261,10 @@ ob_start();
                                 </div>
                             </div>
                         </div>
-
-                    </aside>
-                    <section class="page-grid__main">
+                    <?php if (!$mobile) : ?>
+                        </aside>
+                        <section class="page-grid__main">
+                    <?php endif; ?>
                         <div class="content-restriction">
                             <div class="map-wrap">
                                 <div class="map">
@@ -244,13 +272,13 @@ ob_start();
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    <?php if (!$mobile) : ?>
+                        </section>
+                    <?php else: ?>
+                        </aside>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </main>
-
-
-
-
 <?php return ob_get_clean();

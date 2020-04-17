@@ -127,7 +127,9 @@
         <?php
         $args = [
             'screen_reader_text' => '',
-            'type' => 'array'
+            'type' => 'array',
+            'prev_text' => '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="20" stroke-width="1.5" d="M6.485.67v0L1.33 6.006v0l5.155 5.33v0"></path></svg>',
+            'next_text' => '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="20" stroke-width="1.5" d="M6.485.67v0L1.33 6.006v0l5.155 5.33v0"></path></svg>'
         ];
 
         $pagination =  paginate_links($args);

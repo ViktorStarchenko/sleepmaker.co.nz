@@ -94,16 +94,26 @@ function dump($data, $exit = false){
     }
 }
 
-function add_reviews_js()
-{
-    echo '<script type="text/javascript"> (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0, e.src="//staticw2.yotpo.com/LbHnsJOaWwOCqFGSSJNpFFQqrJ29IFEDgaGCglgu/widget.js";var t=document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e,t)})(); </script>';
-}
-/*
-    function add_reviews_js()
-    {
-        echo '<script type="text/javascript"> (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=!0, e.src="//staticw2.yotpo.com/nTvdl5HFT1TU7SIJWaQU9c4b0n2gzJx11sDi0L8B/widget.js";var t=document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e,t)})(); </script>';
+function getMobileBackground($desktop, $mobile){
+    $image = $desktop;
+
+    if (getMobile() && !empty($mobile)) {
+        $image = $mobile;
     }
-*/
+
+    return $image;
+}
+
+function getMobile()
+{
+    $flag = false;
+    require_once "include/Mobile_Detect.php";
+    $detect = new Mobile_Detect;
+    if ($detect->isMobile() && !$detect->isTablet()) {
+        $flag = true;
+    }
+    return $flag;
+}
 
 function enqueue_versioned_script( $handle, $src = false, $deps = array(), $in_footer = false ) {
     wp_enqueue_script( $handle, get_stylesheet_directory_uri() . $src, $deps, filemtime( get_stylesheet_directory() . $src ), $in_footer );

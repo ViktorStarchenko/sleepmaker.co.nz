@@ -8,6 +8,7 @@
 <?php
     $fields = get_fields();
     $bg = "";
+    $bgMobile = "";
     $title = get_the_title();
     $sub_title = "";
 
@@ -19,12 +20,16 @@
         $bg = $fields['hero']['background']['url'];
     }
 
-    if (!empty($fields['hero']['sub_title'])) {
+    if (!empty($fields['hero']['background_mobile'])) {
+        $bgMobile = $fields['hero']['background_mobile']['url'];
+    }
+
+if (!empty($fields['hero']['sub_title'])) {
         $sub_title = $fields['hero']['sub_title'];
     }
 ?>
 
-<div class="screen-hero" style="background-image: url(<?= $bg ?>)"></div>
+<div class="screen-hero" style="background-image: url(<?= getMobileBackground($bg, $bgMobile) ?>)"></div>
     <div class="container">
         <div class="wrap-in">
             <article class="article">

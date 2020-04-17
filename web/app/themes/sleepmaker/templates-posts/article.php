@@ -19,7 +19,10 @@
         'posts_per_page' => 3,
         'post__not_in' => $excludedPosts
     ));
-    $icons = get_field('social_icons', get_the_ID());
+    $ID = get_the_ID();
+    $icons = get_field('social_icons', $ID);
+    $background = get_field('background', $ID);
+    $backgroundMobile = get_field('background_mobile', $ID);
 ?>
 <?php get_header(); ?>
     <?php
@@ -27,8 +30,16 @@
         if (has_post_thumbnail( $post->ID ) ) {
             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
         }
+        $bg = $image[0];
+        $bgMobile = "";
+        if (!empty($background)) {
+            $bg = $background['url'];
+        }
+        if (!empty($backgroundMobile)) {
+            $bgMobile = $backgroundMobile['url'];
+        }
     ?>
-    <div class="screen-hero" style="background-image: url(<?= $image[0] ?>)"></div>
+    <div class="screen-hero" style="background-image: url(<?= getMobileBackground($bg, $bgMobile) ?>)"></div>
     <div class="container">
         <div class="wrap-in">
             <article class="article">

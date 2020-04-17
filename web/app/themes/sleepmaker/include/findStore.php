@@ -27,13 +27,13 @@ function custom_info_window_template() {
     global $wpsl_settings, $wpsl;
     $info_window_template = '<div data-store-id="<%= id %>" class="wpsl-info-window">' . "\r\n";
     $info_window_template .= "\t\t" . '<p>' . "\r\n";
-    $info_window_template .= "\t\t\t" .  wpsl_store_header_template() . "\r\n";
+    $info_window_template .= "\t\t\t" . '<div class="wpsl-info-title">'. wpsl_store_header_template() .'</div>' . "\r\n";
     $info_window_template .= "\t\t\t" . '<span><%= address %></span>' . "\r\n";
     $info_window_template .= "\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
     $info_window_template .= "\t\t\t" . '<span><%= address2 %></span>' . "\r\n";
     $info_window_template .= "\t\t\t" . '<% } %>' . "\r\n";
     $info_window_template .= "\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
-    $info_window_template .= "\t\t" . '</p>' . "\r\n";
+    $info_window_template .= "\t\t" . '</p><div class="wpsl-custom-window">' . "\r\n";
     $info_window_template .= "\t\t" . '<% if ( phone ) { %>' . "\r\n";
     $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'phone_label', __( 'Phone', 'wpsl' ) ) ) . '</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
     $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
@@ -43,6 +43,7 @@ function custom_info_window_template() {
     $info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
     $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'email_label', __( 'Email', 'wpsl' ) ) ) . '</strong>: <a href="mailto:<%= email %>" ><%= email %></a></span>' . "\r\n";
     $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<%= createDirectionUrl() %></div>' . "\r\n";
     return $info_window_template;
 }
 
@@ -62,14 +63,14 @@ function custom_listing_template()
                                 <div class="shop-card__row">
                                     <div class="shop-card__row-item">
                                         <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
+                                            <a href="<%= url %>" target="_blank">Visit site</a>
+                                        </button><span></span> 
+                                    </div>  
+                                    <div class="shop-card__row-item">
+                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
                                             <a href="#">View on Map</a>
                                         </button><span></span>  
                                     </div>
-                                    <div class="shop-card__row-item">
-                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
-                                            <a href="<%= url %>">Visit site</a>
-                                        </button><span></span> 
-                                     </div>  
                                      <% if(offers){ %>
                                         <% if(offers.length > 0) { %>
                                         <div class="item-buttons__wrap shop-card__row-item">
