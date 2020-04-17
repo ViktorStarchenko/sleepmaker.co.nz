@@ -122,7 +122,7 @@ $ID = get_the_ID();
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                            </div>
+                                </div>
                               </div>
                           </div>
                         </div>

@@ -654,3 +654,6 @@ nav .header-nav__drop-nav {
 .wpsl-info-title{
     margin-bottom: 5px;
 }
+.product-card-img img{
+    width: 100%;
+}
