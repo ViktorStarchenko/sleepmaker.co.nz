@@ -1,52 +1,52 @@
 img
-	display: inline-block
-	max-width: 100%
+    display: inline-block
+    max-width: 100%
 svg
-	display: inline-block
-	max-width: 100%
-	max-height: 100%
+    display: inline-block
+    max-width: 100%
+    max-height: 100%
 
 .main
-	display: block
-	flex: 1 0 auto
-	width: 100%
-	overflow-x: hidden
-	overflow-y: auto
-	padding-top: 85px
-	+r(1024)
-		padding-top: 50px
+    display: block
+    flex: 1 0 auto
+    width: 100%
+    overflow-x: hidden
+    overflow-y: auto
+    padding-top: 85px
+    +r(1024)
+        padding-top: 50px
 
 .container
-	width: 100%
-	max-width: 1280px
-	padding: 0 20px
-	margin: 0 auto
-	+r(1024)
-		padding: 0 20px
+    width: 100%
+    max-width: 1280px
+    padding: 0 20px
+    margin: 0 auto
+    +r(1024)
+        padding: 0 20px
 
 .wrap-in
-	padding: 80px 0 70px
-	+r(1024)
-		padding: 40px 0 40px
+    padding: 80px 0 70px
+    +r(1024)
+        padding: 40px 0 40px
 
 .devider
-	border: none
-	width: 100%
-	height: 1px
-	padding: 0
-	margin: 0
-	background: $main
-	opacity: 0.1
+    border: none
+    width: 100%
+    height: 1px
+    padding: 0
+    margin: 0
+    background: $main
+    opacity: 0.1
 
 .content-devider
-	border: none
-	width: 100%
-	height: 1px
-	padding: 0
-	margin: 0
-	background: $main
-	opacity: 0.5
-	margin: 60px auto 40px
+    border: none
+    width: 100%
+    height: 1px
+    padding: 0
+    margin: 0
+    background: $main
+    opacity: 0.5
+    margin: 60px auto 40px
 
 .content
     h1
@@ -66,10 +66,19 @@ svg
         margin-top: 20px
     a
         color: currentColor
-    *:first-child
+    & > *:first-child
         margin-top: 0
-    *:last-child
+    & > *:last-child
         margin-bottom: 0
+    ul:not([class])
+        list-style: disc
+    ol:not([class])
+        list-style: decimal
+    ol:not([class]),
+    ul:not([class])
+        list-style-position: inside
+        li + li
+            margin-top: 15px
 
 .content-sidebar
     +rm(769)
@@ -83,73 +92,73 @@ svg
         padding-left: 20px
 
 .bg-gray
-	background: rgba($main, .05)
+    background: rgba($main, .05)
 
 .text-row
-	$this: &
-	display: flex
-	flex-flow: row wrap
-	// padding: 80px 0
-	&--center
-		text-align: center
-		max-width: 700px
-		margin: 0 auto
-		#{$this}__title
-			width: 100%
-			padding: 0
-			margin-bottom: 30px
-		#{$this}__text
-			width: 100%
-			padding: 0
-	&--border
-	&--no-top
-		padding-top: 0
-	+r(900)
-		padding: 60px 0
-		&--no-top
-			padding-top: 0
-	&__title
-		width: 100%
-		padding-bottom: 20px
-		+rm(901)
-			width: 50%
-			padding-right: 30px
-	&__text
-		width: 100%
-		+rm(901)
-			width: 50%
-			padding-left: 30px
+    $this: &
+    display: flex
+    flex-flow: row wrap
+    // padding: 80px 0
+    &--center
+        text-align: center
+        max-width: 700px
+        margin: 0 auto
+        #{$this}__title
+            width: 100%
+            padding: 0
+            margin-bottom: 30px
+        #{$this}__text
+            width: 100%
+            padding: 0
+    &--border
+    &--no-top
+        padding-top: 0
+    +r(900)
+        padding: 60px 0
+        &--no-top
+            padding-top: 0
+    &__title
+        width: 100%
+        padding-bottom: 20px
+        +rm(901)
+            width: 50%
+            padding-right: 30px
+    &__text
+        width: 100%
+        +rm(901)
+            width: 50%
+            padding-left: 30px
 
 .page-grid
-	display: flex
-	flex-flow: row wrap
-	&--top
-		margin-top: 30px
-	&__content
-		width: 41%
-		.content-sidebar
-			height: 100%
-		+r(768)
-			width: 100%
-	&__main
-		flex-grow: 1
-		width: 59%
-		+r(768)
-			width: 100%
-			padding-top: 50px
-	&__sidebar
-		width: 32%
-		+r(1024)
-			width: 100%
-			padding-top: 50px
+    display: flex
+    flex-flow: row wrap
+    &--top
+        margin-top: 30px
+    &__content
+        width: 41%
+        .content-sidebar
+            height: 100%
+        +r(768)
+            width: 100%
+    &__main
+        flex-grow: 1
+        width: 59%
+        +r(768)
+            width: 100%
+            padding-top: 50px
+    &__sidebar
+        width: 32%
+        +r(1024)
+            width: 100%
+            padding-top: 50px
 
 
 .show-desktop
-	display: block
-	+r(768)
-		display: none
+    display: block
+    +r(768)
+        display: none
 
 .show-mobile
-	display: block
-	+rm(769)
-		display: none
+    display: block
+    +rm(769)
+        display: none

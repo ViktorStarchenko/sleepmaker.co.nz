@@ -189,6 +189,18 @@ function findModalElem(props = {}) {
 	return elem;
 }
 
+
+function setHtml(currentModalElem, prop = {}) {
+	if(!prop.modalHtml) return;
+
+	const htmlContainer = currentModalElem.querySelector('.js-modal-set-html');
+	if(htmlContainer) {
+		htmlContainer.innerHTML = '';
+	
+		let htmlContent = document.querySelector(prop.modalHtml).innerHTML;
+		htmlContainer.innerHTML = htmlContent;
+	}
+}
 /**
  * Открытие модального окна
  * @param { Object } props `DOMStringMap` - объект с дата-атрибутами взятыми с кнопки `.js-modal-open`
@@ -227,6 +239,7 @@ function open(props = {}) {
 			}
 
 			dataTransfer(currentModalElem, props);
+			setHtml(currentModalElem, props);
 			hideScroll(true);
 			setRightMargin();
 
@@ -288,6 +301,10 @@ function close() {
 				body.classList.remove('modal-opened');
 				scrollBodyToTop(currentModalElem);
 				currentModalElem.querySelectorAll('form').forEach(formEl => { formEl.reset(); });
+
+				let modalSetHtmlContainer = currentModalElem.querySelector('.js-modal-set-html');
+				if(modalSetHtmlContainer) modalSetHtmlContainer.innerHTML = '';
+				
 
 				BindEvent.dispatch('modal', {
 					currentModalElem,

@@ -19,7 +19,7 @@ block content
         var beddingCard = {
                 img: 'bedding',
                 title: 'COMFORT BALL FIBRE PILLOW $49',
-                text: 'Snugglgle into this light soft cuffle pillow. Innerspring mattresses are the most common type of mattresses. They consist '
+                text: 'Snugglgle into this light soft cuffle pillow. Innerspring mattresses are the most common type of mattresses. They consist ',
             }
     main.main
         .container
@@ -40,7 +40,11 @@ block content
                         .content-restriction
                             .stuff-card-tile
                                 - for (i = 0; i < 3; i++)
-                                    +stuff-card(beddingCard)
+                                    +stuff-card(beddingCard, 'bedding-'+i, i)
         +wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
             img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
             h2.wide-decor__title-bottom Make your own dream world.
+
+block modal
+    // Modals
+    +modal-container()
