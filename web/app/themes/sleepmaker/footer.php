@@ -185,13 +185,12 @@ if (is_category()) {
     </div>
 </div>
 
-<!--<div class="modal-container is-hidden js-modal-container">
+<div class="modal-container is-hidden js-modal-container">
     <div class="modal is-hidden" id="modal" style="max-width:1160px">
         <div class="modal__body js-modal-set-html"></div>
         <button class="modal-close-btn js-modal-close">✕</button>
     </div>
 </div>
--->
 <!-- Modals-->
 <?php wp_footer(); ?>
 </body>

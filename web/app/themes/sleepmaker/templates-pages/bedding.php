@@ -114,33 +114,38 @@
                                     <p><?= $postExcerpt ?></p>
                                 </div>
                                 <?php endif; ?>
-                                <!--<button class="bedding-card__link js-modal-open" data-modal-id="modal" data-modal-html="#bedding-content-<?/*= $key */?>"><?/*= $cta */?></button>-->
-                                <a class="bttn" href="#">Learn more</a>
-                                <div class="get-content" id="bedding-content-<?= $key ?>" style="display:none; visibility: hidden;">
+
+                                <a class="bttn js-modal-open" data-modal-id="modal" data-modal-html="#bedding-<?= $key ?>"><?= $cta ?></a>
+
+                                <div class="get-content" id="bedding-<?= $key ?>" style="display:none; visibility: hidden;">
                                     <div class="modal-content">
-                                        <h4 class="h1 modal-content__title"><?= $postTitle ?></h4>
+                                        <h4 class="modal-content__title"><?= $postTitle ?></h4>
                                         <div class="modal-info">
                                             <div class="modal-info__text">
                                                 <?php if (!empty($postData['content'])) : ?>
-                                                <div class="content">
-                                                    <?php foreach ($postData['content'] as $item) : ?>
-                                                        <h3><?= $item['title'] ?></h3>
-                                                        <?= $item['text'] ?>
-                                                    <?php endforeach; ?>
-                                                </div>
+                                                    <div class="content">
+                                                        <?php foreach ($postData['content'] as $item) : ?>
+                                                            <h3><?= $item['title'] ?></h3>
+                                                            <?= $item['text'] ?>
+                                                        <?php endforeach; ?>
+                                                    </div>
                                                 <?php endif; ?>
                                             </div>
                                             <?php if (!empty($postData['image'])) : ?>
-                                            <div class="modal-info__img"><img src="<?= $postData['image']['url'] ?>" alt="<?= $postTitle ?>"/></div>
+                                                <div class="modal-info__img">
+                                                    <div class="modal-info-img">
+                                                        <img src="<?= $postData['image']['url'] ?>" alt="<?= $postTitle ?>"/>
+                                                    </div>
+                                                </div>
                                             <?php endif; ?>
                                         </div>
                                     </div>
                                     <?php if (!empty($postData['buttons'])) : ?>
-                                    <div class="modal-footer">
-                                        <?php foreach ($postData['buttons'] as $button) : ?>
-                                            <div class="modal-footer__item"><a class="modal-footer__link" href="<?= $button['link']['url'] ?>" target="<?= $button['link']['target'] ?>"><?= $button['link']['title'] ?></a></div>
-                                        <?php endforeach; ?>
-                                    </div>
+                                        <div class="modal-footer">
+                                            <?php foreach ($postData['buttons'] as $button) : ?>
+                                                <div class="modal-footer__item"><a class="modal-footer__link" href="<?= $button['link']['url'] ?>" target="<?= $button['link']['target'] ?>"><?= $button['link']['title'] ?></a></div>
+                                            <?php endforeach; ?>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
                             </div>

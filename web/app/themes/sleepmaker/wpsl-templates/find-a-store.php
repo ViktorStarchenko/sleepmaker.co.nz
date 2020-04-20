@@ -191,7 +191,7 @@ ob_start();
                                     <div class="find-form__item">
                                         <div class="find-form__field">
                                             <input id="wpsl-search-input" type="search" name="findSearch" placeholder="Search by suburb, city or postcode">
-                                            <button class="find-form__submit" type="button"></button>
+                                            <button id="wpsl-search-btn" class="find-form__submit" type="button"></button>
                                         </div>
                                     </div>
                                 </div>
