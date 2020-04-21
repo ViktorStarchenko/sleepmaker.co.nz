@@ -16,12 +16,22 @@ if(!empty($data['show_last'])) {
                 <div class="swiper-wrapper">
                     <?php foreach ($posts as $post):
                         $product_details = get_field('product', $post->ID);
+                        $image[0] = "";
+                        if (has_post_thumbnail($post->ID) ) {
+                            $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+                        }
+
+                        if (!empty($product_details["category_image"])) {
+                            $image[0] = $product_details["category_image"]["url"];
+                        }
                         ?>
                         <div class="swiper-slide">
                             <div class="home-category-card">
+                                <?php if (!empty($image[0])) : ?>
                                 <div class="home-category-card__bg">
-                                    <img class="home-category-card__img" src="<?= $product_details['category_image']['url']; ?>" alt="<?= $post->post_title; ?>"/>
+                                    <img class="home-category-card__img" src="<?= $image[0]; ?>" alt="<?= $post->post_title; ?>"/>
                                 </div>
+                                <?php endif; ?>
                                 <div class="home-category-card__info">
                                     <div class="home-category-card__title" style="color: <?= $product_details['title_color']; ?>"><?= $post->post_title; ?></div>
                                     <p><?= $product_details['short_details'][0]['text']; ?></p>
