@@ -23,13 +23,13 @@ $ID = get_the_ID();
             $bg = $hero['background']['url'];
         }
     ?>
-    <div class="first-screen" style="background-image: url(<?= $bg ?>)">
-        <div class="container">
+    <div class="wide-decor wide-decor--product" style="background-image:url(<?= $bg ?>)">
+        <div class="wide-decor__inner">
             <?php if (!empty($hero['icon'])) : ?>
-            <img class="first-screen__logo" src="<?= $hero['icon']['url'] ?>" alt="<?= $title ?>">
+            <img class="wide-decor__logo-top" src="<?= $hero['icon']['url'] ?>" alt="<?= $title ?>">
             <?php endif; ?>
             <?php if (!empty($title)) : ?>
-            <h1 class="first-screen__title first-screen__title--category"><?= $title ?></h1>
+            <h1 class="wide-decor__title-top"><?= $title ?></h1>
             <?php endif; ?>
         </div>
     </div>
