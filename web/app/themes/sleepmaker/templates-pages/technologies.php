@@ -97,9 +97,13 @@
                                         <div class="technologies-card__body">
                                             <figure class="video">
                                                 <video poster="<?= $itemPoster['url']; ?>">
+                                                    <?php if (!empty($itemVideo['url'])) : ?>
                                                     <source src="<?= $itemVideo['url']; ?>" type="video/mp4"/>
+                                                    <?php endif;?>
                                                 </video>
+                                                <?php if (!empty($itemVideo['url'])) : ?>
                                                 <button class="video__button js-video-button" type="button"></button>
+                                                <?php endif;?>
                                             </figure>
                                         </div>
                                     </div>
