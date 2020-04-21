@@ -103,18 +103,19 @@
                                 $postData = get_field("modal", $post->ID);
                             ?>
                             <div class="stuff-card">
-                                <?php if (!empty($postImage)) : ?>
-                                <div class="stuff-card__img">
-                                    <img src="<?= $postImage ?>" alt="<?= $postTitle ?>"/>
+                                <div >
+                                    <?php if (!empty($postImage)) : ?>
+                                        <div class="stuff-card__img">
+                                            <img src="<?= $postImage ?>" alt="<?= $postTitle ?>"/>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="stuff-card__info"><?= $postTitle ?></div>
+                                    <?php if (!empty($postExcerpt)) : ?>
+                                        <div class="bedding-card__text">
+                                            <p><?= $postExcerpt ?></p>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
-                                <?php endif; ?>
-                                <div class="stuff-card__info"><?= $postTitle ?></div>
-                                <?php if (!empty($postExcerpt)) : ?>
-                                <div class="bedding-card__text">
-                                    <p><?= $postExcerpt ?></p>
-                                </div>
-                                <?php endif; ?>
-
                                 <a class="bttn js-modal-open" data-modal-id="modal" data-modal-html="#bedding-<?= $key ?>"><?= $cta ?></a>
 
                                 <div class="get-content" id="bedding-<?= $key ?>" style="display:none; visibility: hidden;">
