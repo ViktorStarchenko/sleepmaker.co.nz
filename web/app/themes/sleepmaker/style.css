@@ -666,4 +666,5 @@ nav .header-nav__drop-nav {
 .stuff-card{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
