@@ -6,7 +6,7 @@ if(!empty($data['show_last'])) {
         'numberposts' => -1
     ]);
 } else {
-    $posts = get_field('custom_list');
+    $posts = $data['custom_list'];
 }
 ?>
 <div class="container">
