@@ -19,7 +19,8 @@ if(!empty($data['show_last'])) {
                         ?>
                         <div class="swiper-slide">
                             <div class="home-category-card">
-                                <div class="home-category-card__bg"><img class="home-category-card__img" src="<?= $product_details['category_image']['url']; ?>" srcset="/img/home-category/home-category-1@2x.png 2x" alt="home-category-1"/>
+                                <div class="home-category-card__bg">
+                                    <img class="home-category-card__img" src="<?= $product_details['category_image']['url']; ?>" alt="<?= $post->post_title; ?>"/>
                                 </div>
                                 <div class="home-category-card__info">
                                     <div class="home-category-card__title" style="color: <?= $product_details['title_color']; ?>"><?= $post->post_title; ?></div>
