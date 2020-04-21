@@ -18,12 +18,15 @@
     if (!empty($hero['title'])) {
         $heroTitle = $hero['title'];
     }
-
+    /*
     $products = get_posts([
         'category'   => $term->term_id,
         'status' => 'publish',
         'numberposts' => -1
     ]);
+    */
+
+    $products = get_field( 'products',  $term);
 
 ?>
 <?php get_header(); ?>
@@ -69,6 +72,10 @@
 
                     if (!empty($productData['short_details'])) {
                         $details = $productData['short_details'];
+                    }
+
+                    if (!empty($productData['link']['label'])) {
+                        $cta = $productData['link']['label'];
                     }
                 ?>
                 <div class="category-card <?= $width ?>">

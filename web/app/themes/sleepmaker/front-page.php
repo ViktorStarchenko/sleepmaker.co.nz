@@ -12,6 +12,11 @@
         echo template_part('home-categories', $homeCategories);
     }
 
+    $homeProducts= get_field('products', $ID);
+    if (!empty($homeProducts['enable'])) {
+        echo template_part('products', $homeProducts);
+    }
+
     echo template_part('selectorWarranty');
     $blog = get_field('blog', $ID);
     if (!empty($blog['enable'])) {

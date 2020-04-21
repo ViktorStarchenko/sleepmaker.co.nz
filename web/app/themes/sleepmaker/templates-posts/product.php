@@ -51,7 +51,7 @@ $ID = get_the_ID();
             </div>
         <?php endif; ?>
         <?php if (!empty($content['items'])) : ?>
-            <div class="tabs js-tabs-wrapper">
+            <div class="tabs<?php if (count($content['items']) > 1) : ?>  js-tabs-wrapper <?php endif; ?>">
                 <?php if (count($content['items']) > 1) : ?>
                     <div class="tabs__container">
                         <div class="swiper-container tabs__header js-row-slider">
