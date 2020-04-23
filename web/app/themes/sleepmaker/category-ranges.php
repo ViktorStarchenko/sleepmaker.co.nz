@@ -78,22 +78,24 @@
                         $cta = $productData['link']['label'];
                     }
                 ?>
-                <div class="category-card <?= $width ?>">
-                    <?php if (!empty($image[0])) : ?>
-                    <div class="category-card__img">
-                        <img src="<?= $image[0] ?>" alt="<?= $title ?>"/>
+                <div class="category-card <?= $width ?> flex-card">
+                    <div>
+                        <?php if (!empty($image[0])) : ?>
+                            <div class="category-card__img">
+                                <img src="<?= $image[0] ?>" alt="<?= $title ?>"/>
+                            </div>
+                        <?php endif; ?>
+                        <div class="category-card__title"><?= $title ?></div>
+                        <?php if (!empty($details)) : ?>
+                            <div class="category-card__short js-hide-info" data-count="1" data-elem="p">
+                                <?php foreach ($details as $detail) : ?>
+                                    <?php if (!empty($detail['text'])) : ?>
+                                        <p><?= $detail['text'] ?></p>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                    <?php endif; ?>
-                    <div class="category-card__title"><?= $title ?></div>
-                    <?php if (!empty($details)) : ?>
-                    <div class="category-card__short js-hide-info" data-count="1" data-elem="p">
-                        <?php foreach ($details as $detail) : ?>
-                            <?php if (!empty($detail['text'])) : ?>
-                                <p><?= $detail['text'] ?></p>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
-                    <?php endif; ?>
                     <div class="category-card__btns"><a class="bttn" href="<?= $url ?>"><?= $cta ?></a></div>
                 </div>
             <?php endforeach; ?>

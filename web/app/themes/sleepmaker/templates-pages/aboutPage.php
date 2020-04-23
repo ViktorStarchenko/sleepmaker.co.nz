@@ -45,7 +45,7 @@ if (!empty($fields['hero']['sub_title'])) {
 
 <?php if (!empty($fields['tabs']['enable']) && !empty($fields['tabs']['tabs'])) : ?>
 <div class="container">
-    <div class="tabs js-tabs-wrapper">
+    <div class="tabs js-tabs-wrapper about-page">
         <div class="tabs__container">
             <div class="swiper-container tabs__header js-row-slider">
                 <ul class="swiper-wrapper tabs__list">
