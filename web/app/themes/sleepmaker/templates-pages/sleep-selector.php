@@ -8,6 +8,12 @@
 
 <?php get_header(); ?>
 
+<style>
+    .main{
+        background-color: #F7F6F6;
+    }
+</style>
+
     <!-- These files always load from our main server-->
 
     <script src="https://selector.thecomfortgroup.co/pub/media/js/sleepmaker_sleepmakernz.js"></script>
