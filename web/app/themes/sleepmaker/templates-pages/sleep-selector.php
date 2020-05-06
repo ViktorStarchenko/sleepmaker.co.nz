@@ -21,7 +21,7 @@
     <script src="https://selector.thecomfortgroup.co/pub/media/js/main.js"></script>
 
     <!-- These files always load from the local web site-->
-    <link rel="stylesheet" href="app/themes/sleepmaker/style.css?ver=1587461522">
+    <link rel="stylesheet" href="/app/themes/sleepmaker/style.css?ver=1587461522">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
 
     <div id="tcg_selector_container" style="margin: 0px !important;"></div>
