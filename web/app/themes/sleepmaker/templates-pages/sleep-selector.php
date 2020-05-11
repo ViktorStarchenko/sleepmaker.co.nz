@@ -12,6 +12,9 @@
     .main{
         background-color: #F7F6F6;
     }
+    .tcg_selector_sleepyheadau{
+        background-color: #fff;
+    }
 </style>
 
     <!-- These files always load from our main server-->
