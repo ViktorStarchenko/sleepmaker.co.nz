@@ -58,7 +58,7 @@ function custom_listing_template()
 
     $listing_template = '<div class="find-item shop-card js-special-wrap list-item app-filter-result__list-item app-filter-result__list-vi" data-store-id="<%= id %>" >
                             <h5 class=""><%= store %></h5>
-                            <div class="find-item__text"><p style="padding-left: 0"><%= address %>,<%= city %>, <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
+                            <div class="find-item__text"><p style="padding-left: 0"><%= address %>, <%= city %>, <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
                             <div class="find-item__links">
                                 <div class="shop-card__row">
                                     <% if(url){ %>

@@ -139,10 +139,6 @@ function import_supplier_companies_from_file() {
                                 $mattrassesID[] = 630;
                             }
 
-                            dump($row);
-                            dump($retailerID);
-                            dump($mattrassesID);
-
                             $postCreated = [
                                 'post_title'    => trim($row[$paramms['name']]),
                                 'post_status'   => 'publish',
