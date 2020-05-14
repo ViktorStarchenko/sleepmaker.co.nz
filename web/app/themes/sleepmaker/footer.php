@@ -10,6 +10,11 @@ $mobileButton = get_field( 'mobile_button', 'option');
 $footerBanner = get_field( 'footer_banner', 'option');
 $footerBannerEnable = get_field( 'footer_banner_enable', $ID);
 
+$logo = "";
+if (!empty($footerBanner) && !empty($footerBanner['logo'])) {
+    $logo = $footerBanner['logo']['url'];
+}
+
 if (is_category()) {
     $term = get_queried_object();
     $footerBannerEnable = get_field( 'footer_banner_enable', $term);
@@ -24,10 +29,6 @@ if (is_category()) {
     $bg = "";
     if (!empty($footerBanner['background'])) {
         $bg = $footerBanner['background']['url'];
-    }
-    $logo = "";
-    if (!empty($footerBanner['logo'])) {
-        $logo = $footerBanner['logo']['url'];
     }
 ?>
     <div class="wide-decor" style="background-image:url(<?= $bg;?>)">
