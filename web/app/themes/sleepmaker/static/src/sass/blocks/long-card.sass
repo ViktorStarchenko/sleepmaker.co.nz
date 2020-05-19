@@ -69,6 +69,13 @@
             width: 100%
             height: 100%
             object-fit: cover
+            &.long-card-image
+                +rm(769)
+                    display: none
+            &.long-card-image-mobile
+                display: none
+                +rm(769)
+                    display: block
     &__info
         display: flex
         flex-flow: column nowrap
