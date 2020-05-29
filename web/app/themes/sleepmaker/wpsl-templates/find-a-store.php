@@ -186,7 +186,7 @@ ob_start();
                             <p><?= $fields['text'] ?></p>
                         </div>
                         <div class="map-search">
-                            <form class="find-form" action="/">
+                            <div class="find-form" >
                                 <div class="find-form__row">
                                     <div class="find-form__item">
                                         <div class="find-form__field">
@@ -243,7 +243,7 @@ ob_start();
                                     </div>
                                 </div>
                                 <?php endif; ?>
-                            </form>
+                            </div>
                         </div>
                         <div class="tabs-find js-tabs-wrapper">
                             <div class="tabs-find__result"></div>
