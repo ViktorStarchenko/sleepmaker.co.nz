@@ -489,7 +489,7 @@ function get_retailers_groups() {
                 foreach ($allRetailers as $retailer) {
                     $retailers[] = [
                         'id' => $retailer->ID,
-                        'title' => get_field('display_name', $retailer->ID)
+                        'title' => get_field('display_name', $retailer->ID) ? get_field('display_name', $retailer->ID) : $retailer->post_title
                     ];
                 }
             }
