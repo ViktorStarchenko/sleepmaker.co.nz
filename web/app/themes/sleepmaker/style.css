@@ -668,3 +668,6 @@ nav .header-nav__drop-nav {
     flex-direction: column;
     justify-content: space-between;
 }
+.home-category-slider .swiper-container {
+    overflow: hidden;
+}
