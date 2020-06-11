@@ -284,4 +284,13 @@ ob_start();
             </div>
         </div>
     </main>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('body').on('click', '.retailer-info-show a', function () {
+                if (typeof ga == 'function') {
+                    ga('send', 'event', 'button', 'click', 'Retailer-'+jQuery(this).attr("data-store"));
+                }
+            });
+        })
+    </script>
 <?php return ob_get_clean();

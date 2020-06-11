@@ -64,7 +64,7 @@ function custom_listing_template()
                                     <% if(url){ %>
                                     <div class="shop-card__row-item">
                                         <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
-                                            <a href="<%= url %>" target="_blank">View Site</a>
+                                            <a href="<%= url %>" data-store="<%= store %>" target="_blank">View Site</a>
                                         </button><span></span> 
                                     </div>  
                                     <% } %> 
