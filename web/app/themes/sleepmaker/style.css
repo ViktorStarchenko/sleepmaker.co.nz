@@ -671,3 +671,9 @@ nav .header-nav__drop-nav {
 .home-category-slider .swiper-container {
     overflow: hidden;
 }
+.shop-card__row {
+    justify-content: flex-start;
+}
+.shop-card__row-item {
+    margin-right: 15px;
+}

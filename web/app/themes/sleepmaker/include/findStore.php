@@ -61,18 +61,18 @@ function custom_listing_template()
                             <div class="find-item__text"><p style="padding-left: 0"><%= address %>, <%= city %>, <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
                             <div class="find-item__links">
                                 <div class="shop-card__row">
+                                    <div class="shop-card__row-item">
+                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
+                                            <a href="#">View on Map</a>
+                                        </button><span></span>  
+                                    </div>
                                     <% if(url){ %>
                                     <div class="shop-card__row-item">
                                         <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
                                             <a href="<%= url %>" data-store="<%= store %>" target="_blank">View Site</a>
                                         </button><span></span> 
                                     </div>  
-                                    <% } %> 
-                                    <div class="shop-card__row-item">
-                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
-                                            <a href="#">View on Map</a>
-                                        </button><span></span>  
-                                    </div>
+                                    <% } %>
                                      <% if(offers){ %>
                                         <% if(offers.length > 0) { %>
                                         <div class="item-buttons__wrap shop-card__row-item">
