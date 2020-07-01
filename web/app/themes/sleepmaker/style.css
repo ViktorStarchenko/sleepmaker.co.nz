@@ -657,3 +657,23 @@ nav .header-nav__drop-nav {
 .product-card-img img{
     width: 100%;
 }
+.stuff-card-tile{
+    align-items: stretch;
+}
+.stuff-card .bttn{
+    min-width: 206px;
+}
+.stuff-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.home-category-slider .swiper-container {
+    overflow: hidden;
+}
+.shop-card__row {
+    justify-content: flex-start;
+}
+.shop-card__row-item {
+    margin-right: 15px;
+}

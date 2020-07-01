@@ -9,65 +9,67 @@ window.toggleSpecialOffers = function() {
 			let specialOfferTarget = specialOffer.querySelector('.js-special-target');
 			let specialOfferClose = specialOffer.querySelector('.js-special-target-close');
 
-			specialOfferTrigger.classList.remove('active');
-			specialOffer.classList.remove('active');
-			window.hideStart(specialOfferTarget);
-			
-			function toggleOff(e) {
-				e.preventDefault();
-				if(!specialOfferTrigger.classList.contains('active')) {
-					if(currentShow) {
-						currentShow.classList.remove('active');
-						currentShow.closest('.js-special-wrap').classList.remove('active');
-						window.hideElement(currentShow.closest('.js-special-wrap').querySelector('.js-special-target'));
+			if (specialOfferTrigger) {
+				specialOfferTrigger.classList.remove('active');
+				specialOffer.classList.remove('active');
+				window.hideStart(specialOfferTarget);
+
+				function toggleOff(e) {
+					e.preventDefault();
+					if(!specialOfferTrigger.classList.contains('active')) {
+						if(currentShow) {
+							currentShow.classList.remove('active');
+							currentShow.closest('.js-special-wrap').classList.remove('active');
+							window.hideElement(currentShow.closest('.js-special-wrap').querySelector('.js-special-target'));
+						}
+						currentShow = specialOfferTrigger;
+						specialOfferTrigger.classList.add('active');
+						specialOffer.classList.add('active');
+						window.showElement(specialOfferTarget);
+						if(specialMq.matches) {
+							setTimeout(() => {
+								var topPos = specialOffer.offsetTop;
+								scrollTo(specialOffer.closest('.js-tab-content'), topPos, 600);
+								specialOffer.closest('.tabs-find__body').classList.add('extend');
+							}, 350);
+						}
+					} else {
+						specialOfferTrigger.classList.remove('active');
+						specialOffer.classList.remove('active');
+						window.hideElement(specialOfferTarget);
+						specialOffer.closest('.tabs-find__body').classList.remove('extend');
 					}
-					currentShow = specialOfferTrigger;
-					specialOfferTrigger.classList.add('active');
-					specialOffer.classList.add('active');
-					window.showElement(specialOfferTarget);
-					if(specialMq.matches) {
-						setTimeout(() => {
-							var topPos = specialOffer.offsetTop;
-							scrollTo(specialOffer.closest('.js-tab-content'), topPos, 600);
-							specialOffer.closest('.tabs-find__body').classList.add('extend');
-						}, 350);
-					}
-				} else {
+				}
+				function closeeOff(e) {
+					e.preventDefault();
 					specialOfferTrigger.classList.remove('active');
 					specialOffer.classList.remove('active');
 					window.hideElement(specialOfferTarget);
 					specialOffer.closest('.tabs-find__body').classList.remove('extend');
 				}
-			}
-			function closeeOff(e) {
-				e.preventDefault();
-				specialOfferTrigger.classList.remove('active');
-				specialOffer.classList.remove('active');
-				window.hideElement(specialOfferTarget);
-				specialOffer.closest('.tabs-find__body').classList.remove('extend');
-			}
- 
-			if(!specialOfferTrigger.dataset.thisInit) {
-				specialOfferTrigger.addEventListener('click', toggleOff);
-				specialOfferTrigger.dataset.thisInit = 'init';
-			}
-			
-			if(!specialOfferClose.dataset.thisInit) {
-				specialOfferClose.addEventListener('click', closeeOff);
-				specialOfferClose.dataset.thisInit = 'init';
-			}
 
-			//check max-width and offers position setting
-			if(!specialMq.matches) {
-				specialOfferTarget.classList.add('special-aboslute');
-			}
-			window.addEventListener('resize', () => {
-				if(specialMq.matches) {
-					specialOfferTarget.classList.remove('special-aboslute');
-				} else {
+				if(!specialOfferTrigger.dataset.thisInit) {
+					specialOfferTrigger.addEventListener('click', toggleOff);
+					specialOfferTrigger.dataset.thisInit = 'init';
+				}
+
+				if(!specialOfferClose.dataset.thisInit) {
+					specialOfferClose.addEventListener('click', closeeOff);
+					specialOfferClose.dataset.thisInit = 'init';
+				}
+
+				//check max-width and offers position setting
+				if(!specialMq.matches) {
 					specialOfferTarget.classList.add('special-aboslute');
 				}
-			});
+				window.addEventListener('resize', () => {
+					if(specialMq.matches) {
+						specialOfferTarget.classList.remove('special-aboslute');
+					} else {
+						specialOfferTarget.classList.add('special-aboslute');
+					}
+				});
+			}
 		});
 	}
 	function scrollTo(element, to, duration) {

@@ -78,7 +78,7 @@ $args = [
     'numberposts'   => -1,
     'category'      => $retailersGroupCategory->cat_ID,
     'post__in'      => get_field('retailers_groups_filter_order'),
-    'meta_query'    => $metaQuery,
+    //'meta_query'    => $metaQuery,
     'orderby'       => 'post__in'
 ];
 
@@ -186,12 +186,12 @@ ob_start();
                             <p><?= $fields['text'] ?></p>
                         </div>
                         <div class="map-search">
-                            <form class="find-form" action="/">
+                            <div class="find-form" >
                                 <div class="find-form__row">
                                     <div class="find-form__item">
                                         <div class="find-form__field">
                                             <input id="wpsl-search-input" type="search" name="findSearch" placeholder="Search by suburb, city or postcode">
-                                            <button class="find-form__submit" type="button"></button>
+                                            <button id="wpsl-search-btn" class="find-form__submit" type="button"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -228,9 +228,12 @@ ob_start();
                                                 <div class="find-filter__drop">
                                                     <ul class="filter-drop">
                                                         <?php foreach ($retailers as $retailer): ?>
+                                                            <?php
+                                                                $retailerName = get_field('name', $retailer->ID);
+                                                            ?>
                                                             <li class="filter-drop__item js-drop-filter-item">
                                                                 <input  class="filter-drop__check" id="<?= $retailer->ID ?>" type="checkbox" name="retailer" value="<?= $retailer->ID ?>" style="display: none;" <?= $retailer->ID == $selectedRetailerId ? 'checked="checked"' : null ?>/>
-                                                                <label class="filter-drop__label <?= $retailer->ID == $selectedRetailerId ? 'active' : null ?>"  for="<?= $retailer->ID ?>"><?= get_field('name', $retailer->ID);  ?></label>
+                                                                <label class="filter-drop__label <?= $retailer->ID == $selectedRetailerId ? 'active' : null ?>"  for="<?= $retailer->ID ?>"><?= $retailerName ? $retailerName : $retailer->post_title ?></label>
                                                             </li>
                                                         <?php endforeach; ?>
                                                     </ul>
@@ -240,7 +243,7 @@ ob_start();
                                     </div>
                                 </div>
                                 <?php endif; ?>
-                            </form>
+                            </div>
                         </div>
                         <div class="tabs-find js-tabs-wrapper">
                             <div class="tabs-find__result"></div>
@@ -281,4 +284,13 @@ ob_start();
             </div>
         </div>
     </main>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('body').on('click', '.retailer-info-show a', function () {
+                if (typeof ga == 'function') {
+                    ga('send', 'event', 'button', 'click', 'Retailer-'+jQuery(this).attr("data-store"));
+                }
+            });
+        })
+    </script>
 <?php return ob_get_clean();
