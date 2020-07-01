@@ -52,3 +52,6 @@ PageList:
 - file: /404/
   name: 404
   ready: 1
+- file: /history/
+  name: history
+  ready: 95

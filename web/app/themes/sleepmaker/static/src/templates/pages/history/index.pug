@@ -1,0 +1,67 @@
+extends /layout
+
+block head
+    - page.title = 'About'
+
+block content
+    main.main
+        .screen-hero(style="background-image:url(/img/bg/about-bg.png)")
+        .container
+            .wrap-in
+                article.article
+                    .content
+                        h1 THE SLEEPMAKER HISTORY
+                        p Sleeping in, early nights, late nights, doing nothing or doing it all. Celebrate the simple pleasures in life & delight in the pure comfort, absolute quality & total support that is SleepMaker.
+                        p SleepMaker is made for New Zealanders, by New Zealanders to suit our unique way of life. We manufacture a range of beds to suit the kiwi lifestyle with the latest comfort technology at affordable prices for New Zealand homes. We offer a wide variety of Single, King Single, Double, Queen, King, Super King and Californian King beds. With manufacturing facilities in both Auckland and Christchurch we are passionate about creating great beds for all New Zealanders.
+                        p SleepMaker is part of The Comfort Group, a New Zealand owned and operated business. The Comfort Group was founded by the current owners’ forbearers in 1935 and has actively grown through organic growth and strategic acquisition before purchasing the SleepMaker bedding and Dunlop Foams businesses in both NZ and Australia.
+        .history-wrap
+            .history
+                .history-item
+                    .history-item__info
+                        .history-item__date 1935
+                        .history-item__title Comfort Group was founded by the current owners
+                        .history-item__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                    .history-item__image
+                        .history-item__decor
+                            .history-item__decor-inner
+                        +img('/img/long/long-img-1', 'png')
+                .history-item
+                    .history-item__info
+                        .history-item__date 1965
+                        .history-item__title Lorum ipsum dolor
+                        .history-item__text Sleeping in, early nights, late nights, doing nothing or doing it all. Celebrate the simple pleasures in life & delight in the pure comfort, absolute quality & total support that is SleepMaker.
+                    .history-item__image
+                        .history-item__decor
+                            .history-item__decor-inner
+                        +img('/img/long/long-img-1', 'png')
+                .history-item
+                    .history-item__info
+                        .history-item__date 1995
+                        .history-item__title Lorum ipsum dolor Lorum ipsum dolor Lorum ipsum dolor
+                        .history-item__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                    .history-item__image
+                        .history-item__decor
+                            .history-item__decor-inner
+                        +img('/img/long/long-img-1', 'png')
+                .history-item
+                    .history-item__info
+                        .history-item__date 2015
+                        .history-item__title Lorum ipsum dolor
+                        .history-item__text Sleeping in, early nights, late nights, doing nothing or doing it all. Celebrate the simple pleasures in life & delight in the pure comfort, absolute quality & total support that is SleepMaker.
+                    .history-item__image
+                        .history-item__decor
+                            .history-item__decor-inner
+                        +img('/img/long/long-img-1', 'png')
+                .history-item
+                    .history-item__info
+                        .history-item__date today
+                        .history-item__title Lorum ipsum dolor Lorum ipsum dolor Lorum ipsum dolor
+                        .history-item__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                    .history-item__image
+                        .history-item__decor
+                            .history-item__decor-inner
+                        +img('/img/long/long-img-1', 'png')
+
+        +wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
+            img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
+            h2.wide-decor__title-bottom Make your own dream world.

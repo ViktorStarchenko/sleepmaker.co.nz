@@ -1,0 +1,47 @@
+.history-wrap
+    width: 100%
+    max-width: 1280px
+    padding: 0 20px
+    overflow: hidden
+    margin: 0 auto
+    padding-bottom: 100px
+    +r(1024)
+        padding: 0
+        padding-bottom: 80px
+.history
+    position: relative
+    padding-top: 5px
+    width: 100%
+    +r(1024)
+        width: auto
+        overflow-x: auto
+        display: flex
+        flex-flow: row nowrap
+        // padding: 0 20px
+        padding-top: 15px
+        padding-bottom: 70px
+        margin-left: 20px
+        margin-top: 30px
+        &::-webkit-scrollbar
+            height: 2px
+        /* Track */
+        &::-webkit-scrollbar-track
+            background-color: rgba($main, .1)
+        /* Handle */
+        &::-webkit-scrollbar-thumb
+            height: 100%
+            position: relativ
+            border-radius: 6px
+            background-color: $main
+            transition: background-color .3s
+    &::before
+        +rm(1024)
+            content: ''
+            display: block
+            opacity: 0.55
+            position: absolute
+            top: 0
+            width: 0
+            height: 100%
+            left: 50%
+            border-right: solid 1px $main
