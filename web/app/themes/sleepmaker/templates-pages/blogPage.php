@@ -69,6 +69,12 @@
             if (!empty($preview)) {
                 $imageUrl = $preview['url'];
             }
+
+            $imageMobile = $imageUrl;
+            $imageMobileData = get_field('preview_mobile' , $articleID);
+            if (!empty($imageMobileData)) {
+                $imageMobile = $imageMobileData['url'];
+            }
         ?>
         <div class="long-card-wrap">
             <div class="long-card">
@@ -83,7 +89,10 @@
                         <a class="bttn bttn--inverse" href="<?= $url ?>"><?= $cta ?></a>
                     </div>
                 </div>
-                <div class="long-card__image"><img src="<?= $imageUrl ?>" alt="long-img-1"/></div>
+                <div class="long-card__image">
+                    <img src="<?= $imageUrl ?>" class="long-card-image" alt="<?= $title ?>"/>
+                    <img src="<?= $imageMobile ?>" class="long-card-image-mobile" alt="<?= $title ?>"/>
+                </div>
             </div>
         </div>
         <?php endif; ?>

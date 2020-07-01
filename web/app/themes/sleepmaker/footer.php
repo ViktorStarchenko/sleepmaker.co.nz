@@ -10,6 +10,11 @@ $mobileButton = get_field( 'mobile_button', 'option');
 $footerBanner = get_field( 'footer_banner', 'option');
 $footerBannerEnable = get_field( 'footer_banner_enable', $ID);
 
+$logo = "";
+if (!empty($footerBanner) && !empty($footerBanner['logo'])) {
+    $logo = $footerBanner['logo']['url'];
+}
+
 if (is_category()) {
     $term = get_queried_object();
     $footerBannerEnable = get_field( 'footer_banner_enable', $term);
@@ -24,10 +29,6 @@ if (is_category()) {
     $bg = "";
     if (!empty($footerBanner['background'])) {
         $bg = $footerBanner['background']['url'];
-    }
-    $logo = "";
-    if (!empty($footerBanner['logo'])) {
-        $logo = $footerBanner['logo']['url'];
     }
 ?>
     <div class="wide-decor" style="background-image:url(<?= $bg;?>)">
@@ -185,13 +186,12 @@ if (is_category()) {
     </div>
 </div>
 
-<!--<div class="modal-container is-hidden js-modal-container">
+<div class="modal-container is-hidden js-modal-container">
     <div class="modal is-hidden" id="modal" style="max-width:1160px">
         <div class="modal__body js-modal-set-html"></div>
         <button class="modal-close-btn js-modal-close">✕</button>
     </div>
 </div>
--->
 <!-- Modals-->
 <?php wp_footer(); ?>
 </body>

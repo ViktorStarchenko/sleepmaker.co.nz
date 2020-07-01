@@ -1,11 +1,49 @@
-mixin stuff-card(props={})
+mixin stuff-card(props={}, modal, i)
     .stuff-card
         .stuff-card__img
             +img(`/img/stuff/${props.img}`, 'png', props.img)
         .stuff-card__info
             h3!= props.title
             p!= props.text
-            a.bttn(href="#") Find Out More
+            if modal
+                a.bttn.js-modal-open(
+                    data-modal-id="modal"
+                    data-modal-html=`#${modal}`) Find Out More
+            else
+                a.bttn(href="#") Find Out More
         if props.period
             .stuff-card__caption Offer ends 7th January 2020
-        
+        if modal
+            div.get-content(id=`${modal}`, style="display:none; visibility: hidden;")
+                .modal-content
+                    h4.modal-content__title Gel Infused Control Pillow
+                    .modal-info
+                        .modal-info__text
+                            .content
+                                h3 Characteristics
+                                ul
+                                    li Gel infused memory foam to assist with temperature regulation
+                                    li Contoured to support your head, neck and shoulders
+                                    li Ventilated for enhanced airflow
+                                    li Versatile profile, medium feel
+                                h3 Materials 
+                                ul
+                                    li Filling: Polyurethane/Polyurethane Gel
+                                    li Inner cover: Cotton/Polyester
+                                    li Outer cover: Polyester
+                                    li Dimensions: 64x39cm
+                                h3 Perfect For 
+                                ul
+                                    li Temperature and head and neck support
+                                    li Hypoallergenic
+                        .modal-info__img
+                            .modal-info-img
+                                if i % 2
+                                    +img(`/img/stuff/bedding-modal-2`, 'png', props.img)
+                                else
+                                    +img(`/img/stuff/bedding-modal`, 'png', props.img)
+                .modal-footer
+                    .modal-footer__item
+                        a.modal-footer__link(href="#") Take the sleep quiz
+                    .modal-footer__item
+                        a.modal-footer__link(href="#") Shop product now

@@ -58,19 +58,21 @@ function custom_listing_template()
 
     $listing_template = '<div class="find-item shop-card js-special-wrap list-item app-filter-result__list-item app-filter-result__list-vi" data-store-id="<%= id %>" >
                             <h5 class=""><%= store %></h5>
-                            <div class="find-item__text"><p style="padding-left: 0"><%= address %>,<%= city %>, <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
+                            <div class="find-item__text"><p style="padding-left: 0"><%= address %>, <%= city %>, <%= zip %></p><p style="padding-left: 0"><%= phone %></p></div>
                             <div class="find-item__links">
                                 <div class="shop-card__row">
-                                    <div class="shop-card__row-item">
-                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
-                                            <a href="<%= url %>" target="_blank">Visit site</a>
-                                        </button><span></span> 
-                                    </div>  
                                     <div class="shop-card__row-item">
                                         <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
                                             <a href="#">View on Map</a>
                                         </button><span></span>  
                                     </div>
+                                    <% if(url){ %>
+                                    <div class="shop-card__row-item">
+                                        <button type="button" class="btn btn-round retailer-info-show app-button-reserve _inline js-show-store-details hidden-xs-max">
+                                            <a href="<%= url %>" data-store="<%= store %>" target="_blank">View Site</a>
+                                        </button><span></span> 
+                                    </div>  
+                                    <% } %>
                                      <% if(offers){ %>
                                         <% if(offers.length > 0) { %>
                                         <div class="item-buttons__wrap shop-card__row-item">
@@ -487,7 +489,7 @@ function get_retailers_groups() {
                 foreach ($allRetailers as $retailer) {
                     $retailers[] = [
                         'id' => $retailer->ID,
-                        'title' => get_field('display_name', $retailer->ID)
+                        'title' => get_field('display_name', $retailer->ID) ? get_field('display_name', $retailer->ID) : $retailer->post_title
                     ];
                 }
             }
