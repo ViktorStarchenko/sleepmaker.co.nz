@@ -49,27 +49,26 @@ block content
                 p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis. Vestibulum sed fermentum nisl, at venenatis lacus. Vivamus quis leo at nisl commodo gravida. Integer et arcu leo. Integer est leo, ullamcorper id tristique vel.
         .container
             .wrap-in
-                .page-grid
-                    aside.page-grid__content
+                //- .page-grid
+                //-     aside.page-grid__content
+                //-         .content
+                //-             h3 SLEEPMAKER MATTRESSES COME IN A VARIETY OF SIZES
+                //-             p Depending on your bedroom size, it is always worth looking at whether you can upgrade your bed size when you are upgrading your mattress to ensure you have enough space to sleep comfortably. If there's two in the bed you also need space to sleep undisturbed, so make sure you have plenty of room to stretch out and relax.
+                //-         .show-desktop
+                //-             hr.content-devider
+                //-             .content
+                //-                 h3 WHICH SIZE?
+                //-                 p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis. Vestibulum sed fermentum nisl, at venenatis lacus.
+                //-             a.link-top(href="#") Take the quiz
+                //-     section.page-grid__main
+                .size-guide
+                    .size-guide-content
                         .content
-                            h3 SLEEPMAKER MATTRESSES COME IN A VARIETY OF SIZES
-                            p Depending on your bedroom size, it is always worth looking at whether you can upgrade your bed size when you are upgrading your mattress to ensure you have enough space to sleep comfortably. If there's two in the bed you also need space to sleep undisturbed, so make sure you have plenty of room to stretch out and relax.
-                        .show-desktop
-                            hr.content-devider
-                            .content
-                                h3 WHICH SIZE?
-                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis. Vestibulum sed fermentum nisl, at venenatis lacus.
-                            a.link-top(href="#") Take the quiz
-                    section.page-grid__main
-                        .size-guide
-                            .size-guide-wrap
-                                each card in sizeGuideCards
-                                    +size-guide-card(card)
-                            .show-mobile
-                                .content
-                                    h3 WHICH SIZE?
-                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate vel ex id ultricies. Nam gravida risus non erat feugiat dapibus. Nunc rhoncus ut enim sit amet tempus. In lobortis justo tempus consequat mollis. Praesent rhoncus dapibus sagittis. Vestibulum sed fermentum nisl, at venenatis lacus.
-                                a.link-top(href="#") Take the quiz
+                            h3 The Long & Short of Bed Sizes
+                            p When it comes to mattress size bigger is almost always better. A larger mattress helps minimise partner disturbance, gives you that little bit of extra room if you have small people that visit through the night and can help keep things cool if you’re a hot sleeper.
+                    .size-guide-wrap
+                        each card in sizeGuideCards
+                            +size-guide-card(card)
         +wide-decor({bg:'footer',bttns:['Find a store near you','View latest deals']})
             img.wide-decor__logo(src="/img/wide-logo.png", alt="logo")
             h2.wide-decor__title-bottom Make your own dream world.

@@ -1,9 +1,27 @@
 .size-guide-card
-    margin: 10px 2% 110px
-    max-width: 225px
-    min-width: 180px
-    width: 42%
+    margin: 10px 2% 90px
+    // max-width: 225px
+    // min-width: 180px
+    width: 21%
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25
+    letter-spacing: 0.34px
+    text-align: center
+    color: $main
+    +r(1024)
+        width: 29%
+        margin-bottom: 80
     +r(768)
+        width: 46%
+        margin-bottom: 70
+    +r(450)
         margin: 10px auto 60px auto
-        padding: 0 15px
         width: 100%
+    &__img
+        text-align: center
+        margin-bottom: 30px
+    &__name
+        font-weight: 500
