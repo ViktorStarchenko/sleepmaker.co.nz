@@ -35,8 +35,6 @@ if (!empty($fields['content'])) {
 
 $mobileContent = "";
 ?>
-
-
     <div class="wide-decor" style="background-image:url(<?php echo get_template_directory_uri();?>/static/build/img/bg/home.png)">
         <div class="wide-decor__inner">
             <div class="content">
@@ -47,10 +45,11 @@ $mobileContent = "";
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="wrap-in">
-            <div class="page-grid">
-                <aside class="page-grid__content">
+            <div class="size-guide">
+                <div class="size-guide-content">
                     <?php if (!empty($content) && !empty($content['enable']) && !empty($content['items'])) : ?>
                         <?php foreach ($content['items'] as $key => $item) : ?>
                             <?php
@@ -73,65 +72,48 @@ $mobileContent = "";
 
                             $content .= $title.$text.'</div>'.$link;
                             if ($key > 0) {
-                                $mobileContent .= $content.'<div style="margin-bottom: 30px"></div>';
+                                $mobileContent .= $content.'<div></div>';
                             }
                             ?>
-                            <?php if ($key == 0) : ?>
-                                <?= $content; ?>
-                            <?php else : ?>
-                                <div class="show-desktop">
-                                    <hr class="content-devider">
-                                    <?= $content; ?>
-                                </div>
-                            <?php endif; ?>
+                            <?= $content; ?>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                </aside>
-                <section class="page-grid__main">
+                </div>
+                <?php if (!empty($sizes) && !empty($sizes['enable'])) : ?>
+                <div class="size-guide-wrap">
+                    <?php if (!empty($sizes['items'])) : ?>
+                        <?php foreach ($sizes['items'] as $item) : ?>
+                            <?php
+                            $sizeTitle = "";
+                            $sizeValue = "";
+                            $sizeImage = "";
+                            if (!empty($item['title'])) {
+                                $sizeTitle = $item['title'];
+                            }
 
-                    <?php if (!empty($sizes) && !empty($sizes['enable'])) : ?>
-                    <div class="inner-page__base">
-                        <div class="size-guide">
-                            <?php if (!empty($sizes['items'])) : ?>
-                                <div class="size-guide-wrap">
-                                    <?php foreach ($sizes['items'] as $item) : ?>
-                                        <?php
-                                            $sizeTitle = "";
-                                            $sizeValue = "";
-                                            $sizeImage = "";
-                                            if (!empty($item['title'])) {
-                                                $sizeTitle = $item['title'];
-                                            }
+                            if (!empty($item['size'])) {
+                                $sizeValue = $item['size'];
+                            }
 
-                                            if (!empty($item['size'])) {
-                                                $sizeValue = $item['size'];
-                                            }
-
-                                            if (!empty($item['image'])) {
-                                                $sizeImage = $item['image']['url'];
-                                            }
-                                        ?>
-                                        <div class="size-guide-card">
-                                            <?php if (!empty($sizeTitle)) : ?>
-                                                <div class="size-guide-card__img"><img src="<?= $sizeImage ?>" alt="<?= $sizeTitle ?>"/></div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($sizeTitle)) : ?>
-                                                <div class="size-guide-card__name"><?= $sizeTitle ?></div>
-                                            <?php endif; ?>
-                                            <?php if (!empty($sizeValue)) : ?>
-                                                <div class="size-guide-card__size"><?= $sizeValue ?></div>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif; ?>
-                            <div class="show-mobile">
-                                <?= $mobileContent ?>
+                            if (!empty($item['image'])) {
+                                $sizeImage = $item['image']['url'];
+                            }
+                            ?>
+                            <div class="size-guide-card">
+                                <?php if (!empty($sizeTitle)) : ?>
+                                    <div class="size-guide-card__img"><img src="<?= $sizeImage ?>" alt="<?= $sizeTitle ?>"/></div>
+                                <?php endif; ?>
+                                <?php if (!empty($sizeTitle)) : ?>
+                                    <div class="size-guide-card__name"><?= $sizeTitle ?></div>
+                                <?php endif; ?>
+                                <?php if (!empty($sizeValue)) : ?>
+                                    <div class="size-guide-card__size"><?= $sizeValue ?></div>
+                                <?php endif; ?>
                             </div>
-                        </div>
-                    </div>
+                        <?php endforeach; ?>
                     <?php endif; ?>
-                </section>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
