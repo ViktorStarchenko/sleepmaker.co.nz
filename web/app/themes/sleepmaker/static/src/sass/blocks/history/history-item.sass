@@ -20,9 +20,6 @@
             .history-item__decor
                 right: 100%
                 transform: translateX(45%)
-            .history-item__title
-                +rm(1024)
-                    max-width: 300px
         &:nth-child(even)
             flex-flow: row-reverse
             margin-right: auto
@@ -36,6 +33,12 @@
             .history-item__decor
                 left: 100%
                 transform: translateX(-45%) scaleX(-1)
+            .history-item__title
+                +rm(1024)
+                    margin-left: auto
+            .history-item__text
+                +rm(1024)
+                    margin-left: auto
     +r(1024)
         padding-top: 95px
         max-width: 75%
@@ -160,6 +163,8 @@
         letter-spacing: 0.43px
         color: $main
         margin-bottom: 20px
+        +rm(1024)
+            max-width: 300px
     &__text
         font-family: $f1
         font-size: 16px
