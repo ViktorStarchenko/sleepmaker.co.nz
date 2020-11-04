@@ -235,7 +235,7 @@ $ID = get_the_ID();
                 if ($selectorBlock['enabled']):?>
                 <div class="long-card-wrap">
                     <div class="long-card">
-                        <div class="long-card__info" style="background:#002e5d; color:#ffffff">
+                        <div class="long-card__info" style="background:#308ba1; color:#ffffff">
                             <div class="long-card__info-inner">
                                 <div class="long-card__title"><?= $selectorBlock['title'] ?></div>
                                 <p><?= $selectorBlock['description'] ?></p><a class="bttn bttn--inverse" href="<?= $selectorBlock['button']['link'] ?>"><?= $selectorBlock['button']['label'] ?></a>
