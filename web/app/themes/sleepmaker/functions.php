@@ -159,4 +159,20 @@ function updateStore() {
     }
 }
 
+add_filter('auth_cookie_expiration', 'admin_expiration_filter', 99, 3);
+function admin_expiration_filter($seconds, $user_id, $remember){
+
+    if ( $remember ) {
+        $expiration = 14*24*60*60;
+    } else {
+        $expiration = 60*60;
+    }
+
+    if ( PHP_INT_MAX - time() < $expiration ) {
+        $expiration =  PHP_INT_MAX - time() - 5;
+    }
+
+    return $expiration;
+}
+
 ?>
