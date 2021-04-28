@@ -78,7 +78,7 @@
         ?>
         <div class="long-card-wrap">
             <div class="long-card">
-                <div class="long-card__info" style="background:#308ba1; color:#ffffff">
+                <div class="long-card__info" style="background:#002e5d; color:#ffffff">
                     <div class="long-card__info-inner">
                         <?php if (!empty($title)) : ?>
                         <div class="long-card__title"><?= $title ?></div>
